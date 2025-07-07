@@ -1,83 +1,50 @@
-import React from "react";
-import styles from "./HeroSection.module.scss";
-import {
-  Cloud,
-  Smartphone,
-  Database,
-  Shield,
-  Code,
-  Settings,
-} from "lucide-react";
+import { Button, Stack, Typography, Container } from "@mui/material";
+import ParticleBackground from "../ParticleSwarm/ParticleSwarmCanvas";
 
-type TechOrbProps = {
-  size?: number;
-  iconSize?: number;
-  animationSpeed?: number;
-};
-
-type HeroSectionProps = {
-  title?: string;
-  subtitle?: string;
-  highlightText?: string;
-  showTechOrb?: boolean;
-  techOrbProps?: TechOrbProps;
-};
-
-const techIcons = [
-  <Cloud key="cloud" />,
-  <Smartphone key="mobile" />,
-  <Database key="database" />,
-  <Shield key="security" />,
-  <Code key="code" />,
-  <Settings key="settings" />,
-];
-
-const TechOrb: React.FC<TechOrbProps> = ({
-  size = 300,
-  iconSize = 32,
-  animationSpeed = 15,
-}) => {
+export default function HeroSection() {
   return (
-    <div className={styles.techOrb} style={{ width: size, height: size }}>
-      <div className={styles.orbitContainer}>
-        {techIcons.map((icon, idx) => (
-          <div
-            key={idx}
-            className={styles.orbitIcon}
-            style={{
-              fontSize: `${iconSize}px`,
-              animationDuration: `${animationSpeed}s`,
-              animationDelay: `-${idx * (animationSpeed / techIcons.length)}s`,
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            {React.cloneElement(icon, { size: iconSize })}
-          </div>
-        ))}
-      </div>
-    </div>
+    <section
+      style={{ position: "relative", padding: "5rem 0", textAlign: "center" }}
+    >
+      <ParticleBackground />
+      <Container maxWidth="md" style={{ position: "relative", zIndex: 2 }}>
+        <Typography
+          variant="h2"
+          component="h1"
+          gutterBottom
+          style={{
+            color: "white",
+            textShadow: "0 2px 4px rgba(0,0,0,0.6)",
+          }}
+        >
+          Empowering Businesses with Innovative IT Solutions
+        </Typography>
+
+        <Typography
+          variant="h6"
+          paragraph
+          style={{
+            color: "#BFDBFE",
+            textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+          }}
+        >
+          Your trusted partner in navigating the complexities of the digital
+          world.
+        </Typography>
+
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={2}
+          justifyContent="center"
+        >
+          <Button variant="contained" size="large" href="/services">
+            Our Services
+          </Button>
+          <Button variant="outlined" size="large" href="/contact">
+            Contact Us
+          </Button>
+        </Stack>
+      </Container>
+    </section>
   );
-};
-
-const HeroSection: React.FC<HeroSectionProps> = ({
-  title = "Empowering Businesses with",
-  subtitle = "Harness the power of artificial intelligence and cutting-edge technology to transform your business operations and drive innovation.",
-  highlightText = "AI-Powered Solutions",
-  showTechOrb = true,
-  techOrbProps = {},
-}) => {
-  return (
-    <div className={styles.heroContainer}>
-      <div className={styles.heroText}>
-        <h1 className={styles.heroTitle}>
-          {title} <span className={styles.highlight}>{highlightText}</span>
-        </h1>
-        <p className={styles.heroSubtitle}>{subtitle}</p>
-      </div>
-
-      {showTechOrb && <TechOrb {...techOrbProps} />}
-    </div>
-  );
-};
-
-export default HeroSection;
+}
