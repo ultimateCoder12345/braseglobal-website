@@ -1,0 +1,103 @@
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.heading {
+  flex: 1;
+  text-align: center;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+.highlight {
+  color: #00aeef;
+}
+
+.techOrb {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00aeef, #0074d9);
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 0 100px rgba(0, 174, 239, 0.3);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.techIcons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  animation: orbit 15s linear infinite;
+}
+
+.techIcon {
+  font-size: 2rem;
+}
+
+.rotatingBorder {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00aeef, #0074d9);
+  z-index: -1;
+  animation: rotate 10s linear infinite;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
