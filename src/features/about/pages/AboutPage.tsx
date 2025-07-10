@@ -1,0 +1,328 @@
+import React from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Avatar,
+  Chip,
+  Paper,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from '@mui/material';
+import {
+  CheckCircle,
+  Business,
+  People,
+  TrendingUp,
+  Security,
+} from '@mui/icons-material';
+
+// Company values data
+const companyValues = [
+  {
+    icon: <Security />,
+    title: 'Trust & Reliability',
+    description: 'We build lasting relationships through consistent delivery and transparent communication.',
+  },
+  {
+    icon: <TrendingUp />,
+    title: 'Innovation',
+    description: 'We stay ahead of technology trends to provide cutting-edge solutions.',
+  },
+  {
+    icon: <People />,
+    title: 'Collaboration',
+    description: 'We work closely with our clients as partners in their success.',
+  },
+  {
+    icon: <Business />,
+    title: 'Excellence',
+    description: 'We maintain the highest standards in everything we deliver.',
+  },
+];
+
+// Company achievements
+const achievements = [
+  'Over 500+ successful projects delivered',
+  '99.9% client satisfaction rate',
+  '24/7 technical support',
+  'ISO 27001 certified security practices',
+  'Agile development methodology',
+  'Global team of 200+ experts',
+];
+
+// Leadership team data
+const leadership = [
+  {
+    name: 'John Smith',
+    position: 'Chief Executive Officer',
+    avatar: '/api/placeholder/150/150',
+    bio: 'With over 15 years in technology leadership, John drives our strategic vision and growth.',
+  },
+  {
+    name: 'Sarah Johnson',
+    position: 'Chief Technology Officer',
+    avatar: '/api/placeholder/150/150',
+    bio: 'Sarah leads our technical innovation and ensures we deliver world-class solutions.',
+  },
+  {
+    name: 'Michael Chen',
+    position: 'Chief Operations Officer',
+    avatar: '/api/placeholder/150/150',
+    bio: 'Michael oversees our global operations and ensures seamless project delivery.',
+  },
+];
+
+export const AboutPage: React.FC = () => {
+  return (
+    <Box sx={{ pt: 10 }}> {/* Account for fixed header */}
+      {/* Hero Section */}
+      <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Grid container spacing={6} alignItems="center">
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography
+              variant="h2"
+              component="h1"
+              gutterBottom
+              sx={{ fontWeight: 'bold', color: 'primary.main' }}
+            >
+              About BraseTech
+            </Typography>
+            <Typography variant="h5" color="text.secondary" paragraph>
+              Transforming businesses through innovative technology solutions
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Founded in 2010, BraseTech has been at the forefront of digital transformation,
+              helping businesses leverage technology to achieve their goals. We combine deep
+              technical expertise with industry knowledge to deliver solutions that drive
+              real business value.
+            </Typography>
+            <Typography variant="body1">
+              Our mission is to empower organizations with cutting-edge technology solutions
+              that enhance efficiency, drive growth, and create competitive advantages in
+              today's digital landscape.
+            </Typography>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box
+              component="img"
+              src="/api/placeholder/600/400"
+              alt="About BraseTech"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 2,
+                boxShadow: 3,
+              }}
+            />
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Company Values Section */}
+      <Box sx={{ bgcolor: 'grey.50', py: 8 }}>
+        <Container maxWidth="lg">
+          <Typography
+            variant="h3"
+            component="h2"
+            textAlign="center"
+            gutterBottom
+            sx={{ mb: 6 }}
+          >
+            Our Core Values
+          </Typography>
+          <Grid container spacing={4}>
+            {companyValues.map((value, index) => (
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    textAlign: 'center',
+                    transition: 'transform 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: 4,
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: 3 }}>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        mb: 2,
+                        color: 'primary.main',
+                      }}
+                    >
+                      {React.cloneElement(value.icon, { fontSize: 'large' })}
+                    </Box>
+                    <Typography variant="h6" gutterBottom>
+                      {value.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {value.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Achievements Section */}
+      <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Grid container spacing={6} alignItems="center">
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography variant="h3" component="h2" gutterBottom>
+              Our Achievements
+            </Typography>
+            <Typography variant="body1" paragraph color="text.secondary">
+              We're proud of what we've accomplished and the trust our clients place in us.
+              Here are some key milestones that reflect our commitment to excellence.
+            </Typography>
+            <Paper elevation={2} sx={{ p: 3 }}>
+              <List>
+                {achievements.map((achievement, index) => (
+                  <ListItem key={index} sx={{ px: 0 }}>
+                    <ListItemIcon>
+                      <CheckCircle color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={achievement} />
+                  </ListItem>
+                ))}
+              </List>
+            </Paper>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box
+              component="img"
+              src="/api/placeholder/600/400"
+              alt="Our Achievements"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 2,
+                boxShadow: 3,
+              }}
+            />
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Leadership Team Section */}
+      <Box sx={{ bgcolor: 'grey.50', py: 8 }}>
+        <Container maxWidth="lg">
+          <Typography
+            variant="h3"
+            component="h2"
+            textAlign="center"
+            gutterBottom
+            sx={{ mb: 6 }}
+          >
+            Leadership Team
+          </Typography>
+          <Grid container spacing={4}>
+            {leadership.map((leader, index) => (
+              <Grid size={{ xs: 12, md: 4 }} key={index}>
+                <Card
+                  sx={{
+                    textAlign: 'center',
+                    height: '100%',
+                    transition: 'transform 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: 4,
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: 4 }}>
+                    <Avatar
+                      src={leader.avatar}
+                      alt={leader.name}
+                      sx={{
+                        width: 120,
+                        height: 120,
+                        mx: 'auto',
+                        mb: 2,
+                        border: '4px solid',
+                        borderColor: 'primary.main',
+                      }}
+                    />
+                    <Typography variant="h6" gutterBottom>
+                      {leader.name}
+                    </Typography>
+                    <Chip
+                      label={leader.position}
+                      color="primary"
+                      variant="outlined"
+                      sx={{ mb: 2 }}
+                    />
+                    <Typography variant="body2" color="text.secondary">
+                      {leader.bio}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Call to Action Section */}
+      <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Box
+          sx={{
+            textAlign: 'center',
+            bgcolor: 'primary.main',
+            color: 'white',
+            p: 6,
+            borderRadius: 2,
+          }}
+        >
+          <Typography variant="h4" gutterBottom>
+            Ready to Transform Your Business?
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 3, maxWidth: 600, mx: 'auto' }}>
+            Let's discuss how our expertise can help you achieve your technology goals
+            and drive your business forward.
+          </Typography>
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Chip
+              label="Contact Us"
+              clickable
+              sx={{
+                bgcolor: 'white',
+                color: 'primary.main',
+                '&:hover': { bgcolor: 'grey.100' },
+                px: 2,
+                py: 1,
+                fontSize: '1rem',
+              }}
+            />
+            <Chip
+              label="View Our Services"
+              clickable
+              variant="outlined"
+              sx={{
+                borderColor: 'white',
+                color: 'white',
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' },
+                px: 2,
+                py: 1,
+                fontSize: '1rem',
+              }}
+            />
+          </Box>
+        </Box>
+      </Container>
+    </Box>
+  );
+};
+
+export default AboutPage;

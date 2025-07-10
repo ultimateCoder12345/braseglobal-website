@@ -34,7 +34,7 @@ export const Header = () => {
   };
 
   return (
-    <AppBar position="static" color="default" elevation={1}>
+    <AppBar position="fixed" color="default" elevation={1}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
