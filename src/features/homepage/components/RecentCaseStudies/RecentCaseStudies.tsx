@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { getFeaturedCaseStudies, type CaseStudy } from '../../../../data/caseStudies';
+import { getFeaturedCaseStudies } from '../../../../data/caseStudies';
 
 const RecentCaseStudies: React.FC = () => {
   const navigate = useNavigate();

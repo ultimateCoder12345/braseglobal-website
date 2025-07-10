@@ -10,10 +10,6 @@ import {
   Chip,
   Paper,
   Avatar,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Tabs,
   Tab,
   TextField,
@@ -27,9 +23,7 @@ import {
   Business,
   Search,
   Launch,
-  CheckCircle,
   TrendingUp,
-  People,
   Public,
   Star,
 } from '@mui/icons-material';
@@ -81,7 +75,7 @@ export const ClientsPage: React.FC = () => {
     return matchesSearch && matchesIndustry && matchesPartnership && matchesTab;
   });
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
   };
 

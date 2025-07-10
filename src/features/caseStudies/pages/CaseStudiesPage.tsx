@@ -74,9 +74,9 @@ export const CaseStudiesPage: React.FC = () => {
     return matchesSearch && matchesIndustry && matchesTab;
   });
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
-    setTabValue(newValue);
-  };
+const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
+  setTabValue(newValue);
+};
 
   const handleCaseStudyClick = (caseStudy: CaseStudy) => {
     setSelectedCaseStudy(caseStudy);
