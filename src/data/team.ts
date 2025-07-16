@@ -81,7 +81,7 @@ export const teamMembers: TeamMember[] = [
     education: "MBA in Operations Management, BS in Industrial Engineering",
     certifications: ["Six Sigma Black Belt", "ITIL Expert", "PMP"],
     featured: true,
-    isLeadership: true,
+    isLeadership: false,
   },
   {
     id: "4",
