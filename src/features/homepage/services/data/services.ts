@@ -1,12 +1,13 @@
-import { Briefcase, Cloud, Cpu, Handshake, Network, ShieldCheck } from "lucide-react";
+
+import { Briefcase, Cloud, Brain, Database, ShieldCheck, Network } from "lucide-react";
 
 export const services = [
   {
-    title: "IT Consulting",
-    description: "Expert advice to optimize your IT infrastructure and strategy.",
+    title: "IT Consulting & Digital Solutions",
+    description: "Comprehensive IT strategy, digital transformation, and managed services to optimize your business operations.",
     icon: Briefcase,
     link: "/services#it-consulting",
-    features: ['Strategic Planning', 'Technology Assessment', 'Process Optimization']
+    features: ['Strategic IT Planning', 'Digital Transformation', 'Managed IT Services', 'Process Automation', 'Technology Assessment', '24/7 Support & Monitoring']
   },
   {
     title: "Cloud Solutions",
@@ -16,18 +17,18 @@ export const services = [
     link: "/services#cloud-solutions",
   },
   {
-    title: "Digital Transformation",
-    description: "Modernize your operations with cutting-edge digital technologies.",
-    icon: Cpu,
-    link: "/services#digital-transformation",
-    features: ['Process Automation', 'Data Analytics', 'Customer Experience Enhancement']
+    title: "AI & Machine Learning",
+    description: "Intelligent solutions powered by artificial intelligence and machine learning technologies.",
+    icon: Brain,
+    link: "/services#ai-services",
+    features: ['Custom AI Models', 'Natural Language Processing', 'Computer Vision', 'Predictive Analytics', 'Automation Solutions', 'AI Integration']
   },
   {
-    title: "Managed IT Services",
-    description: "Proactive IT management and support for seamless operations.",
-    icon: Handshake,
-    link: "/services#managed-it",
-    features: ['24/7 Monitoring', 'Incident Management', 'IT Support']
+    title: "Data Analytics & Engineering",
+    description: "Transform your data into actionable insights with our comprehensive data services.",
+    icon: Database,
+    link: "/services#data-services",
+    features: ['Data Warehousing', 'Business Intelligence', 'Real-time Analytics', 'Data Pipeline Development', 'Big Data Solutions', 'Data Visualization']
   },
   {
     title: "Cybersecurity",
