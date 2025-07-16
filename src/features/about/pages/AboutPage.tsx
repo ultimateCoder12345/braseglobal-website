@@ -13,6 +13,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  IconButton,
 } from "@mui/material";
 import {
   CheckCircle,
@@ -20,6 +21,7 @@ import {
   People,
   TrendingUp,
   Security,
+  LinkedIn,
 } from "@mui/icons-material";
 import { getLeadershipTeam } from "../../../data/team";
 
@@ -263,6 +265,22 @@ export const AboutPage: React.FC = () => {
                       <Typography variant="caption" color="text.secondary">
                         {leader.experience} years experience • {leader.certifications.length} certifications
                       </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                      <IconButton
+                        component="a"
+                        href={`https://linkedin.com/in/${leader.name.toLowerCase().replace(' ', '-')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{ 
+                          color: '#0077B5',
+                          '&:hover': { 
+                            bgcolor: 'rgba(0, 119, 181, 0.1)' 
+                          }
+                        }}
+                      >
+                        <LinkedIn />
+                      </IconButton>
                     </Box>
                   </CardContent>
                 </Card>
