@@ -25,7 +25,7 @@ const ServicesSection: React.FC = () => {
   return (
     <Box py={10} bgcolor="background.paper">
       <Box textAlign="center" mb={6}>
-        <Chip label="Our Expertise" variant="outlined" />
+        <Chip label="Our Services" variant="outlined" />
         <Typography variant="h4" fontWeight="bold" mt={2}>
           Comprehensive IT Services
         </Typography>
