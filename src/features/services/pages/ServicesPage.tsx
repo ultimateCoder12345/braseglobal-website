@@ -76,16 +76,22 @@ export const ServicesPage: React.FC = () => {
 
       {/* Services Grid */}
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{ alignItems: 'stretch' }}>
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Grid item xs={12} md={6} lg={4} key={index}>
+              <Grid item xs={12} md={6} lg={4} key={index} sx={{ display: 'flex' }}>
                 <Card
+                  component="a"
+                  href={`/services/${index}`}
                   sx={{
                     height: '100%',
+                    width: '100%',
                     display: 'flex',
                     flexDirection: 'column',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    cursor: 'pointer',
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
@@ -143,7 +149,7 @@ export const ServicesPage: React.FC = () => {
                         fullWidth
                         endIcon={<ArrowForward />}
                         sx={{ mt: 1 }}
-                        href={service.link}
+                        href={`/services/${index}`}
                       >
                         Learn More
                       </Button>

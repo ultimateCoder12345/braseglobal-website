@@ -35,18 +35,23 @@ const RecentCaseStudies: React.FC = () => {
           {featuredCaseStudies.map((caseStudy) => (
             <Grid size={{ xs: 12, md: 4 }} key={caseStudy.id}>
               <Card
-                sx={{
-                  height: '100%',
-                  maxWidth: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: 6,
-                  },
-                }}
-              >
+                  key={caseStudy.id}
+                  component="a"
+                  href={`/case-studies/${caseStudy.id}`}
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    cursor: 'pointer',
+                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: 6,
+                    },
+                  }}
+                >
                 <CardMedia
                   component="img"
                   height="200"
@@ -75,15 +80,15 @@ const RecentCaseStudies: React.FC = () => {
                     <Chip label={caseStudy.industry} color="primary" size="small" />
                     <Chip label="Featured" color="secondary" size="small" />
                   </Box>
-                  
+
                   <Typography variant="h6" component="h3" gutterBottom>
                     {caseStudy.title}
                   </Typography>
-                  
+
                   <Typography variant="subtitle2" color="primary.main" gutterBottom>
                     {caseStudy.client}
                   </Typography>
-                  
+
                   <Typography variant="body2" color="text.secondary" paragraph>
                     {caseStudy.summary}
                   </Typography>

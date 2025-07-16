@@ -1,18 +1,27 @@
-// routes.js
-import CareersPage from '../../features/careers/pages/CareersPage';
-import CaseStudiesPage from '../../features/caseStudies/pages/CaseStudiesPage';
-import ClientsPage from '../../features/clients/pages/ClientsPage';
-import ContactPage from '../../features/contact/pages/ContactPage';
-import TeamPage from '../../features/team/pages/TeamPage';
-import NotFoundPage from '../../features/notFound/pages/NotFoundPage';
+import { lazy } from 'react';
 
-const routes = [
-  { path: '/careers', component: CareersPage, title: 'Careers' },
-  { path: '/case-studies', component: CaseStudiesPage, title: 'Case Studies' },
-  { path: '/clients', component: ClientsPage, title: 'Clients' },
-  { path: '/team', component: TeamPage, title: 'Our Team' },
-  { path: '/contact', component: ContactPage, title: 'Contact Us' },
-  { path: '*', component: NotFoundPage, title: 'Page Not Found' },
+const Home = lazy(() => import('../../features/homepage/pages/Home'));
+const About = lazy(() => import('../../features/about/pages/AboutPage'));
+const Services = lazy(() => import('../../features/services/pages/ServicesPage'));
+const ServiceDetails = lazy(() => import('../../features/services/pages/ServiceDetailsPage'));
+const CaseStudies = lazy(() => import('../../features/caseStudies/pages/CaseStudiesPage'));
+const CaseStudyDetails = lazy(() => import('../../features/caseStudies/pages/CaseStudyDetailsPage'));
+const Team = lazy(() => import('../../features/team/pages/TeamPage'));
+const TeamMemberDetails = lazy(() => import('../../features/team/pages/TeamMemberDetailsPage'));
+const Careers = lazy(() => import('../../features/careers/pages/CareersPage'));
+const Contact = lazy(() => import('../../features/contact/pages/ContactPage'));
+const NotFound = lazy(() => import('../../features/notFound/pages/NotFoundPage'));
+
+export const routes = [
+  { path: '/', element: Home, title: 'Home' },
+  { path: '/about', element: About, title: 'About Us' },
+  { path: '/services', element: Services, title: 'Services' },
+  { path: '/services/:id', element: ServiceDetails, title: 'Service Details' },
+  { path: '/case-studies', element: CaseStudies, title: 'Case Studies' },
+  { path: '/case-studies/:id', element: CaseStudyDetails, title: 'Case Study Details' },
+  { path: '/team', element: Team, title: 'Our Team' },
+  { path: '/team/:id', element: TeamMemberDetails, title: 'Team Member Details' },
+  { path: '/careers', element: Careers, title: 'Careers' },
+  { path: '/contact', element: Contact, title: 'Contact Us' },
+  { path: '*', element: NotFound, title: 'Page Not Found' },
 ];
-
-export default routes;

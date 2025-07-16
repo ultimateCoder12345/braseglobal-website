@@ -16,20 +16,20 @@ import {
   YouTube,
 } from "@mui/icons-material";
 
-export const Footer: React.FC = () => {
+// Upper Footer Component
+export const UpperFooter: React.FC = () => {
   return (
     <Box
-      component="footer"
+      component="section"
       sx={{
         bgcolor: "white",
         color: "#333",
         py: 4,
-        mt: "auto",
         borderTop: "1px solid #e0e0e0",
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+        <Grid container spacing={4} alignItems="flex-start">
           {/* Logo and Company Description */}
           <Grid item xs={12} md={3}>
             <Box sx={{ mb: 2 }}>
@@ -116,10 +116,15 @@ export const Footer: React.FC = () => {
           </Grid>
 
           {/* Services */}
-          <Grid item xs={12} sm={6} md={2}>
+          <Grid item xs={12} sm={4} md={2}>
             <Typography
               variant="h6"
-              sx={{ fontWeight: "bold", color: "#1A4D8C", mb: 2 }}
+              sx={{ 
+                fontWeight: "bold", 
+                color: "#1A4D8C", 
+                mb: 2,
+                display: 'inline-block'
+              }}
             >
               SERVICES
             </Typography>
@@ -164,10 +169,15 @@ export const Footer: React.FC = () => {
           </Grid>
 
           {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={2}>
+          <Grid item xs={12} sm={4} md={2}>
             <Typography
               variant="h6"
-              sx={{ fontWeight: "bold", color: "#1A4D8C", mb: 2 }}
+              sx={{ 
+                fontWeight: "bold", 
+                color: "#1A4D8C", 
+                mb: 2,
+                display: 'inline-block'
+              }}
             >
               QUICK LINKS
             </Typography>
@@ -212,10 +222,15 @@ export const Footer: React.FC = () => {
           </Grid>
 
           {/* Head Office */}
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} sm={4} md={5}>
             <Typography
               variant="h6"
-              sx={{ fontWeight: "bold", color: "#1A4D8C", mb: 2 }}
+              sx={{ 
+                fontWeight: "bold", 
+                color: "#1A4D8C", 
+                mb: 2,
+                display: 'inline-block'
+              }}
             >
               HEAD OFFICE
             </Typography>
@@ -242,28 +257,46 @@ export const Footer: React.FC = () => {
             </Link>
           </Grid>
         </Grid>
-
-        {/* Copyright */}
-        <Box
-          sx={{
-            borderTop: "1px solid #e0e0e0",
-            mt: 4,
-            pt: 3,
-            bgcolor: "#1A4D8C",
-            mx: -3,
-            px: 3,
-          }}
-        >
-          <Typography
-            variant="body2"
-            align="center"
-            sx={{ color: "white" }}
-          >
-            © 2024 Brase Technologies Pty Ltd - All Rights Reserved
-          </Typography>
-        </Box>
       </Container>
     </Box>
+  );
+};
+
+// Lower Footer Component
+export const LowerFooter: React.FC = () => {
+  return (
+    <Box
+      component="footer"
+      sx={{
+        bgcolor: "#1A4D8C",
+        color: "white",
+        py: 2,
+        mt: "auto",
+        position: "relative",
+        bottom: 0,
+        width: "100%",
+      }}
+    >
+      <Container maxWidth="lg">
+        <Typography
+          variant="body2"
+          align="center"
+          sx={{ color: "white" }}
+        >
+          © 2024 Brase Technologies Pty Ltd - All Rights Reserved
+        </Typography>
+      </Container>
+    </Box>
+  );
+};
+
+// Combined Footer Component for backwards compatibility
+export const Footer: React.FC = () => {
+  return (
+    <>
+      <UpperFooter />
+      <LowerFooter />
+    </>
   );
 };
 
