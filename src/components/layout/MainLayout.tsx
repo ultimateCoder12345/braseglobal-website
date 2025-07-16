@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import { Header } from "./Header/Header";
+import { Footer } from "./Footer/Footer";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -7,11 +8,12 @@ interface MainLayoutProps {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <Box sx={{ height: "100vh" }}>
-      <Box component="main">
-        <Header />
+    <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Header />
+      <Box component="main" sx={{ flex: 1 }}>
         {children}
       </Box>
+      <Footer />
     </Box>
   );
 };
