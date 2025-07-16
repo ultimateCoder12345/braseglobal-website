@@ -139,39 +139,57 @@ export const UpperFooter: React.FC = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                   <Link
                     component={RouterLink}
-                    to="/services"
+                    to="/services/0"
                     color="text.secondary"
                     underline="hover"
                     variant="body2"
                   >
-                    Digital Transformation Services
+                    IT Consulting & Digital Solutions
                   </Link>
                   <Link
                     component={RouterLink}
-                    to="/services"
+                    to="/services/1"
                     color="text.secondary"
                     underline="hover"
                     variant="body2"
                   >
-                    Data & AI Services
+                    Cloud Solutions
                   </Link>
                   <Link
                     component={RouterLink}
-                    to="/services"
+                    to="/services/2"
                     color="text.secondary"
                     underline="hover"
                     variant="body2"
                   >
-                    IT Recruitment Services
+                    AI & Machine Learning
                   </Link>
                   <Link
                     component={RouterLink}
-                    to="/services"
+                    to="/services/3"
                     color="text.secondary"
                     underline="hover"
                     variant="body2"
                   >
-                    Cloud Services
+                    Data Analytics & Engineering
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/services/4"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Cybersecurity
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/services/5"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Network Solutions
                   </Link>
                 </Box>
               </Box>
