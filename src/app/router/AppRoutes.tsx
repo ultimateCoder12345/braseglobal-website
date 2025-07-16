@@ -6,7 +6,7 @@ import ServicesPage from "../../features/services/pages/ServicesPage";
 import ContactPage from "../../features/contact/pages/ContactPage";
 import CareersPage from "../../features/careers/pages/CareersPage";
 import CaseStudiesPage from "../../features/caseStudies/pages/CaseStudiesPage";
-import ClientsPage from "../../features/clients/pages/ClientsPage";
+// import ClientsPage from "../../features/clients/pages/ClientsPage";
 
 const AppRoutes = () => {
   return (
@@ -15,7 +15,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/clients" element={<ClientsPage />} />
+        {/* <Route path="/clients" element={<ClientsPage />} /> */}
         <Route path="/case-studies" element={<CaseStudiesPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />

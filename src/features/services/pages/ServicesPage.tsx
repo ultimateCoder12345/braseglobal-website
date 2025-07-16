@@ -46,7 +46,7 @@ const services = [
       'API Integration',
     ],
     technologies: ['React', 'Angular', 'Vue.js', 'Node.js', 'Python', 'PHP'],
-    price: 'Starting from $5,000',
+    // price: 'Starting from $5,000',
   },
   {
     id: 2,
@@ -62,7 +62,7 @@ const services = [
       'Maintenance & Support',
     ],
     technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Xamarin'],
-    price: 'Starting from $8,000',
+    // price: 'Starting from $8,000',
   },
   {
     id: 3,
@@ -78,7 +78,7 @@ const services = [
       'Cost Optimization',
     ],
     technologies: ['AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes'],
-    price: 'Starting from $3,000',
+    // price: 'Starting from $3,000',
   },
   {
     id: 4,
@@ -94,7 +94,7 @@ const services = [
       'Data Warehousing',
     ],
     technologies: ['Python', 'R', 'Tableau', 'Power BI', 'Apache Spark'],
-    price: 'Starting from $4,000',
+    // price: 'Starting from $4,000',
   },
   {
     id: 5,
@@ -110,7 +110,7 @@ const services = [
       'Security Training',
     ],
     technologies: ['OWASP', 'ISO 27001', 'NIST', 'GDPR', 'SOC 2'],
-    price: 'Starting from $2,500',
+    // price: 'Starting from $2,500',
   },
   {
     id: 6,
@@ -126,7 +126,7 @@ const services = [
       'Ongoing Support',
     ],
     technologies: ['Java', '.NET', 'Python', 'Go', 'Microservices'],
-    price: 'Starting from $10,000',
+    // price: 'Starting from $10,000',
   },
 ];
 
@@ -258,9 +258,9 @@ export const ServicesPage: React.FC = () => {
                   </Box>
 
                   <Box sx={{ mt: 'auto', pt: 2 }}>
-                    <Typography variant="h6" color="primary.main" gutterBottom>
+                    {/* <Typography variant="h6" color="primary.main" gutterBottom>
                       {service.price}
-                    </Typography>
+                    </Typography> */}
                     <Button
                       variant="contained"
                       fullWidth

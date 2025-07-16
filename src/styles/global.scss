@@ -24,7 +24,12 @@ body {
 }
 
 // Typography
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: $font-weight-bold;
   line-height: $line-height-tight;
   margin-bottom: $spacing-4;
@@ -32,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: $font-size-5xl;
-  
+
   @include md {
     font-size: 3.5rem;
   }
@@ -40,7 +45,7 @@ h1 {
 
 h2 {
   font-size: $font-size-4xl;
-  
+
   @include md {
     font-size: 3rem;
   }
@@ -48,7 +53,7 @@ h2 {
 
 h3 {
   font-size: $font-size-3xl;
-  
+
   @include md {
     font-size: 2.5rem;
   }
@@ -56,7 +61,7 @@ h3 {
 
 h4 {
   font-size: $font-size-2xl;
-  
+
   @include md {
     font-size: 2rem;
   }
@@ -80,12 +85,12 @@ a {
   color: $primary-color;
   text-decoration: none;
   transition: color $transition-fast;
-  
+
   &:hover {
     color: $primary-dark;
     text-decoration: underline;
   }
-  
+
   &:focus {
     outline: 2px solid $primary-color;
     outline-offset: 2px;
@@ -100,7 +105,8 @@ img {
 }
 
 // Lists
-ul, ol {
+ul,
+ol {
   padding-left: $spacing-6;
   margin-bottom: $spacing-4;
 }
@@ -116,12 +122,12 @@ button {
   border: none;
   background: none;
   transition: all $transition-fast;
-  
+
   &:focus {
     outline: 2px solid $primary-color;
     outline-offset: 2px;
   }
-  
+
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -129,10 +135,12 @@ button {
 }
 
 // Form elements
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
-  
+
   &:focus {
     outline: 2px solid $primary-color;
     outline-offset: 2px;
@@ -144,11 +152,11 @@ input, textarea, select {
   max-width: $container-xl;
   margin: 0 auto;
   padding: 0 $spacing-4;
-  
+
   @include sm {
     padding: 0 $spacing-6;
   }
-  
+
   @include lg {
     padding: 0 $spacing-8;
   }
@@ -210,6 +218,7 @@ input, textarea, select {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -220,6 +229,7 @@ input, textarea, select {
     transform: translateY(20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -238,10 +248,38 @@ input, textarea, select {
 ::-webkit-scrollbar-thumb {
   background: $gray-400;
   border-radius: $border-radius-full;
-  
+
   &:hover {
     background: $gray-500;
   }
+}
+
+/* Fix for default Leaflet marker shadow */
+.leaflet-marker-icon {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Custom popup styling */
+.leaflet-popup-content {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+}
+
+.leaflet-popup-content h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.leaflet-popup-content p {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+.leaflet-popup-content p svg {
+  margin-right: 6px;
+  font-size: 1rem;
 }
 
 // Print styles
@@ -252,15 +290,16 @@ input, textarea, select {
     box-shadow: none !important;
     text-shadow: none !important;
   }
-  
-  a, a:visited {
+
+  a,
+  a:visited {
     text-decoration: underline;
   }
-  
+
   img {
     max-width: 100% !important;
   }
-  
+
   @page {
     margin: 0.5cm;
   }
