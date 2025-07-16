@@ -21,6 +21,7 @@ import {
   TrendingUp,
   Security,
 } from "@mui/icons-material";
+import { getLeadershipTeam } from "../../../data/team";
 
 // Company values data
 const companyValues = [
@@ -59,29 +60,9 @@ const achievements = [
   "Multi-industry software development experience",
 ];
 
-// Leadership team data
-const leadership = [
-  {
-    name: "John Smith",
-    position: "Chief Executive Officer",
-    avatar: "/api/placeholder/150/150",
-    bio: "With over 15 years in technology leadership, John drives our strategic vision and growth.",
-  },
-  {
-    name: "Sarah Johnson",
-    position: "Chief Technology Officer",
-    avatar: "/api/placeholder/150/150",
-    bio: "Sarah leads our technical innovation and ensures we deliver world-class solutions.",
-  },
-  {
-    name: "Michael Chen",
-    position: "Chief Operations Officer",
-    avatar: "/api/placeholder/150/150",
-    bio: "Michael oversees our global operations and ensures seamless project delivery.",
-  },
-];
-
 export const AboutPage: React.FC = () => {
+  // Get leadership team from data
+  const leadership = getLeadershipTeam();
   return (
     <Box sx={{ pt: 10 }}>
       {" "}
@@ -240,8 +221,8 @@ export const AboutPage: React.FC = () => {
             Leadership Team
           </Typography>
           <Grid container spacing={4}>
-            {leadership.map((leader, index) => (
-              <Grid size={{ xs: 12, md: 4 }} key={index}>
+            {leadership.map((leader) => (
+              <Grid size={{ xs: 12, md: 4 }} key={leader.id}>
                 <Card
                   sx={{
                     textAlign: "center",
@@ -275,9 +256,14 @@ export const AboutPage: React.FC = () => {
                       variant="outlined"
                       sx={{ mb: 2 }}
                     />
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" paragraph>
                       {leader.bio}
                     </Typography>
+                    <Box sx={{ mt: 2 }}>
+                      <Typography variant="caption" color="text.secondary">
+                        {leader.experience} years experience • {leader.certifications.length} certifications
+                      </Typography>
+                    </Box>
                   </CardContent>
                 </Card>
               </Grid>
