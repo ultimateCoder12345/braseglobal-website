@@ -1,0 +1,94 @@
+// Responsive breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 600px;
+$breakpoint-md: 900px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1536px;
+
+// Mixins for responsive design
+@mixin xs {
+  @media (min-width: #{$breakpoint-xs}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
+
+// Responsive utilities
+.container-responsive {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include sm {
+    max-width: 540px;
+  }
+
+  @include md {
+    max-width: 720px;
+  }
+
+  @include lg {
+    max-width: 960px;
+  }
+
+  @include xl {
+    max-width: 1140px;
+  }
+}
+
+// Responsive text utilities
+.text-responsive {
+  font-size: 1rem;
+
+  @include sm {
+    font-size: 1.125rem;
+  }
+
+  @include md {
+    font-size: 1.25rem;
+  }
+
+  @include lg {
+    font-size: 1.5rem;
+  }
+}
+
+// Responsive spacing utilities
+.spacing-responsive {
+  padding: 1rem;
+
+  @include sm {
+    padding: 1.5rem;
+  }
+
+  @include md {
+    padding: 2rem;
+  }
+
+  @include lg {
+    padding: 3rem;
+  }
+}

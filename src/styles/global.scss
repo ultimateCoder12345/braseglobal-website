@@ -1,49 +1,177 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+// Import variables and responsive utilities
+@import './variables.scss';
+@import './responsive.scss';
+
+// Global styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #fff;
-  color: #333;
-  line-height: 1.6;
+  font-family: $font-family-primary;
+  background-color: $white;
+  color: $gray-900;
+  line-height: $line-height-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-4;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+h1 {
+  font-size: $font-size-5xl;
 
-a {
-  color: inherit;
-  text-decoration: none;
-  
-  &:hover {
-    text-decoration: underline;
+  @include md {
+    font-size: 3.5rem;
   }
 }
 
-ul, ol {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+h2 {
+  font-size: $font-size-4xl;
+
+  @include md {
+    font-size: 3rem;
+  }
 }
 
+h3 {
+  font-size: $font-size-3xl;
+
+  @include md {
+    font-size: 2.5rem;
+  }
+}
+
+h4 {
+  font-size: $font-size-2xl;
+
+  @include md {
+    font-size: 2rem;
+  }
+}
+
+h5 {
+  font-size: $font-size-xl;
+}
+
+h6 {
+  font-size: $font-size-lg;
+}
+
+p {
+  margin-bottom: $spacing-4;
+  line-height: $line-height-relaxed;
+}
+
+// Links
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-dark;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Lists
+ul,
+ol {
+  padding-left: $spacing-6;
+  margin-bottom: $spacing-4;
+}
+
+li {
+  margin-bottom: $spacing-2;
+}
+
+// Buttons
 button {
-  background: none;
-  border: none;
+  font-family: inherit;
   cursor: pointer;
+  border: none;
+  background: none;
+  transition: all $transition-fast;
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
+// Form elements
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Utility classes
 .container {
-  max-width: 1200px;
+  max-width: $container-xl;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 $spacing-4;
+
+  @include sm {
+    padding: 0 $spacing-6;
+  }
+
+  @include lg {
+    padding: 0 $spacing-8;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .hidden {
@@ -62,7 +190,7 @@ button {
 
 .grid {
   display: grid;
-  gap: 1rem;
+  gap: $spacing-4;
 }
 
 .text-center {
@@ -77,3 +205,102 @@ button {
   text-align: left;
 }
 
+// Animation utilities
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-400;
+  border-radius: $border-radius-full;
+
+  &:hover {
+    background: $gray-500;
+  }
+}
+
+/* Fix for default Leaflet marker shadow */
+.leaflet-marker-icon {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Custom popup styling */
+.leaflet-popup-content {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+}
+
+.leaflet-popup-content h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.leaflet-popup-content p {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+.leaflet-popup-content p svg {
+  margin-right: 6px;
+  font-size: 1rem;
+}
+
+// Print styles
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+}
