@@ -33,10 +33,11 @@ const RecentCaseStudies: React.FC = () => {
 
         <Grid container spacing={4}>
           {featuredCaseStudies.map((caseStudy) => (
-            <Grid item xs={12} md={4} key={caseStudy.id}>
+            <Grid size={{ xs: 12, md: 4 }} key={caseStudy.id}>
               <Card
                 sx={{
                   height: '100%',
+                  maxWidth: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
@@ -51,9 +52,26 @@ const RecentCaseStudies: React.FC = () => {
                   height="200"
                   image={caseStudy.imageUrl}
                   alt={caseStudy.title}
+                  sx={{
+                    objectFit: 'cover',
+                    width: '100%',
+                  }}
                 />
-                <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+                <CardContent sx={{ 
+                  flexGrow: 1, 
+                  p: 3, 
+                  display: 'flex', 
+                  flexDirection: 'column',
+                  height: '100%'
+                }}>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'flex-start', 
+                    mb: 2,
+                    flexWrap: 'wrap',
+                    gap: 1
+                  }}>
                     <Chip label={caseStudy.industry} color="primary" size="small" />
                     <Chip label="Featured" color="secondary" size="small" />
                   </Box>
@@ -70,7 +88,13 @@ const RecentCaseStudies: React.FC = () => {
                     {caseStudy.summary}
                   </Typography>
 
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mb: 2 }}>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    flexWrap: 'wrap', 
+                    gap: 0.5, 
+                    mb: 2,
+                    minHeight: '32px'
+                  }}>
                     {caseStudy.technologies.slice(0, 3).map((tech, index) => (
                       <Chip
                         key={index}
@@ -88,7 +112,13 @@ const RecentCaseStudies: React.FC = () => {
                     )}
                   </Box>
 
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 'auto' }}>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center', 
+                    mt: 'auto',
+                    pt: 1
+                  }}>
                     <Typography variant="caption" color="text.secondary">
                       {caseStudy.duration} • {caseStudy.teamSize} team members
                     </Typography>
