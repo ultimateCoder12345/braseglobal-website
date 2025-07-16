@@ -3,7 +3,7 @@ import {
   Box,
   Container,
   Typography,
-  Grid, // Import Grid
+  Grid,
   Card,
   CardContent,
   CardMedia,
@@ -19,116 +19,11 @@ import {
   AccordionDetails,
 } from '@mui/material';
 import {
-  Code,
-  Cloud,
-  Security,
-  Analytics,
-  PhoneIphone,
-  Web,
-  CheckCircle,
   ExpandMore,
   ArrowForward,
+  CheckCircle,
 } from '@mui/icons-material';
-
-// Services data
-const services = [
-  {
-    id: 1,
-    title: 'Web Development',
-    icon: <Web />,
-    description: 'Custom web applications built with modern technologies and best practices.',
-    image: '/api/placeholder/400/250',
-    features: [
-      'Responsive Design',
-      'Progressive Web Apps',
-      'E-commerce Solutions',
-      'Content Management Systems',
-      'API Integration',
-    ],
-    technologies: ['React', 'Angular', 'Vue.js', 'Node.js', 'Python', 'PHP'],
-    // price: 'Starting from $5,000',
-  },
-  {
-    id: 2,
-    title: 'Mobile App Development',
-    icon: <PhoneIphone />,
-    description: 'Native and cross-platform mobile applications for iOS and Android.',
-    image: '/api/placeholder/400/250',
-    features: [
-      'Native iOS & Android',
-      'Cross-platform Solutions',
-      'UI/UX Design',
-      'App Store Optimization',
-      'Maintenance & Support',
-    ],
-    technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Xamarin'],
-    // price: 'Starting from $8,000',
-  },
-  {
-    id: 3,
-    title: 'Cloud Solutions',
-    icon: <Cloud />,
-    description: 'Scalable cloud infrastructure and migration services.',
-    image: '/api/placeholder/400/250',
-    features: [
-      'Cloud Migration',
-      'Infrastructure as Code',
-      'Auto-scaling Solutions',
-      'Disaster Recovery',
-      'Cost Optimization',
-    ],
-    technologies: ['AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes'],
-    // price: 'Starting from $3,000',
-  },
-  {
-    id: 4,
-    title: 'Data Analytics',
-    icon: <Analytics />,
-    description: 'Transform your data into actionable insights and business intelligence.',
-    image: '/api/placeholder/400/250',
-    features: [
-      'Data Visualization',
-      'Business Intelligence',
-      'Machine Learning',
-      'Real-time Analytics',
-      'Data Warehousing',
-    ],
-    technologies: ['Python', 'R', 'Tableau', 'Power BI', 'Apache Spark'],
-    // price: 'Starting from $4,000',
-  },
-  {
-    id: 5,
-    title: 'Cybersecurity',
-    icon: <Security />,
-    description: 'Comprehensive security solutions to protect your digital assets.',
-    image: '/api/placeholder/400/250',
-    features: [
-      'Security Audits',
-      'Penetration Testing',
-      'Compliance Management',
-      'Incident Response',
-      'Security Training',
-    ],
-    technologies: ['OWASP', 'ISO 27001', 'NIST', 'GDPR', 'SOC 2'],
-    // price: 'Starting from $2,500',
-  },
-  {
-    id: 6,
-    title: 'Custom Software',
-    icon: <Code />,
-    description: 'Tailored software solutions designed specifically for your business needs.',
-    image: '/api/placeholder/400/250',
-    features: [
-      'Requirements Analysis',
-      'Custom Development',
-      'System Integration',
-      'Legacy Modernization',
-      'Ongoing Support',
-    ],
-    technologies: ['Java', '.NET', 'Python', 'Go', 'Microservices'],
-    // price: 'Starting from $10,000',
-  },
-];
+import { services } from '../../homepage/services/data/services';
 
 // FAQ data
 const faqs = [
@@ -172,7 +67,7 @@ export const ServicesPage: React.FC = () => {
             Comprehensive technology solutions to drive your business forward
           </Typography>
           <Typography variant="body1" sx={{ maxWidth: 800, mx: 'auto' }}>
-            From web development to cloud solutions, we offer a full spectrum of technology services
+            From IT consulting to cloud solutions, we offer a full spectrum of technology services
             designed to help your business thrive in the digital age. Our expert team combines
             technical excellence with industry best practices to deliver solutions that exceed expectations.
           </Typography>
@@ -182,98 +77,82 @@ export const ServicesPage: React.FC = () => {
       {/* Services Grid */}
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Grid container spacing={4}>
-          {services.map((service) => (
-            <Grid size={{ xs: 12, md: 6, lg: 4 }} key={service.id}>
-              <Card
-                sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: 6,
-                  },
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={service.image}
-                  alt={service.title}
-                />
-                <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <Box sx={{ color: 'primary.main', mr: 1 }}>
-                      {React.cloneElement(service.icon, { fontSize: 'large' })}
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <Grid item xs={12} md={6} lg={4} key={index}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: 6,
+                    },
+                  }}
+                >
+                  <CardMedia
+                    component="div"
+                    sx={{
+                      height: 200,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      bgcolor: 'primary.light',
+                      color: 'white',
+                    }}
+                  >
+                    <IconComponent size={80} />
+                  </CardMedia>
+                  <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                      <Box sx={{ color: 'primary.main', mr: 1 }}>
+                        <IconComponent size={24} />
+                      </Box>
+                      <Typography variant="h5" component="h3">
+                        {service.title}
+                      </Typography>
                     </Box>
-                    <Typography variant="h5" component="h3">
-                      {service.title}
+
+                    <Typography variant="body2" color="text.secondary" paragraph>
+                      {service.description}
                     </Typography>
-                  </Box>
 
-                  <Typography variant="body2" color="text.secondary" paragraph>
-                    {service.description}
-                  </Typography>
-
-                  <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-                    Key Features:
-                  </Typography>
-                  <List dense>
-                    {service.features.slice(0, 3).map((feature, index) => (
-                      <ListItem key={index} sx={{ px: 0, py: 0.5 }}>
-                        <ListItemIcon sx={{ minWidth: 32 }}>
-                          <CheckCircle color="primary" fontSize="small" />
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={feature}
-                          primaryTypographyProps={{ variant: 'body2' }}
-                        />
-                      </ListItem>
-                    ))}
-                  </List>
-
-                  <Box sx={{ mt: 2, mb: 2 }}>
-                    <Typography variant="body2" color="text.secondary" gutterBottom>
-                      Technologies:
+                    <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+                      Key Features:
                     </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                      {service.technologies.slice(0, 3).map((tech, index) => (
-                        <Chip
-                          key={index}
-                          label={tech}
-                          size="small"
-                          variant="outlined"
-                          color="primary"
-                        />
+                    <List dense>
+                      {service.features.map((feature, featureIndex) => (
+                        <ListItem key={featureIndex} sx={{ px: 0, py: 0.5 }}>
+                          <ListItemIcon sx={{ minWidth: 32 }}>
+                            <CheckCircle color="primary" fontSize="small" />
+                          </ListItemIcon>
+                          <ListItemText
+                            primary={feature}
+                            primaryTypographyProps={{ variant: 'body2' }}
+                          />
+                        </ListItem>
                       ))}
-                      {service.technologies.length > 3 && (
-                        <Chip
-                          label={`+${service.technologies.length - 3} more`}
-                          size="small"
-                          variant="outlined"
-                        />
-                      )}
-                    </Box>
-                  </Box>
+                    </List>
 
-                  <Box sx={{ mt: 'auto', pt: 2 }}>
-                    {/* <Typography variant="h6" color="primary.main" gutterBottom>
-                      {service.price}
-                    </Typography> */}
-                    <Button
-                      variant="contained"
-                      fullWidth
-                      endIcon={<ArrowForward />}
-                      sx={{ mt: 1 }}
-                    >
-                      Learn More
-                    </Button>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+                    <Box sx={{ mt: 'auto', pt: 2 }}>
+                      <Button
+                        variant="contained"
+                        fullWidth
+                        endIcon={<ArrowForward />}
+                        sx={{ mt: 1 }}
+                        href={service.link}
+                      >
+                        Learn More
+                      </Button>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
         </Grid>
       </Container>
 
@@ -312,7 +191,7 @@ export const ServicesPage: React.FC = () => {
                 description: 'We deploy your solution and provide ongoing support and maintenance.',
               },
             ].map((process, index) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+              <Grid item xs={12} sm={6} md={3} key={index}>
                 <Paper
                   elevation={2}
                   sx={{
@@ -396,6 +275,7 @@ export const ServicesPage: React.FC = () => {
                   color: 'primary.main',
                   '&:hover': { bgcolor: 'grey.100' },
                 }}
+                href="/contact"
               >
                 Get Free Consultation
               </Button>
@@ -407,6 +287,7 @@ export const ServicesPage: React.FC = () => {
                   color: 'white',
                   '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' },
                 }}
+                href="/case-studies"
               >
                 View Portfolio
               </Button>
