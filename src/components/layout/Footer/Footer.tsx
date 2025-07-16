@@ -30,7 +30,7 @@ export const UpperFooter: React.FC = () => {
     >
       <Container maxWidth="lg">
         <Grid container spacing={4} alignItems="flex-start">
-          {/* Logo and Company Description */}
+          {/* Company Info with Logo and Social Media */}
           <Grid item xs={12} md={3}>
             <Box sx={{ mb: 2 }}>
               <Box
@@ -115,114 +115,124 @@ export const UpperFooter: React.FC = () => {
             </Box>
           </Grid>
 
-          {/* Services */}
-          <Grid item xs={12} sm={4} md={2}>
-            <Typography
-              variant="h6"
-              sx={{ 
-                fontWeight: "bold", 
-                color: "#1A4D8C", 
-                mb: 2,
-                display: 'inline-block'
-              }}
-            >
-              SERVICES
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              <Link
-                component={RouterLink}
-                to="/services"
-                color="text.secondary"
-                underline="hover"
-                variant="body2"
-              >
-                Digital Transformation Services
-              </Link>
-              <Link
-                component={RouterLink}
-                to="/services"
-                color="text.secondary"
-                underline="hover"
-                variant="body2"
-              >
-                Data & AI Services
-              </Link>
-              <Link
-                component={RouterLink}
-                to="/services"
-                color="text.secondary"
-                underline="hover"
-                variant="body2"
-              >
-                IT Recruitment Services
-              </Link>
-              <Link
-                component={RouterLink}
-                to="/services"
-                color="text.secondary"
-                underline="hover"
-                variant="body2"
-              >
-                Cloud Services
-              </Link>
-            </Box>
-          </Grid>
+          {/* Navigation Links Section */}
+          <Grid item xs={12} md={6}>
+            <Box sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: { xs: 3, sm: 4 },
+              justifyContent: 'space-between'
+            }}>
+              {/* Services */}
+              <Box sx={{ flex: 1 }}>
+                <Typography
+                  variant="h6"
+                  sx={{ 
+                    fontWeight: "bold", 
+                    color: "#1A4D8C", 
+                    mb: 2,
+                    display: 'inline-block'
+                  }}
+                >
+                  SERVICES
+                </Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <Link
+                    component={RouterLink}
+                    to="/services"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Digital Transformation Services
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/services"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Data & AI Services
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/services"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    IT Recruitment Services
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/services"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Cloud Services
+                  </Link>
+                </Box>
+              </Box>
 
-          {/* Quick Links */}
-          <Grid item xs={12} sm={4} md={2}>
-            <Typography
-              variant="h6"
-              sx={{ 
-                fontWeight: "bold", 
-                color: "#1A4D8C", 
-                mb: 2,
-                display: 'inline-block'
-              }}
-            >
-              QUICK LINKS
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              <Link
-                component={RouterLink}
-                to="/about"
-                color="text.secondary"
-                underline="hover"
-                variant="body2"
-              >
-                About Us
-              </Link>
-              <Link
-                component={RouterLink}
-                to="/careers"
-                color="text.secondary"
-                underline="hover"
-                variant="body2"
-              >
-                Careers
-              </Link>
-              <Link
-                component={RouterLink}
-                to="/contact"
-                color="text.secondary"
-                underline="hover"
-                variant="body2"
-              >
-                Contact Us
-              </Link>
-              <Link
-                component={RouterLink}
-                to="/team"
-                color="text.secondary"
-                underline="hover"
-                variant="body2"
-              >
-                Team
-              </Link>
+              {/* Quick Links */}
+              <Box sx={{ flex: 1 }}>
+                <Typography
+                  variant="h6"
+                  sx={{ 
+                    fontWeight: "bold", 
+                    color: "#1A4D8C", 
+                    mb: 2,
+                    display: 'inline-block'
+                  }}
+                >
+                  QUICK LINKS
+                </Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <Link
+                    component={RouterLink}
+                    to="/about"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/careers"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Careers
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/contact"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Contact Us
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/team"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Team
+                  </Link>
+                </Box>
+              </Box>
             </Box>
           </Grid>
 
           {/* Head Office */}
-          <Grid item xs={12} sm={4} md={5}>
+          <Grid item xs={12} md={3}>
             <Typography
               variant="h6"
               sx={{ 

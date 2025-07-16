@@ -76,17 +76,36 @@ export const ServicesPage: React.FC = () => {
 
       {/* Services Grid */}
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Grid container spacing={4} sx={{ alignItems: 'stretch' }}>
+        <Grid 
+          container 
+          spacing={4} 
+          sx={{ 
+            alignItems: 'stretch',
+            justifyContent: 'center'
+          }}
+        >
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Grid item xs={12} md={6} lg={4} key={index} sx={{ display: 'flex' }}>
+              <Grid 
+                item 
+                xs={12} 
+                sm={6} 
+                md={6} 
+                lg={4} 
+                key={index} 
+                sx={{ 
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
                 <Card
                   component="a"
                   href={`/services/${index}`}
                   sx={{
                     height: '100%',
                     width: '100%',
+                    maxWidth: 400,
                     display: 'flex',
                     flexDirection: 'column',
                     textDecoration: 'none',
