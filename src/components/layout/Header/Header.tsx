@@ -19,12 +19,14 @@ const navLinks = [
   { label: "Case Studies", to: "/case-studies" },
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
-  { label: "Team", to: "/team" },
+  // { label: "Team", to: "/team" },
 ];
 
 export const Header = () => {
   const location = useLocation();
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null,
+  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -38,7 +40,6 @@ export const Header = () => {
     <AppBar position="fixed" color="default" elevation={1}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
           <Box
             component="img"
             src="/src/assets/images/brasetech_logo.png"
@@ -69,7 +70,11 @@ export const Header = () => {
                   <Link
                     component={RouterLink}
                     to={link.to}
-                    color={link.to === location.pathname ? "primary.main" : "text.primary"}
+                    color={
+                      link.to === location.pathname
+                        ? "primary.main"
+                        : "text.primary"
+                    }
                     underline="none"
                   >
                     {link.label}
@@ -86,7 +91,13 @@ export const Header = () => {
             sx={{ height: 40, mr: 2, display: { xs: "flex", md: "none" } }}
           />
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: "flex-end" }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end",
+            }}
+          >
             {navLinks.map((link) => (
               <Button
                 key={link.to}
@@ -95,10 +106,11 @@ export const Header = () => {
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
-                  color: link.to === location.pathname ? "primary.main" : "black",
+                  color:
+                    link.to === location.pathname ? "primary.main" : "black",
                   fontWeight: link.to === location.pathname ? 700 : 400,
                   display: "block",
-                  textTransform: "capitalize"
+                  textTransform: "capitalize",
                 }}
               >
                 {link.label}

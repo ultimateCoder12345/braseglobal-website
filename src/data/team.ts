@@ -20,37 +20,47 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     id: "1",
-    name: "John Smith",
-    position: "Chief Executive Officer",
+    name: "Kranthi Chintham",
+    position: "CEO &  Director of Operations",
     department: "Leadership",
-    bio: "With over 15 years in technology leadership, John drives our strategic vision and growth. He has successfully led multiple digital transformation initiatives and has a passion for innovation.",
+    bio: "As CEO, Kranthi sets the company's vision and strategic direction. As Director of Operations, they ensure efficient and effective execution across all departments.",
     avatar: "/api/placeholder/300/300",
-    email: "john.smith@brasetech.com",
-    linkedin: "https://linkedin.com/in/johnsmith",
-    twitter: "https://twitter.com/johnsmith",
-    skills: ["Strategic Planning", "Business Development", "Team Leadership", "Digital Transformation"],
-    experience: 15,
-    education: "MBA from Stanford University, BS in Computer Science",
-    certifications: ["PMP", "Certified Scrum Master"],
+    email: "kranthi.chintham@brasetech.com",
+    linkedin: "https://linkedin.com/in/kranthichintham",
+    twitter: "https://twitter.com/kranthichintham",
+    skills: [
+      "Strategic Planning",
+      "Business Development",
+      "Operations Management",
+      "Executive Leadership",
+    ],
+    experience: 18,
+    education: "MBA from Alluri Institute of Management Sciences",
+    certifications: ["PMP", "Six Sigma Black Belt"],
     featured: true,
-    isLeadership: true
+    isLeadership: true,
   },
   {
     id: "2",
-    name: "Sarah Johnson",
-    position: "Chief Technology Officer",
+    name: "Sravanthi Chintham",
+    position: "Head of Finance",
     department: "Leadership",
-    bio: "Sarah leads our technical innovation and ensures we deliver world-class solutions. She has extensive experience in cloud architecture and emerging technologies.",
+    bio: "Sravanthi leads our Finance Team and ensures financial health and compliance. She has extensive experience in financial planning, analysis, and reporting.",
     avatar: "/api/placeholder/300/300",
-    email: "sarah.johnson@brasetech.com",
-    linkedin: "https://linkedin.com/in/sarahjohnson",
-    github: "https://github.com/sarahjohnson",
-    skills: ["Cloud Architecture", "DevOps", "Machine Learning", "Technical Strategy"],
-    experience: 12,
-    education: "MS in Computer Science from MIT, BS in Software Engineering",
-    certifications: ["AWS Solutions Architect", "Google Cloud Professional", "Azure Expert"],
+    email: "sravanthi.chintham@brasetech.com",
+    linkedin: "https://www.linkedin.com/in/sravanthi-c-488a02210/",
+    skills: [
+      "Financial Planning",
+      "Financial Analysis",
+      "Budgeting",
+      "Financial Reporting",
+      "Compliance",
+    ],
+    experience: 16,
+    education: "MBA in Finance, BS in Accounting",
+    certifications: ["CPA", "CFA"],
     featured: true,
-    isLeadership: true
+    isLeadership: true,
   },
   {
     id: "3",
@@ -61,12 +71,17 @@ export const teamMembers: TeamMember[] = [
     avatar: "/api/placeholder/300/300",
     email: "michael.chen@brasetech.com",
     linkedin: "https://linkedin.com/in/michaelchen",
-    skills: ["Operations Management", "Process Optimization", "Quality Assurance", "Project Management"],
+    skills: [
+      "Operations Management",
+      "Process Optimization",
+      "Quality Assurance",
+      "Project Management",
+    ],
     experience: 13,
     education: "MBA in Operations Management, BS in Industrial Engineering",
     certifications: ["Six Sigma Black Belt", "ITIL Expert", "PMP"],
     featured: true,
-    isLeadership: true
+    isLeadership: true,
   },
   {
     id: "4",
@@ -78,12 +93,20 @@ export const teamMembers: TeamMember[] = [
     email: "emily.rodriguez@brasetech.com",
     linkedin: "https://linkedin.com/in/emilyrodriguez",
     github: "https://github.com/emilyrodriguez",
-    skills: ["Full-Stack Development", "System Architecture", "Team Leadership", "Agile Methodologies"],
+    skills: [
+      "Full-Stack Development",
+      "System Architecture",
+      "Team Leadership",
+      "Agile Methodologies",
+    ],
     experience: 10,
     education: "MS in Software Engineering, BS in Computer Science",
-    certifications: ["Certified Kubernetes Administrator", "AWS Developer Associate"],
+    certifications: [
+      "Certified Kubernetes Administrator",
+      "AWS Developer Associate",
+    ],
     featured: true,
-    isLeadership: false
+    isLeadership: false,
   },
   {
     id: "5",
@@ -100,7 +123,7 @@ export const teamMembers: TeamMember[] = [
     education: "BS in Computer Science from UC Berkeley",
     certifications: ["AWS Solutions Architect", "Certified React Developer"],
     featured: true,
-    isLeadership: false
+    isLeadership: false,
   },
   {
     id: "6",
@@ -111,12 +134,17 @@ export const teamMembers: TeamMember[] = [
     avatar: "/api/placeholder/300/300",
     email: "lisa.wang@brasetech.com",
     linkedin: "https://linkedin.com/in/lisawang",
-    skills: ["User Experience Design", "User Interface Design", "Design Systems", "Prototyping"],
+    skills: [
+      "User Experience Design",
+      "User Interface Design",
+      "Design Systems",
+      "Prototyping",
+    ],
     experience: 7,
     education: "MFA in Interaction Design, BA in Graphic Design",
     certifications: ["Google UX Design Certificate", "Adobe Certified Expert"],
     featured: true,
-    isLeadership: false
+    isLeadership: false,
   },
   {
     id: "7",
@@ -128,12 +156,23 @@ export const teamMembers: TeamMember[] = [
     email: "robert.kim@brasetech.com",
     linkedin: "https://linkedin.com/in/robertkim",
     github: "https://github.com/robertkim",
-    skills: ["Docker", "Kubernetes", "AWS", "Terraform", "Jenkins", "Monitoring"],
+    skills: [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Terraform",
+      "Jenkins",
+      "Monitoring",
+    ],
     experience: 6,
     education: "BS in Information Systems",
-    certifications: ["Certified Kubernetes Administrator", "AWS DevOps Engineer", "Terraform Associate"],
+    certifications: [
+      "Certified Kubernetes Administrator",
+      "AWS DevOps Engineer",
+      "Terraform Associate",
+    ],
     featured: false,
-    isLeadership: false
+    isLeadership: false,
   },
   {
     id: "8",
@@ -145,12 +184,19 @@ export const teamMembers: TeamMember[] = [
     email: "amanda.foster@brasetech.com",
     linkedin: "https://linkedin.com/in/amandafoster",
     github: "https://github.com/amandafoster",
-    skills: ["Machine Learning", "Python", "R", "SQL", "Data Visualization", "Statistics"],
+    skills: [
+      "Machine Learning",
+      "Python",
+      "R",
+      "SQL",
+      "Data Visualization",
+      "Statistics",
+    ],
     experience: 5,
     education: "PhD in Data Science, MS in Statistics",
     certifications: ["Google Cloud ML Engineer", "Tableau Desktop Specialist"],
     featured: false,
-    isLeadership: false
+    isLeadership: false,
   },
   {
     id: "9",
@@ -162,12 +208,22 @@ export const teamMembers: TeamMember[] = [
     email: "james.wilson@brasetech.com",
     linkedin: "https://linkedin.com/in/jameswilson",
     github: "https://github.com/jameswilson",
-    skills: ["React Native", "Swift", "Kotlin", "Flutter", "Mobile UX", "App Store Optimization"],
+    skills: [
+      "React Native",
+      "Swift",
+      "Kotlin",
+      "Flutter",
+      "Mobile UX",
+      "App Store Optimization",
+    ],
     experience: 6,
     education: "BS in Computer Science",
-    certifications: ["Google Associate Android Developer", "Apple iOS Developer"],
+    certifications: [
+      "Google Associate Android Developer",
+      "Apple iOS Developer",
+    ],
     featured: false,
-    isLeadership: false
+    isLeadership: false,
   },
   {
     id: "10",
@@ -178,12 +234,18 @@ export const teamMembers: TeamMember[] = [
     avatar: "/api/placeholder/300/300",
     email: "rachel.adams@brasetech.com",
     linkedin: "https://linkedin.com/in/racheladams",
-    skills: ["Cybersecurity", "Penetration Testing", "Security Architecture", "Compliance", "Risk Assessment"],
+    skills: [
+      "Cybersecurity",
+      "Penetration Testing",
+      "Security Architecture",
+      "Compliance",
+      "Risk Assessment",
+    ],
     experience: 8,
     education: "MS in Cybersecurity, BS in Information Technology",
     certifications: ["CISSP", "CEH", "CISM", "Security+"],
     featured: false,
-    isLeadership: false
+    isLeadership: false,
   },
   {
     id: "11",
@@ -194,12 +256,21 @@ export const teamMembers: TeamMember[] = [
     avatar: "/api/placeholder/300/300",
     email: "alex.thompson@brasetech.com",
     linkedin: "https://linkedin.com/in/alexthompson",
-    skills: ["Product Strategy", "Agile Methodologies", "User Research", "Market Analysis", "Roadmap Planning"],
+    skills: [
+      "Product Strategy",
+      "Agile Methodologies",
+      "User Research",
+      "Market Analysis",
+      "Roadmap Planning",
+    ],
     experience: 7,
     education: "MBA in Product Management, BS in Engineering",
-    certifications: ["Certified Scrum Product Owner", "Google Analytics Certified"],
+    certifications: [
+      "Certified Scrum Product Owner",
+      "Google Analytics Certified",
+    ],
     featured: false,
-    isLeadership: false
+    isLeadership: false,
   },
   {
     id: "12",
@@ -210,47 +281,60 @@ export const teamMembers: TeamMember[] = [
     avatar: "/api/placeholder/300/300",
     email: "maria.gonzalez@brasetech.com",
     linkedin: "https://linkedin.com/in/mariagonzalez",
-    skills: ["Test Automation", "Manual Testing", "Performance Testing", "Quality Assurance", "Selenium"],
+    skills: [
+      "Test Automation",
+      "Manual Testing",
+      "Performance Testing",
+      "Quality Assurance",
+      "Selenium",
+    ],
     experience: 6,
     education: "BS in Computer Science",
     certifications: ["ISTQB Advanced Level", "Selenium WebDriver"],
     featured: false,
-    isLeadership: false
-  }
+    isLeadership: false,
+  },
 ];
 
 // Helper functions
 export const getFeaturedTeamMembers = (): TeamMember[] => {
-  return teamMembers.filter(member => member.featured);
+  return teamMembers.filter((member) => member.featured);
 };
 
 export const getLeadershipTeam = (): TeamMember[] => {
-  return teamMembers.filter(member => member.isLeadership);
+  return teamMembers.filter((member) => member.isLeadership);
 };
 
 export const getTeamMemberById = (id: string): TeamMember | undefined => {
-  return teamMembers.find(member => member.id === id);
+  return teamMembers.find((member) => member.id === id);
 };
 
-export const getTeamMembersByDepartment = (department: string): TeamMember[] => {
-  return teamMembers.filter(member => member.department === department);
+export const getTeamMembersByDepartment = (
+  department: string,
+): TeamMember[] => {
+  return teamMembers.filter((member) => member.department === department);
 };
 
 export const getAllDepartments = (): string[] => {
-  return [...new Set(teamMembers.map(member => member.department))];
+  return [...new Set(teamMembers.map((member) => member.department))];
 };
 
 export const getTeamStats = () => {
   const totalMembers = teamMembers.length;
   const departments = getAllDepartments();
-  const averageExperience = teamMembers.reduce((sum, member) => sum + member.experience, 0) / totalMembers;
-  const totalCertifications = teamMembers.reduce((sum, member) => sum + member.certifications.length, 0);
-  
+  const averageExperience =
+    teamMembers.reduce((sum, member) => sum + member.experience, 0) /
+    totalMembers;
+  const totalCertifications = teamMembers.reduce(
+    (sum, member) => sum + member.certifications.length,
+    0,
+  );
+
   return {
     totalMembers,
     departments: departments.length,
     averageExperience: Math.round(averageExperience * 10) / 10,
     totalCertifications,
-    leadershipCount: getLeadershipTeam().length
+    leadershipCount: getLeadershipTeam().length,
   };
 };
