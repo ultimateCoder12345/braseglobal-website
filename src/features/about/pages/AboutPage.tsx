@@ -48,12 +48,12 @@ const companyValues = [
 
 // Company achievements
 const achievements = [
-  'Over 500+ successful projects delivered',
-  '99.9% client satisfaction rate',
-  '24/7 technical support',
-  'ISO 27001 certified security practices',
-  'Agile development methodology',
-  'Global team of 200+ experts',
+  '80+ engineering team members',
+  'Global presence across Australia, US and India',
+  'End-to-end IT services delivery',
+  'Best-of-breed technologies implementation',
+  'Agile and flexible engagement models',
+  'Multi-industry software development experience',
 ];
 
 // Leadership team data
@@ -91,21 +91,24 @@ export const AboutPage: React.FC = () => {
               gutterBottom
               sx={{ fontWeight: 'bold', color: 'primary.main' }}
             >
-              About BraseTech
+              About Brase Technologies
             </Typography>
             <Typography variant="h5" color="text.secondary" paragraph>
-              Transforming businesses through innovative technology solutions
+              Innovative IT consulting and recruitment firm
             </Typography>
             <Typography variant="body1" paragraph>
-              Founded in 2010, BraseTech has been at the forefront of digital transformation,
-              helping businesses leverage technology to achieve their goals. We combine deep
-              technical expertise with industry knowledge to deliver solutions that drive
-              real business value.
+              Brase Technologies is an innovative IT consulting and recruitment firm with around 80+ engineering team 
+              headquartered in Sydney, Australia and offices in Melbourne, US and offshore development centers in 
+              Hyderabad, India. We provide bespoke solutions, quality manpower across industries and domains.
             </Typography>
             <Typography variant="body1">
-              Our mission is to empower organizations with cutting-edge technology solutions
-              that enhance efficiency, drive growth, and create competitive advantages in
-              today's digital landscape.
+              Brase Tech services the information technology requirements of companies by using best-of-breed 
+              technologies and flexible engagement models. We offer end-to-end IT services that can be quickly 
+              built and deployed to suit the client's unique industry requirements. We offer IT services that 
+              are highly agile and help clients respond quickly to changes in business dynamics. Our software 
+              development experience in multiple industries has enabled us to develop cloud softwares, mobile 
+              applications, CRM portals, workflow automation, large scale e-commerce applications, data analytics, 
+              business intelligence and artificial intelligence solutions.
             </Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
@@ -289,8 +292,8 @@ export const AboutPage: React.FC = () => {
             Ready to Transform Your Business?
           </Typography>
           <Typography variant="body1" sx={{ mb: 3, maxWidth: 600, mx: 'auto' }}>
-            Let's discuss how our expertise can help you achieve your technology goals
-            and drive your business forward.
+            Let's discuss how our bespoke solutions and quality engineering team can help 
+            you achieve your technology goals with our flexible engagement models.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
