@@ -1,20 +1,14 @@
-
 import React from "react";
-import { 
-  Box, 
-  Typography, 
-  Container, 
-  Grid, 
-  Link, 
-  IconButton 
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Link,
+  IconButton,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import {
-  LinkedIn,
-  Twitter,
-  Instagram,
-  YouTube,
-} from "@mui/icons-material";
+import { LinkedIn, Twitter, Instagram, YouTube } from "@mui/icons-material";
 
 // Upper Footer Component
 export const UpperFooter: React.FC = () => {
@@ -46,23 +40,25 @@ export const UpperFooter: React.FC = () => {
                 Brase Tech
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Brase Technologies is a niche IT Consulting firm based in Sydney, Australia with offices in Melbourne, US and development centres in Hyderabad, India
+                Brase Technologies is a niche IT Consulting firm based in
+                Sydney, Australia with offices in Melbourne, US and development
+                centres in Hyderabad, India
               </Typography>
             </Box>
-            
+
             {/* Social Media Icons */}
-            <Box sx={{ display: 'flex', gap: 1 }}>
+            <Box sx={{ display: "flex", gap: 1 }}>
               <IconButton
                 component="a"
                 href="https://linkedin.com/company/brasetech"
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{ 
-                  bgcolor: '#0077B5', 
-                  color: 'white',
-                  '&:hover': { bgcolor: '#005582' },
+                sx={{
+                  bgcolor: "#0077B5",
+                  color: "white",
+                  "&:hover": { bgcolor: "#005582" },
                   width: 32,
-                  height: 32
+                  height: 32,
                 }}
               >
                 <LinkedIn fontSize="small" />
@@ -72,12 +68,12 @@ export const UpperFooter: React.FC = () => {
                 href="https://twitter.com/brasetech"
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{ 
-                  bgcolor: '#1DA1F2', 
-                  color: 'white',
-                  '&:hover': { bgcolor: '#0d8bd9' },
+                sx={{
+                  bgcolor: "#1DA1F2",
+                  color: "white",
+                  "&:hover": { bgcolor: "#0d8bd9" },
                   width: 32,
-                  height: 32
+                  height: 32,
                 }}
               >
                 <Twitter fontSize="small" />
@@ -87,12 +83,12 @@ export const UpperFooter: React.FC = () => {
                 href="https://instagram.com/brasetech"
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{ 
-                  bgcolor: '#E4405F', 
-                  color: 'white',
-                  '&:hover': { bgcolor: '#d62d20' },
+                sx={{
+                  bgcolor: "#E4405F",
+                  color: "white",
+                  "&:hover": { bgcolor: "#d62d20" },
                   width: 32,
-                  height: 32
+                  height: 32,
                 }}
               >
                 <Instagram fontSize="small" />
@@ -102,12 +98,12 @@ export const UpperFooter: React.FC = () => {
                 href="https://youtube.com/brasetech"
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{ 
-                  bgcolor: '#FF0000', 
-                  color: 'white',
-                  '&:hover': { bgcolor: '#cc0000' },
+                sx={{
+                  bgcolor: "#FF0000",
+                  color: "white",
+                  "&:hover": { bgcolor: "#cc0000" },
                   width: 32,
-                  height: 32
+                  height: 32,
                 }}
               >
                 <YouTube fontSize="small" />
@@ -117,26 +113,28 @@ export const UpperFooter: React.FC = () => {
 
           {/* Navigation Links Section */}
           <Grid item xs={12} md={6}>
-            <Box sx={{ 
-              display: 'flex', 
-              flexDirection: { xs: 'column', sm: 'row' },
-              gap: { xs: 3, sm: 4 },
-              justifyContent: 'space-between'
-            }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                gap: { xs: 3, sm: 4 },
+                justifyContent: "space-between",
+              }}
+            >
               {/* Services */}
               <Box sx={{ flex: 1 }}>
                 <Typography
                   variant="h6"
-                  sx={{ 
-                    fontWeight: "bold", 
-                    color: "#1A4D8C", 
+                  sx={{
+                    fontWeight: "bold",
+                    color: "#1A4D8C",
                     mb: 2,
-                    display: 'inline-block'
+                    display: "inline-block",
                   }}
                 >
                   SERVICES
                 </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
                   <Link
                     component={RouterLink}
                     to="/services/0"
@@ -198,16 +196,16 @@ export const UpperFooter: React.FC = () => {
               <Box sx={{ flex: 1 }}>
                 <Typography
                   variant="h6"
-                  sx={{ 
-                    fontWeight: "bold", 
-                    color: "#1A4D8C", 
+                  sx={{
+                    fontWeight: "bold",
+                    color: "#1A4D8C",
                     mb: 2,
-                    display: 'inline-block'
+                    display: "inline-block",
                   }}
                 >
                   QUICK LINKS
                 </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
                   <Link
                     component={RouterLink}
                     to="/about"
@@ -216,6 +214,15 @@ export const UpperFooter: React.FC = () => {
                     variant="body2"
                   >
                     About Us
+                  </Link>
+                  <Link
+                    component={RouterLink}
+                    to="/case-studies"
+                    color="text.secondary"
+                    underline="hover"
+                    variant="body2"
+                  >
+                    Case Studies
                   </Link>
                   <Link
                     component={RouterLink}
@@ -253,19 +260,16 @@ export const UpperFooter: React.FC = () => {
           <Grid item xs={12} md={3}>
             <Typography
               variant="h6"
-              sx={{ 
-                fontWeight: "bold", 
-                color: "#1A4D8C", 
+              sx={{
+                fontWeight: "bold",
+                color: "#1A4D8C",
                 mb: 2,
-                display: 'inline-block'
+                display: "inline-block",
               }}
             >
               HEAD OFFICE
             </Typography>
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: "bold", mb: 1 }}
-            >
+            <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
               SYDNEY
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
@@ -306,11 +310,7 @@ export const LowerFooter: React.FC = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Typography
-          variant="body2"
-          align="center"
-          sx={{ color: "white" }}
-        >
+        <Typography variant="body2" align="center" sx={{ color: "white" }}>
           © 2024 Brase Technologies Pty Ltd - All Rights Reserved
         </Typography>
       </Container>

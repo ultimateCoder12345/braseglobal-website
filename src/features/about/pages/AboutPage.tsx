@@ -108,7 +108,7 @@ export const AboutPage: React.FC = () => {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
-              src="src/assets/images/AboutBrase1.jpg"
+              src="src/assets/images/About-us-image.png"
               alt="About BraseTech"
               sx={{
                 width: "100%",
