@@ -85,11 +85,11 @@ export const AboutPage: React.FC = () => {
               Innovative IT consulting
             </Typography>
             <Typography variant="body1" paragraph>
-              Brase Technologies is an innovative IT consulting and recruitment
-              firm with around 80+ engineering team headquartered in Sydney,
-              Australia and offices in Melbourne, US and offshore development
-              centers in Hyderabad, India. We provide bespoke solutions, quality
-              manpower across industries and domains.
+              Brase Technologies is an innovative IT consulting firm with around
+              80+ engineering team headquartered in Sydney, Australia and
+              offices in Melbourne, US and offshore development centers in
+              Hyderabad, India. We provide bespoke solutions, quality manpower
+              across industries and domains.
             </Typography>
             <Typography variant="body1">
               Brase Tech services the information technology requirements of
@@ -108,7 +108,7 @@ export const AboutPage: React.FC = () => {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
-              src="/api/placeholder/600/400"
+              src="src/assets/images/AboutBrase1.jpg"
               alt="About BraseTech"
               sx={{
                 width: "100%",
@@ -198,7 +198,7 @@ export const AboutPage: React.FC = () => {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
-              src="/api/placeholder/600/400"
+              src="src/assets/images/Achivements1.jpg"
               alt="Our Achievements"
               sx={{
                 width: "100%",
@@ -258,25 +258,32 @@ export const AboutPage: React.FC = () => {
                       variant="outlined"
                       sx={{ mb: 2 }}
                     />
-                    <Typography variant="body2" color="text.secondary" paragraph>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      paragraph
+                    >
                       {leader.bio}
                     </Typography>
                     <Box sx={{ mt: 2 }}>
                       <Typography variant="caption" color="text.secondary">
-                        {leader.experience} years experience • {leader.certifications.length} certifications
+                        {leader.experience} years experience •{" "}
+                        {leader.certifications.length} certifications
                       </Typography>
                     </Box>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                    <Box
+                      sx={{ display: "flex", justifyContent: "center", mt: 2 }}
+                    >
                       <IconButton
                         component="a"
-                        href={`https://linkedin.com/in/${leader.name.toLowerCase().replace(' ', '-')}`}
+                        href={`${leader.linkedin}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        sx={{ 
-                          color: '#0077B5',
-                          '&:hover': { 
-                            bgcolor: 'rgba(0, 119, 181, 0.1)' 
-                          }
+                        sx={{
+                          color: "#0077B5",
+                          "&:hover": {
+                            bgcolor: "rgba(0, 119, 181, 0.1)",
+                          },
                         }}
                       >
                         <LinkedIn />

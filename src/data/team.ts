@@ -24,9 +24,9 @@ export const teamMembers: TeamMember[] = [
     position: "CEO &  Director of Operations",
     department: "Leadership",
     bio: "As CEO, Kranthi sets the company's vision and strategic direction. As Director of Operations, they ensure efficient and effective execution across all departments.",
-    avatar: "/api/placeholder/300/300",
+    avatar: "src/assets/images/CEO Image.jpg",
     email: "kranthi.chintham@brasetech.com",
-    linkedin: "https://linkedin.com/in/kranthichintham",
+    linkedin: "https://www.linkedin.com/in/kranthi-chintham-3308867/",
     twitter: "https://twitter.com/kranthichintham",
     skills: [
       "Strategic Planning",
@@ -46,7 +46,7 @@ export const teamMembers: TeamMember[] = [
     position: "Head of Finance",
     department: "Leadership",
     bio: "Sravanthi leads our Finance Team and ensures financial health and compliance. She has extensive experience in financial planning, analysis, and reporting.",
-    avatar: "/api/placeholder/300/300",
+    avatar: "src/assets/images/FinanceHead.png",
     email: "sravanthi.chintham@brasetech.com",
     linkedin: "https://www.linkedin.com/in/sravanthi-c-488a02210/",
     skills: [
