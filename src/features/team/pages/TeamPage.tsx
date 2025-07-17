@@ -71,7 +71,7 @@ export const TeamPage: React.FC = () => {
 
         {/* Team Stats */}
         <Grid container spacing={4} sx={{ mb: 8 }}>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
               <Group color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h4" color="primary.main" fontWeight="bold">
@@ -82,7 +82,7 @@ export const TeamPage: React.FC = () => {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
               <TrendingUp color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h4" color="primary.main" fontWeight="bold">
@@ -93,7 +93,7 @@ export const TeamPage: React.FC = () => {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
               <Award color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h4" color="primary.main" fontWeight="bold">
@@ -104,7 +104,7 @@ export const TeamPage: React.FC = () => {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
               <Star color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h4" color="primary.main" fontWeight="bold">
@@ -137,7 +137,7 @@ export const TeamPage: React.FC = () => {
         {/* Team Members Grid */}
         <Grid container spacing={4} sx={{ mb: 8 }}>
           {filteredTeamMembers.map((member) => (
-            <Grid item xs={12} sm={6} md={4} key={member.id}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={member.id}>
               <Card
                 component="a"
                 href={`/team/${member.id}`}

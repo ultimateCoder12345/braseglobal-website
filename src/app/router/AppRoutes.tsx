@@ -6,6 +6,9 @@ import ServicesPage from "../../features/services/pages/ServicesPage";
 import ContactPage from "../../features/contact/pages/ContactPage";
 import CareersPage from "../../features/careers/pages/CareersPage";
 import CaseStudiesPage from "../../features/caseStudies/pages/CaseStudiesPage";
+import CaseStudyDetailsPage from "../../features/caseStudies/pages/CaseStudyDetailsPage";
+import TeamPage from "../../features/team/pages/TeamPage";
+import TeamMemberDetailsPage from "../../features/team/pages/TeamMemberDetailsPage";
 // import ClientsPage from "../../features/clients/pages/ClientsPage";
 
 const AppRoutes = () => {
@@ -17,6 +20,9 @@ const AppRoutes = () => {
         <Route path="/services" element={<ServicesPage />} />
         {/* <Route path="/clients" element={<ClientsPage />} /> */}
         <Route path="/case-studies" element={<CaseStudiesPage />} />
+        <Route path="/case-studies/:id" element={<CaseStudyDetailsPage />} />
+        <Route path="/team" element={<TeamPage />} />
+        <Route path="/team/:id" element={<TeamMemberDetailsPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

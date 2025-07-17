@@ -33,25 +33,19 @@ const RecentCaseStudies: React.FC = () => {
 
         <Grid container spacing={4}>
           {featuredCaseStudies.map((caseStudy) => (
-            <Grid size={{ xs: 12, md: 4 }} key={caseStudy.id}>
+            <Grid item xs={12} md={4} key={caseStudy.id}>
               <Card
-                  key={caseStudy.id}
-                  component="a"
-                  href={`/case-studies/${caseStudy.id}`}
-                  sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                    cursor: 'pointer',
-                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: 6,
-                    },
-                  }}
-                >
+                sx={{
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: 6,
+                  },
+                }}
+              >
                 <CardMedia
                   component="img"
                   height="200"
