@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
     Box,
@@ -28,7 +27,7 @@ import {
     Business,
     Support,
 } from "@mui/icons-material";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import CustomMap from "../../homepage/components/CustomMap/CustomMap";
 
 // Contact information data
@@ -75,20 +74,20 @@ const offices = [
         city: "Hyderabad",
         address: "manjeera trinity corporate ,kphb phase 1,kukatpally",
         phone: "+91 77022 47788",
-        email: "kranthi@brasetech.com",
+        //email: "kranthi@brasetech.com",
         isHeadquarters: false,
     },
     {
         city: "Melbourne",
         address: "Collins Street, VIC 3000",
-        email: "kranthi@brasetech.com",
+        //email: "kranthi@brasetech.com",
         isHeadquarters: false,
     },
     {
         city: "US Office",
         address: "16854 Table Rock Dr, Frisco, Texas 75035",
         phone: "+44 20 7123 4567",
-        email: "kranthi@brasetech.com",
+        //email: "kranthi@brasetech.com",
         isHeadquarters: false,
     },
 ];
@@ -139,7 +138,7 @@ export const ContactPage: React.FC = () => {
         try {
             // Initialize EmailJS (replace with your actual service details)
             emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-            
+
             const templateParams = {
                 to_name: "Brase Tech Team",
                 from_name: `${formData.firstName} ${formData.lastName}`,
@@ -152,9 +151,9 @@ export const ContactPage: React.FC = () => {
             };
 
             await emailjs.send(
-                'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-                'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-                templateParams
+                "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+                "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+                templateParams,
             );
 
             // Reset form on success
@@ -171,7 +170,7 @@ export const ContactPage: React.FC = () => {
 
             setSubmitStatus("success");
         } catch (error) {
-            console.error('EmailJS Error:', error);
+            console.error("EmailJS Error:", error);
             setSubmitStatus("error");
         } finally {
             setIsSubmitting(false);
