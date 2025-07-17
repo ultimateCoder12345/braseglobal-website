@@ -208,7 +208,7 @@ export const ContactPage: React.FC = () => {
             <Container maxWidth="lg" sx={{ mb: 8 }}>
                 <Grid container spacing={4}>
                     {contactInfo.map((info, index) => (
-                        <Grid item xs={12} sm={6} md={3} key={index}>
+                        <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
                             <Card
                                 sx={{
                                     height: "100%",
@@ -267,7 +267,7 @@ export const ContactPage: React.FC = () => {
             <Container maxWidth="lg" sx={{ py: 4 }}>
                 <Grid container spacing={6}>
                     {/* Contact Form */}
-                    <Grid item xs={12} md={8}>
+                    <Grid size={{ xs: 12, md: 8 }}>
                         <Paper elevation={3} sx={{ p: 4 }}>
                             <Typography
                                 variant="h4"
@@ -297,7 +297,7 @@ export const ContactPage: React.FC = () => {
 
                             <Box component="form" onSubmit={handleSubmit}>
                                 <Grid container spacing={3}>
-                                    <Grid item xs={12} sm={6}>
+                                    <Grid size={{ xs: 12, sm: 6 }}>
                                         <TextField
                                             fullWidth
                                             label="First Name"
@@ -308,7 +308,7 @@ export const ContactPage: React.FC = () => {
                                             variant="outlined"
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={6}>
+                                    <Grid size={{ xs: 12, sm: 6 }}>
                                         <TextField
                                             fullWidth
                                             label="Last Name"
@@ -319,7 +319,7 @@ export const ContactPage: React.FC = () => {
                                             variant="outlined"
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={6}>
+                                    <Grid size={{ xs: 12, sm: 6 }}>
                                         <TextField
                                             fullWidth
                                             label="Email Address"
@@ -331,7 +331,7 @@ export const ContactPage: React.FC = () => {
                                             variant="outlined"
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={6}>
+                                    <Grid size={{ xs: 12, sm: 6 }}>
                                         <TextField
                                             fullWidth
                                             label="Phone Number"
@@ -341,7 +341,7 @@ export const ContactPage: React.FC = () => {
                                             variant="outlined"
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={6}>
+                                    <Grid size={{ xs: 12, sm: 6 }}>
                                         <TextField
                                             fullWidth
                                             label="Company"
@@ -351,7 +351,7 @@ export const ContactPage: React.FC = () => {
                                             variant="outlined"
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={6}>
+                                    <Grid size={{ xs: 12, sm: 6 }}>
                                         <TextField
                                             fullWidth
                                             label="Service Type"
@@ -388,7 +388,7 @@ export const ContactPage: React.FC = () => {
                                             </option>
                                         </TextField>
                                     </Grid>
-                                    <Grid item xs={12}>
+                                    <Grid size={{ xs: 12 }}>
                                         <TextField
                                             fullWidth
                                             label="Subject"
@@ -399,7 +399,7 @@ export const ContactPage: React.FC = () => {
                                             variant="outlined"
                                         />
                                     </Grid>
-                                    <Grid item xs={12}>
+                                    <Grid size={{ xs: 12 }}>
                                         <TextField
                                             fullWidth
                                             label="Message"
@@ -413,7 +413,7 @@ export const ContactPage: React.FC = () => {
                                             placeholder="Tell us about your project requirements, timeline, and any specific needs..."
                                         />
                                     </Grid>
-                                    <Grid item xs={12}>
+                                    <Grid size={{ xs: 12 }}>
                                         <Button
                                             type="submit"
                                             variant="contained"
@@ -441,7 +441,7 @@ export const ContactPage: React.FC = () => {
                     </Grid>
 
                     {/* Contact Information Sidebar */}
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{ xs: 12, md: 4 }}>
                         <Box sx={{ position: "sticky", top: 100 }}>
                             {/* Quick Contact */}
                             <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
@@ -536,7 +536,7 @@ export const ContactPage: React.FC = () => {
                     </Typography>
                     <Grid container spacing={4}>
                         {offices.map((office, index) => (
-                            <Grid item xs={12} md={3} key={index}>
+                            <Grid size={{ xs: 12, md: 3 }} key={index}>
                                 <Card
                                     sx={{
                                         height: "100%",
