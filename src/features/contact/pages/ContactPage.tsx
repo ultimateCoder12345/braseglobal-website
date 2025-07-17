@@ -27,6 +27,7 @@ import {
     Business,
     Support,
 } from "@mui/icons-material";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import CustomMap from "../../homepage/components/CustomMap/CustomMap";
 

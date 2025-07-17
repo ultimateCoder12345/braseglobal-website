@@ -61,7 +61,9 @@ const RecentCaseStudies: React.FC = () => {
                   p: 3, 
                   display: 'flex', 
                   flexDirection: 'column',
-                  height: '100%'
+                  justifyContent: 'space-between',
+                  height: '100%',
+                  minHeight: '400px'
                 }}>
                   <Box sx={{ 
                     display: 'flex', 
@@ -83,40 +85,43 @@ const RecentCaseStudies: React.FC = () => {
                     {caseStudy.client}
                   </Typography>
 
-                  <Typography variant="body2" color="text.secondary" paragraph>
-                    {caseStudy.summary}
-                  </Typography>
+                  <Box sx={{ flexGrow: 1 }}>
+                    <Typography variant="body2" color="text.secondary" paragraph sx={{ mb: 2 }}>
+                      {caseStudy.summary}
+                    </Typography>
 
-                  <Box sx={{ 
-                    display: 'flex', 
-                    flexWrap: 'wrap', 
-                    gap: 0.5, 
-                    mb: 2,
-                    minHeight: '32px'
-                  }}>
-                    {caseStudy.technologies.slice(0, 3).map((tech, index) => (
-                      <Chip
-                        key={index}
-                        label={tech}
-                        size="small"
-                        variant="outlined"
-                      />
-                    ))}
-                    {caseStudy.technologies.length > 3 && (
-                      <Chip
-                        label={`+${caseStudy.technologies.length - 3} more`}
-                        size="small"
-                        variant="outlined"
-                      />
-                    )}
+                    <Box sx={{ 
+                      display: 'flex', 
+                      flexWrap: 'wrap', 
+                      gap: 0.5, 
+                      mb: 2,
+                      minHeight: '32px'
+                    }}>
+                      {caseStudy.technologies.slice(0, 3).map((tech, index) => (
+                        <Chip
+                          key={index}
+                          label={tech}
+                          size="small"
+                          variant="outlined"
+                        />
+                      ))}
+                      {caseStudy.technologies.length > 3 && (
+                        <Chip
+                          label={`+${caseStudy.technologies.length - 3} more`}
+                          size="small"
+                          variant="outlined"
+                        />
+                      )}
+                    </Box>
                   </Box>
 
                   <Box sx={{ 
                     display: 'flex', 
                     justifyContent: 'space-between', 
-                    alignItems: 'center', 
+                    alignItems: 'center',
                     mt: 'auto',
-                    pt: 1
+                    pt: 2,
+                    borderTop: '1px solid #f0f0f0'
                   }}>
                     <Typography variant="caption" color="text.secondary">
                       {caseStudy.duration} • {caseStudy.teamSize} team members
