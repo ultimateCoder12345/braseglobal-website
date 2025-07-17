@@ -1,12 +1,16 @@
-import Box from "@mui/material/Box";
+import React from "react";
+import { Box } from "@mui/material";
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
+import { useScrollToTop } from "../../hooks/useScrollToTop";
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
-export const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  useScrollToTop();
+
   return (
     <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Header />
