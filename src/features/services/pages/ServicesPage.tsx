@@ -100,8 +100,6 @@ export const ServicesPage: React.FC = () => {
                 }}
               >
                 <Card
-                  component="a"
-                  href={`/services/${index}`}
                   sx={{
                     height: "100%",
                     width: "100%",
@@ -110,7 +108,6 @@ export const ServicesPage: React.FC = () => {
                     flexDirection: "column",
                     textDecoration: "none",
                     color: "inherit",
-                    cursor: "pointer",
                     transition:
                       "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
                     "&:hover": {
@@ -132,7 +129,12 @@ export const ServicesPage: React.FC = () => {
                   >
                     <IconComponent size={80} />
                   </CardMedia>
-                  <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                  <CardContent sx={{ 
+                    flexGrow: 1, 
+                    p: 3,
+                    display: "flex",
+                    flexDirection: "column"
+                  }}>
                     <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                       <Box sx={{ color: "primary.main", mr: 1 }}>
                         <IconComponent size={24} />
@@ -153,7 +155,7 @@ export const ServicesPage: React.FC = () => {
                     <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
                       Key Features:
                     </Typography>
-                    <List dense>
+                    <List dense sx={{ flexGrow: 1 }}>
                       {service.features.map((feature, featureIndex) => (
                         <ListItem key={featureIndex} sx={{ px: 0, py: 0.5 }}>
                           <ListItemIcon sx={{ minWidth: 32 }}>
@@ -172,9 +174,8 @@ export const ServicesPage: React.FC = () => {
                         variant="contained"
                         fullWidth
                         endIcon={<ArrowForward />}
-                        sx={{ mt: 1 }}
                         component={RouterLink}
-                        href={`/services/${index}`}
+                        to={`/services/${index}`}
                       >
                         Learn More
                       </Button>

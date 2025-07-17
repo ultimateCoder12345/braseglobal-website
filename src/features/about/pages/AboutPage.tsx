@@ -72,7 +72,7 @@ export const AboutPage: React.FC = () => {
       {/* Hero Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Grid container spacing={6} alignItems="center">
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid xs={12} md={6}>
             <Typography
               variant="h2"
               component="h1"
@@ -105,7 +105,7 @@ export const AboutPage: React.FC = () => {
               solutions.
             </Typography>
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid xs={12} md={6}>
             <Box
               component="img"
               src="src/assets/images/About-us-image.png"
@@ -134,7 +134,7 @@ export const AboutPage: React.FC = () => {
           </Typography>
           <Grid container spacing={4}>
             {companyValues.map((value, index) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+              <Grid xs={12} sm={6} md={3} key={index}>
                 <Card
                   sx={{
                     height: "100%",
@@ -173,7 +173,7 @@ export const AboutPage: React.FC = () => {
       {/* Achievements Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Grid container spacing={6} alignItems="center">
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid xs={12} md={6}>
             <Typography variant="h3" component="h2" gutterBottom>
               Our Achievements
             </Typography>
@@ -195,7 +195,7 @@ export const AboutPage: React.FC = () => {
               </List>
             </Paper>
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid xs={12} md={6}>
             <Box
               component="img"
               src="src/assets/images/Achivements1.jpg"
@@ -224,7 +224,7 @@ export const AboutPage: React.FC = () => {
           </Typography>
           <Grid container spacing={4}>
             {leadership.map((leader) => (
-              <Grid size={{ xs: 12, md: 4 }} key={leader.id}>
+              <Grid xs={12} md={4} key={leader.id}>
                 <Card
                   sx={{
                     textAlign: "center",

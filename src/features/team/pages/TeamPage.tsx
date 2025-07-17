@@ -31,17 +31,18 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // FIX: Correct i
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import GroupIcon from '@mui/icons-material/Group';
 
-import { teamMembers, getTeamStats, getAllDepartments, getTeamMembersByDepartment } from '../../../data/team';
+import { teamMembers, getTeamStats, getAllDepartments, getTeamMembersByDepartment, getLeadershipTeam } from '../../../data/team';
 
 export const TeamPage: React.FC = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('All');
   const departments = ['All', ...getAllDepartments()];
   const stats = getTeamStats();
 
+  const leadershipTeam = getLeadershipTeam();
   const filteredTeamMembers =
     selectedDepartment === 'All'
-      ? teamMembers
-      : getTeamMembersByDepartment(selectedDepartment);
+      ? leadershipTeam
+      : leadershipTeam.filter(member => member.department === selectedDepartment);
 
   const handleDepartmentChange = (_event: React.SyntheticEvent, newValue: string) => {
     setSelectedDepartment(newValue);
@@ -71,49 +72,47 @@ export const TeamPage: React.FC = () => {
 
         {/* Team Stats */}
         <Grid container spacing={4} sx={{ mb: 8 }}>
-          {/* FIX: Changed `size` prop to `xs`, `sm`, `md` and added `item` prop */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid xs={12} sm={6} md={3}>
             <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
               <GroupIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h4" color="primary.main" fontWeight="bold">
-                {stats.totalMembers}+
+                {leadershipTeam.length}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Team Members
+                Leadership Team
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid xs={12} sm={6} md={3}>
             <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
               <TrendingUpIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h4" color="primary.main" fontWeight="bold">
-                {stats.averageExperience}
+                {Math.round(leadershipTeam.reduce((sum, member) => sum + member.experience, 0) / leadershipTeam.length)}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Years Average Experience
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid xs={12} sm={6} md={3}>
             <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
-              {/* FIX: Used correct icon name */}
               <EmojiEventsIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h4" color="primary.main" fontWeight="bold">
-                {stats.totalCertifications}+
+                {leadershipTeam.reduce((sum, member) => sum + member.certifications.length, 0)}+
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Professional Certifications
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid xs={12} sm={6} md={3}>
             <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
               <StarIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h4" color="primary.main" fontWeight="bold">
-                {stats.departments}
+                {new Set(leadershipTeam.map(member => member.department)).size}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Departments
+                Leadership Departments
               </Typography>
             </Paper>
           </Grid>
@@ -139,8 +138,7 @@ export const TeamPage: React.FC = () => {
         {/* Team Members Grid */}
         <Grid container spacing={4} sx={{ mb: 8 }}>
           {filteredTeamMembers.map((member) => (
-            // FIX: Changed `size` prop to `xs`, `sm`, `md` and added `item` prop
-            <Grid item xs={12} sm={6} md={4} key={member.id}>
+            <Grid xs={12} sm={6} md={4} key={member.id}>
               {/* FIX: Wrap Card with RouterLink to prevent page reloads */}
               <RouterLink to={`/team/${member.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <Card
