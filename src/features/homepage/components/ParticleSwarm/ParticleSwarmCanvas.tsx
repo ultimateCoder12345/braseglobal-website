@@ -27,10 +27,25 @@ const ParticleBackground: React.FC = () => {
     currentMount.appendChild(renderer.domElement);
 
     // Particles
-    const particlesCount = 3000;
+    const particlesCount = 4000;
     const positions = new Float32Array(particlesCount * 3);
-    for (let i = 0; i < particlesCount * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 15;
+    const colors = new Float32Array(particlesCount * 3);
+    
+    for (let i = 0; i < particlesCount * 3; i += 3) {
+      // Position
+      positions[i] = (Math.random() - 0.5) * 20;
+      positions[i + 1] = (Math.random() - 0.5) * 20;
+      positions[i + 2] = (Math.random() - 0.5) * 20;
+      
+      // Colors - create a gradient effect
+      const hue = Math.random() * 0.3 + 0.5; // Blue to cyan range
+      const saturation = 0.8 + Math.random() * 0.2;
+      const lightness = 0.6 + Math.random() * 0.4;
+      
+      const color = new THREE.Color().setHSL(hue, saturation, lightness);
+      colors[i] = color.r;
+      colors[i + 1] = color.g;
+      colors[i + 2] = color.b;
     }
 
     const particlesGeometry = new THREE.BufferGeometry();
@@ -38,14 +53,19 @@ const ParticleBackground: React.FC = () => {
       "position",
       new THREE.BufferAttribute(positions, 3)
     );
+    particlesGeometry.setAttribute(
+      "color",
+      new THREE.BufferAttribute(colors, 3)
+    );
 
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.02,
-      color: new THREE.Color("#1976d2"),
+      size: 0.04,
+      vertexColors: true,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.8,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
+      sizeAttenuation: true,
     });
 
     const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -61,10 +81,30 @@ const ParticleBackground: React.FC = () => {
     };
     document.addEventListener("mousemove", onMouseMove);
 
+    let time = 0;
     const animate = () => {
       requestAnimationFrame(animate);
-      particleSystem.rotation.y += 0.0008;
-      particleSystem.rotation.x += 0.0003;
+      time += 0.01;
+      
+      // Rotate particle system
+      particleSystem.rotation.y += 0.001;
+      particleSystem.rotation.x += 0.0005;
+      
+      // Add subtle floating motion
+      particleSystem.position.y = Math.sin(time * 0.5) * 0.2;
+      
+      // Update colors for breathing effect
+      const colorAttribute = particlesGeometry.getAttribute('color');
+      for (let i = 0; i < colorAttribute.count; i++) {
+        const i3 = i * 3;
+        const wave = Math.sin(time + i * 0.01) * 0.1 + 0.9;
+        colorAttribute.array[i3] *= wave;
+        colorAttribute.array[i3 + 1] *= wave;
+        colorAttribute.array[i3 + 2] *= wave;
+      }
+      colorAttribute.needsUpdate = true;
+      
+      // Mouse interaction
       camera.position.x += (mouseX - camera.position.x) * 0.03;
       camera.position.y += (-mouseY - camera.position.y) * 0.03;
       camera.lookAt(scene.position);
@@ -98,7 +138,7 @@ const ParticleBackground: React.FC = () => {
         width: "100vw",
         height: "100vh",
         zIndex: -1,
-        background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+        background: "linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 25%, #ddeeff 50%, #d4e9ff 75%, #cce4ff 100%)",
         pointerEvents: "none",
       }}
     />
