@@ -32,6 +32,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import GroupIcon from '@mui/icons-material/Group';
 
 import { teamMembers, getTeamStats, getAllDepartments, getTeamMembersByDepartment, getLeadershipTeam } from '../../../data/team';
+import TeamAnalytics from '../components/TeamAnalytics';
 
 export const TeamPage: React.FC = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('All');
@@ -72,46 +73,102 @@ export const TeamPage: React.FC = () => {
 
         {/* Team Stats */}
         <Grid container spacing={4} sx={{ mb: 8 }}>
-          <Grid xs={12} sm={6} md={3}>
-            <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
-              <GroupIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
-              <Typography variant="h4" color="primary.main" fontWeight="bold">
+          <Grid size={12} sm={6} md={3}>
+            <Paper 
+              elevation={3} 
+              sx={{ 
+                p: 4, 
+                textAlign: 'center',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                color: 'white',
+                borderRadius: 3,
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 8
+                }
+              }}
+            >
+              <GroupIcon sx={{ fontSize: 50, mb: 2, opacity: 0.9 }} />
+              <Typography variant="h3" fontWeight="bold" sx={{ mb: 1 }}>
                 {leadershipTeam.length}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body1" sx={{ opacity: 0.9 }}>
                 Leadership Team
               </Typography>
             </Paper>
           </Grid>
-          <Grid xs={12} sm={6} md={3}>
-            <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
-              <TrendingUpIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
-              <Typography variant="h4" color="primary.main" fontWeight="bold">
+          <Grid size={12} sm={6} md={3}>
+            <Paper 
+              elevation={3} 
+              sx={{ 
+                p: 4, 
+                textAlign: 'center',
+                background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                color: 'white',
+                borderRadius: 3,
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 8
+                }
+              }}
+            >
+              <TrendingUpIcon sx={{ fontSize: 50, mb: 2, opacity: 0.9 }} />
+              <Typography variant="h3" fontWeight="bold" sx={{ mb: 1 }}>
                 {Math.round(leadershipTeam.reduce((sum, member) => sum + member.experience, 0) / leadershipTeam.length)}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body1" sx={{ opacity: 0.9 }}>
                 Years Average Experience
               </Typography>
             </Paper>
           </Grid>
-          <Grid xs={12} sm={6} md={3}>
-            <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
-              <EmojiEventsIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
-              <Typography variant="h4" color="primary.main" fontWeight="bold">
+          <Grid size={12} sm={6} md={3}>
+            <Paper 
+              elevation={3} 
+              sx={{ 
+                p: 4, 
+                textAlign: 'center',
+                background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                color: 'white',
+                borderRadius: 3,
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 8
+                }
+              }}
+            >
+              <EmojiEventsIcon sx={{ fontSize: 50, mb: 2, opacity: 0.9 }} />
+              <Typography variant="h3" fontWeight="bold" sx={{ mb: 1 }}>
                 {leadershipTeam.reduce((sum, member) => sum + member.certifications.length, 0)}+
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body1" sx={{ opacity: 0.9 }}>
                 Professional Certifications
               </Typography>
             </Paper>
           </Grid>
-          <Grid xs={12} sm={6} md={3}>
-            <Paper elevation={2} sx={{ p: 3, textAlign: 'center' }}>
-              <StarIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
-              <Typography variant="h4" color="primary.main" fontWeight="bold">
+          <Grid size={12} sm={6} md={3}>
+            <Paper 
+              elevation={3} 
+              sx={{ 
+                p: 4, 
+                textAlign: 'center',
+                background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                color: 'white',
+                borderRadius: 3,
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 8
+                }
+              }}
+            >
+              <StarIcon sx={{ fontSize: 50, mb: 2, opacity: 0.9 }} />
+              <Typography variant="h3" fontWeight="bold" sx={{ mb: 1 }}>
                 {new Set(leadershipTeam.map(member => member.department)).size}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body1" sx={{ opacity: 0.9 }}>
                 Leadership Departments
               </Typography>
             </Paper>
@@ -138,7 +195,7 @@ export const TeamPage: React.FC = () => {
         {/* Team Members Grid */}
         <Grid container spacing={4} sx={{ mb: 8 }}>
           {filteredTeamMembers.map((member) => (
-            <Grid xs={12} sm={6} md={4} key={member.id}>
+            <Grid size={12} sm={6} md={4} key={member.id}>
               {/* FIX: Wrap Card with RouterLink to prevent page reloads */}
               <RouterLink to={`/team/${member.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <Card
@@ -146,31 +203,84 @@ export const TeamPage: React.FC = () => {
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                    position: 'relative',
+                    background: 'linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%)',
+                    border: '1px solid rgba(25, 118, 210, 0.08)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: 6,
+                      transform: 'translateY(-12px) scale(1.02)',
+                      boxShadow: '0 20px 40px rgba(25, 118, 210, 0.15)',
+                      '& .member-avatar': {
+                        transform: 'scale(1.1)',
+                      },
+                      '& .member-overlay': {
+                        opacity: 1,
+                      }
                     },
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: 4,
+                      background: 'linear-gradient(90deg, #1976d2, #42a5f5, #1976d2)',
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer 3s ease-in-out infinite',
+                    }
                   }}
                 >
                   <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 3 }}>
-                      <Avatar
-                        src={member.avatar}
-                        alt={member.name}
-                        sx={{ width: 120, height: 120, mb: 2 }}
-                      />
-                      <Typography variant="h6" component="h3" textAlign="center">
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 3, position: 'relative' }}>
+                      <Box sx={{ position: 'relative', mb: 2 }}>
+                        <Avatar
+                          src={member.avatar}
+                          alt={member.name}
+                          className="member-avatar"
+                          sx={{ 
+                            width: 120, 
+                            height: 120,
+                            border: '4px solid',
+                            borderColor: 'primary.main',
+                            boxShadow: '0 8px 32px rgba(25, 118, 210, 0.2)',
+                            transition: 'transform 0.3s ease-in-out',
+                          }}
+                        />
+                        <Box
+                          className="member-overlay"
+                          sx={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            borderRadius: '50%',
+                            background: 'linear-gradient(135deg, rgba(25, 118, 210, 0.2), rgba(66, 165, 245, 0.2))',
+                            opacity: 0,
+                            transition: 'opacity 0.3s ease-in-out',
+                          }}
+                        />
+                      </Box>
+                      <Typography variant="h6" component="h3" textAlign="center" sx={{ fontWeight: 600, mb: 1 }}>
                         {member.name}
                       </Typography>
-                      <Typography variant="body2" color="primary.main" textAlign="center" gutterBottom>
+                      <Typography variant="body2" color="primary.main" textAlign="center" gutterBottom sx={{ fontWeight: 500 }}>
                         {member.position}
                       </Typography>
                       <Chip
                         label={member.department}
                         size="small"
                         color={member.isLeadership ? "secondary" : "primary"}
-                        variant="outlined"
+                        variant="filled"
+                        sx={{
+                          fontWeight: 500,
+                          borderRadius: 2,
+                          '& .MuiChip-label': {
+                            px: 1.5
+                          }
+                        }}
                       />
                     </Box>
 
@@ -298,6 +408,9 @@ export const TeamPage: React.FC = () => {
           </Box>
         </Container>
       </Box>
+      
+      {/* Team Analytics Dashboard */}
+      <TeamAnalytics />
     </Box>
   );
 };
