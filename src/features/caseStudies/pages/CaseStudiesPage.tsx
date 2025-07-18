@@ -9,6 +9,8 @@ import {
   CardMedia,
   Button,
   Chip,
+  TextField,
+  InputAdornment,
   Paper,
   Dialog,
   DialogTitle,
@@ -20,8 +22,6 @@ import {
   ListItemText,
   Tabs,
   Tab,
-  TextField,
-  InputAdornment,
 } from '@mui/material';
 import {
   CheckCircle,
@@ -33,6 +33,7 @@ import {
   Business,
 } from '@mui/icons-material';
 import { caseStudies, getAllIndustries, type CaseStudy } from '../../../data/caseStudies';
+import ParticleBackground from '../../homepage/components/ParticleSwarm/ParticleSwarmCanvas';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -70,7 +71,7 @@ export const CaseStudiesPage: React.FC = () => {
                          study.summary.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesIndustry = selectedIndustry === 'All' || study.industry === selectedIndustry;
     const matchesTab = tabValue === 0 || (tabValue === 1 && study.featured);
-    
+
     return matchesSearch && matchesIndustry && matchesTab;
   });
 
@@ -88,6 +89,7 @@ const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
 
   return (
     <Box sx={{ pt: 10 }}> {/* Account for fixed header */}
+      <ParticleBackground />
       {/* Hero Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Box textAlign="center" sx={{ mb: 8 }}>
@@ -235,15 +237,15 @@ const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
                         <Chip label="Featured" color="secondary" size="small" />
                       )}
                     </Box>
-                    
+
                     <Typography variant="h6" component="h3" gutterBottom>
                       {caseStudy.title}
                     </Typography>
-                    
+
                     <Typography variant="subtitle2" color="primary.main" gutterBottom>
                       {caseStudy.client}
                     </Typography>
-                    
+
                     <Typography variant="body2" color="text.secondary" paragraph>
                       {caseStudy.summary}
                     </Typography>
@@ -312,15 +314,15 @@ const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
                       <Chip label={caseStudy.industry} color="primary" size="small" />
                       <Chip label="Featured" color="secondary" size="small" />
                     </Box>
-                    
+
                     <Typography variant="h6" component="h3" gutterBottom>
                       {caseStudy.title}
                     </Typography>
-                    
+
                     <Typography variant="subtitle2" color="primary.main" gutterBottom>
                       {caseStudy.client}
                     </Typography>
-                    
+
                     <Typography variant="body2" color="text.secondary" paragraph>
                       {caseStudy.summary}
                     </Typography>
@@ -386,25 +388,25 @@ const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
                   style={{ width: '100%', height: 'auto', borderRadius: 8 }}
                 />
               </Box>
-              
+
               <Typography variant="body1" paragraph>
                 {selectedCaseStudy.description}
               </Typography>
-              
+
               <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
                 Challenge:
               </Typography>
               <Typography variant="body2" paragraph>
                 {selectedCaseStudy.challenge}
               </Typography>
-              
+
               <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
                 Solution:
               </Typography>
               <Typography variant="body2" paragraph>
                 {selectedCaseStudy.solution}
               </Typography>
-              
+
               <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
                 Results:
               </Typography>
@@ -418,7 +420,7 @@ const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
                   </ListItem>
                 ))}
               </List>
-              
+
               <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
                 Technologies Used:
               </Typography>
@@ -432,7 +434,7 @@ const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
                   />
                 ))}
               </Box>
-              
+
               <Box sx={{ mt: 3, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
                 <Typography variant="body2" color="text.secondary">
                   <strong>Project Duration:</strong> {selectedCaseStudy.duration} | 

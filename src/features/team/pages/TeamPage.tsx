@@ -98,7 +98,7 @@ export const TeamPage: React.FC = () => {
               </Typography>
             </Paper>
           </Grid>
-          <Grid size={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Paper 
               elevation={3} 
               sx={{ 
@@ -123,7 +123,7 @@ export const TeamPage: React.FC = () => {
               </Typography>
             </Paper>
           </Grid>
-          <Grid size={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Paper 
               elevation={3} 
               sx={{ 
@@ -148,7 +148,7 @@ export const TeamPage: React.FC = () => {
               </Typography>
             </Paper>
           </Grid>
-          <Grid size={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Paper 
               elevation={3} 
               sx={{ 
@@ -408,7 +408,7 @@ export const TeamPage: React.FC = () => {
           </Box>
         </Container>
       </Box>
-      
+
       {/* Team Analytics Dashboard */}
       <TeamAnalytics />
     </Box>

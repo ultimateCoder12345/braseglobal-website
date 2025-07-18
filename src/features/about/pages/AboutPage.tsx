@@ -6,13 +6,13 @@ import {
   Grid,
   Card,
   CardContent,
-  Avatar,
-  Chip,
-  Paper,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Chip,
+  Paper,
+  Avatar,
   IconButton,
 } from "@mui/material";
 import {
@@ -24,6 +24,7 @@ import {
   LinkedIn,
 } from "@mui/icons-material";
 import { getLeadershipTeam } from "../../../data/team";
+import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
 // Company values data
 const companyValues = [
@@ -66,7 +67,9 @@ export const AboutPage: React.FC = () => {
   // Get leadership team from data
   const leadership = getLeadershipTeam();
   return (
-    <Box sx={{ pt: 10 }}>
+    <Box sx={{ position: 'relative', pt: 10 }}>
+      <ParticleBackground />
+      <Box sx={{ position: 'relative', zIndex: 2 }}>
       {" "}
       {/* Account for fixed header */}
       {/* Hero Section */}
@@ -351,6 +354,7 @@ export const AboutPage: React.FC = () => {
           </Box>
         </Box>
       </Container>
+      </Box>
     </Box>
   );
 };

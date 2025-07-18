@@ -351,7 +351,7 @@ export const CareersPage: React.FC = () => {
         >
           Current Openings
         </Typography>
-        
+
         <Grid container spacing={4}>
           {jobOpenings.map((job) => (
             <Grid size={{ xs: 12, md: 6 }} key={job.id}>
@@ -374,7 +374,7 @@ export const CareersPage: React.FC = () => {
                     </Typography>
                     <Chip label={job.department} color="primary" size="small" />
                   </Box>
-                  
+
                   <Typography variant="body2" color="text.secondary" paragraph>
                     {job.description}
                   </Typography>
@@ -462,7 +462,7 @@ export const CareersPage: React.FC = () => {
                 <Typography variant="body1" paragraph>
                   {selectedJob.description}
                 </Typography>
-                
+
                 <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
                   Requirements:
                 </Typography>

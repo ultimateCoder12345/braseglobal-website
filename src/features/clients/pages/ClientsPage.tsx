@@ -28,6 +28,7 @@ import {
   Star,
 } from '@mui/icons-material';
 import { clients, getAllIndustries, getClientStats, type Client } from '../../../data/clients';
+import ParticleBackground from '../../homepage/components/ParticleSwarm/ParticleSwarmCanvas';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -71,7 +72,7 @@ export const ClientsPage: React.FC = () => {
     const matchesTab = tabValue === 0 || 
                       (tabValue === 1 && client.featured) ||
                       (tabValue === 2 && client.partnership === 'Strategic');
-    
+
     return matchesSearch && matchesIndustry && matchesPartnership && matchesTab;
   });
 
@@ -97,8 +98,10 @@ export const ClientsPage: React.FC = () => {
   };
 
   return (
-    <Box sx={{ pt: 10 }}> {/* Account for fixed header */}
-      {/* Hero Section */}
+    <Box sx={{ position: 'relative', pt: 10 }}>
+      <ParticleBackground />
+      <Box sx={{ position: 'relative', zIndex: 2 }}>
+      {/* Account for fixed header */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Box textAlign="center" sx={{ mb: 8 }}>
           <Typography
@@ -265,7 +268,7 @@ export const ClientsPage: React.FC = () => {
                         <Chip label="Featured" color="secondary" size="small" />
                       )}
                     </Box>
-                    
+
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                       <Avatar
                         src={client.logo}
@@ -282,7 +285,7 @@ export const ClientsPage: React.FC = () => {
                         </Typography>
                       </Box>
                     </Box>
-                    
+
                     <Typography variant="body2" color="text.secondary" paragraph>
                       {client.description}
                     </Typography>
@@ -349,7 +352,7 @@ export const ClientsPage: React.FC = () => {
                       />
                       <Chip label="Featured" color="secondary" size="small" />
                     </Box>
-                    
+
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                       <Avatar
                         src={client.logo}
@@ -366,7 +369,7 @@ export const ClientsPage: React.FC = () => {
                         </Typography>
                       </Box>
                     </Box>
-                    
+
                     <Typography variant="body2" color="text.secondary" paragraph>
                       {client.description}
                     </Typography>
@@ -435,7 +438,7 @@ export const ClientsPage: React.FC = () => {
                         <Chip label="Featured" color="secondary" size="small" />
                       )}
                     </Box>
-                    
+
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                       <Avatar
                         src={client.logo}
@@ -452,7 +455,7 @@ export const ClientsPage: React.FC = () => {
                         </Typography>
                       </Box>
                     </Box>
-                    
+
                     <Typography variant="body2" color="text.secondary" paragraph>
                       {client.description}
                     </Typography>
@@ -524,7 +527,7 @@ export const ClientsPage: React.FC = () => {
               <Typography variant="body1" paragraph>
                 {selectedClient.description}
               </Typography>
-              
+
               <Box sx={{ mb: 3, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
                 <Typography variant="body2" color="text.secondary">
                   <strong>Partnership since:</strong> {selectedClient.since} | 
@@ -587,6 +590,7 @@ export const ClientsPage: React.FC = () => {
             </Button>
           </Box>
         </Container>
+      </Box>
       </Box>
     </Box>
   );

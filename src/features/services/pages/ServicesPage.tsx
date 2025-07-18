@@ -21,6 +21,7 @@ import {
 import { ExpandMore, ArrowForward, CheckCircle } from "@mui/icons-material";
 import { services } from "../../homepage/services/data/services";
 import { Link as RouterLink } from "react-router-dom"; // FIX: Import Link for SPA navigation
+import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
 // FAQ data
 const faqs = [
@@ -53,7 +54,9 @@ const faqs = [
 
 export const ServicesPage: React.FC = () => {
   return (
-    <Box sx={{ pt: 10 }}>
+    <Box sx={{ position: 'relative', pt: 10 }}>
+      <ParticleBackground />
+      <Box sx={{ position: 'relative', zIndex: 2 }}>
       {/* Hero Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Box textAlign="center" sx={{ mb: 8 }}>
@@ -339,6 +342,7 @@ export const ServicesPage: React.FC = () => {
             </Box>
           </Box>
         </Container>
+      </Box>
       </Box>
     </Box>
   );
