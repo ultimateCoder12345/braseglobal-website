@@ -30,6 +30,7 @@ import {
 import { FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import CustomMap from "../../homepage/components/CustomMap/CustomMap";
+import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
 // Contact information data
 const contactInfo = [
@@ -179,7 +180,9 @@ export const ContactPage: React.FC = () => {
     };
 
     return (
-        <Box sx={{ pt: 10 }}>
+        <>
+            <ParticleBackground />
+            <Box sx={{ pt: 10, position: 'relative', zIndex: 1 }}>
             {/* Hero Section */}
             <Container maxWidth="lg" sx={{ py: 8 }}>
                 <Box textAlign="center" sx={{ mb: 8 }}>
@@ -616,6 +619,7 @@ export const ContactPage: React.FC = () => {
                 <CustomMap />
             </Container>
         </Box>
+        </>
     );
 };
 

@@ -36,6 +36,7 @@ import {
   Coffee,
   Flight,
 } from '@mui/icons-material';
+import ParticleBackground from '../../homepage/components/ParticleSwarm/ParticleSwarmCanvas';
 
 // Job openings data
 const jobOpenings = [
@@ -266,7 +267,9 @@ export const CareersPage: React.FC = () => {
   };
 
   return (
-    <Box sx={{ pt: 10 }}> {/* Account for fixed header */}
+    <>
+      <ParticleBackground />
+      <Box sx={{ pt: 10, position: 'relative', zIndex: 1 }}> {/* Account for fixed header */}
       {/* Hero Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Box textAlign="center" sx={{ mb: 8 }}>
@@ -637,6 +640,7 @@ export const CareersPage: React.FC = () => {
         </Container>
       </Box>
     </Box>
+    </>
   );
 };
 
