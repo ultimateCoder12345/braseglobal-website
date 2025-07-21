@@ -19,7 +19,7 @@ const navLinks = [
   { label: "Case Studies", to: "/case-studies" },
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
-  { label: "Team", to: "/team" },
+  //{ label: "Team", to: "/team" },
 ];
 
 export const Header = () => {
