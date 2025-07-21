@@ -12,21 +12,20 @@ export default function HeroSection() {
           variant="h2"
           component="h1"
           gutterBottom
-          style={{
-            color: "white",
-            textShadow: "0 2px 4px rgba(0,0,0,0.6)",
+          sx={{
+            fontWeight: "bold",
+            color: "primary.main",
+            mb: 3,
           }}
         >
           Empowering Businesses with Innovative IT Solutions
         </Typography>
 
         <Typography
-          variant="h6"
+          variant="h5"
+          color="text.secondary"
           paragraph
-          style={{
-            color: "#BFDBFE",
-            textShadow: "0 1px 3px rgba(0,0,0,0.6)",
-          }}
+          sx={{ mb: 4 }}
         >
           Your trusted partner in navigating the complexities of the digital
           world.
