@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Box,
@@ -338,7 +337,7 @@ export const CareersPage: React.FC = () => {
             </Typography>
             <Grid container spacing={4}>
               {companyBenefits.map((benefit, index) => (
-                <Grid key={index} size={{ xs: 12, sm: 6, md: 3 }}>
+                <Grid key={index} item xs={12} sm={6} md={3}>
                   <Card
                     sx={{
                       height: "100%",
@@ -391,7 +390,7 @@ export const CareersPage: React.FC = () => {
 
           <Grid container spacing={4}>
             {jobOpenings.map((job) => (
-              <Grid key={job.id} size={{ xs: 12, md: 6 }}>
+              <Grid key={job.id} item xs={12} md={6}>
                 <Card
                   sx={{
                     height: "100%",
@@ -556,7 +555,7 @@ export const CareersPage: React.FC = () => {
           <DialogTitle>Apply for Position</DialogTitle>
           <DialogContent>
             <Grid container spacing={2} sx={{ mt: 1 }}>
-              <Grid size={{ xs: 12, sm: 6 }}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="First Name"
@@ -570,7 +569,7 @@ export const CareersPage: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid size={{ xs: 12, sm: 6 }}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="Last Name"
@@ -584,7 +583,7 @@ export const CareersPage: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid size={{ xs: 12 }}>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   label="Email"
@@ -599,7 +598,7 @@ export const CareersPage: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid size={{ xs: 12 }}>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   label="Phone"
@@ -612,7 +611,7 @@ export const CareersPage: React.FC = () => {
                   }
                 />
               </Grid>
-              <Grid size={{ xs: 12 }}>
+              <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel>Years of Experience</InputLabel>
                   <Select
@@ -633,7 +632,7 @@ export const CareersPage: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid size={{ xs: 12 }}>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   label="Cover Letter"
@@ -675,7 +674,7 @@ export const CareersPage: React.FC = () => {
                 we're committed to supporting each other's growth and success.
               </Typography>
               <Grid container spacing={4} sx={{ mt: 2 }}>
-                <Grid size={{ xs: 12, md: 4 }}>
+                <Grid item xs={12} md={4}>
                   <People sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Collaborative Team
@@ -684,7 +683,7 @@ export const CareersPage: React.FC = () => {
                     Work with talented individuals from diverse backgrounds
                   </Typography>
                 </Grid>
-                <Grid size={{ xs: 12, md: 4 }}>
+                <Grid item xs={12} md={4}>
                   <School sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Continuous Learning
@@ -694,7 +693,7 @@ export const CareersPage: React.FC = () => {
                     programs
                   </Typography>
                 </Grid>
-                <Grid size={{ xs: 12, md: 4 }}>
+                <Grid item xs={12} md={4}>
                   <TrendingUp sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Growth Opportunities

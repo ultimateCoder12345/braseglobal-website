@@ -4,7 +4,7 @@ import {
   Container,
   Typography,
   Box,
-  Grid2 as Grid,
+  Grid,
   Card,
   CardContent,
   Button,
@@ -261,7 +261,7 @@ const ServiceDetailsPage: React.FC = () => {
           {/* Content Grid */}
           <Grid container spacing={4}>
             {/* Benefits */}
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid item xs={12} md={6}>
               <Card sx={{ height: '100%' }}>
                 <CardContent sx={{ p: 4 }}>
                   <Typography variant="h5" gutterBottom>
@@ -282,7 +282,7 @@ const ServiceDetailsPage: React.FC = () => {
             </Grid>
 
             {/* Features */}
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid item xs={12} md={6}>
               <Card sx={{ height: '100%' }}>
                 <CardContent sx={{ p: 4 }}>
                   <Typography variant="h5" gutterBottom>
@@ -303,7 +303,7 @@ const ServiceDetailsPage: React.FC = () => {
             </Grid>
 
             {/* Process */}
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid item xs={12} md={6}>
               <Card sx={{ height: '100%' }}>
                 <CardContent sx={{ p: 4 }}>
                   <Typography variant="h5" gutterBottom>
@@ -329,7 +329,7 @@ const ServiceDetailsPage: React.FC = () => {
             </Grid>
 
             {/* Technologies */}
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid item xs={12} md={6}>
               <Card sx={{ height: '100%' }}>
                 <CardContent sx={{ p: 4 }}>
                   <Typography variant="h5" gutterBottom>

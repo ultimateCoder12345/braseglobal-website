@@ -3,7 +3,7 @@ import {
   Container,
   Typography,
   Box,
-  Grid2 as Grid,
+  Grid,
   Card,
   CardContent,
   CardActions,
@@ -94,7 +94,7 @@ const ServicesPage: React.FC = () => {
           {/* Services Grid */}
           <Grid container spacing={4}>
             {services.map((service) => (
-              <Grid key={service.id} size={{ xs: 12, md: 6, lg: 4 }}>
+              <Grid item xs={12} md={6} lg={4} key={service.id}>
                 <Card
                   sx={{
                     height: '100%',
