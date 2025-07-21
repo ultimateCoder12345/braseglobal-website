@@ -1,25 +1,17 @@
-import React from "react";
-import { Box } from "@mui/material";
-import { Header } from "./Header/Header";
-import { Footer } from "./Footer/Footer";
-import { useScrollToTop } from "../../hooks/useScrollToTop";
 
-interface MainLayoutProps {
-  children: React.ReactNode;
-}
+import { Box } from '@mui/material';
+import { Outlet } from 'react-router-dom';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  useScrollToTop();
-
+export default function MainLayout() {
   return (
-    <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <Box component="main" sx={{ flex: 1 }}>
-        {children}
+      <Box component="main" sx={{ flexGrow: 1, pt: 8 }}>
+        <Outlet />
       </Box>
       <Footer />
     </Box>
   );
-};
-
-export default MainLayout;
+}

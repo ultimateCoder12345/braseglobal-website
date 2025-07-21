@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   AppBar,
   Toolbar,
   Typography,
   Button,
   Box,
+  Container,
+  Menu,
+  MenuItem,
   IconButton,
   Drawer,
   List,
@@ -12,27 +15,17 @@ import {
   ListItemText,
   useMediaQuery,
   useTheme,
-  Menu,
-  MenuItem,
-  Fade,
 } from '@mui/material';
-import { Menu as MenuIcon, Close as CloseIcon, ExpandMore } from '@mui/icons-material';
-import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
-import Logo from '../../../assets/images/brasetech_logo.png';
+import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [aboutAnchorEl, setAboutAnchorEl] = useState<null | HTMLElement>(null);
   const [servicesAnchorEl, setServicesAnchorEl] = useState<null | HTMLElement>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const location = useLocation();
   const navigate = useNavigate();
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
 
   const handleAboutClick = (event: React.MouseEvent<HTMLElement>) => {
     setAboutAnchorEl(event.currentTarget);
@@ -42,337 +35,220 @@ const Header: React.FC = () => {
     setServicesAnchorEl(event.currentTarget);
   };
 
-  const handleAboutClose = () => {
+  const handleClose = () => {
     setAboutAnchorEl(null);
-  };
-
-  const handleServicesClose = () => {
     setServicesAnchorEl(null);
   };
 
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
+    navigate('/');
+    setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    }
+    }, 100);
+    handleClose();
+    setMobileOpen(false);
   };
 
-  const scrollToServiceSection = (serviceId: string) => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(serviceId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById(serviceId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Case Studies', path: '/case-studies' },
-    { name: 'Team', path: '/team' },
-    { name: 'Clients', path: '/clients' },
-    { name: 'Careers', path: '/careers' },
-    { name: 'Contact', path: '/contact' },
+  const services = [
+    { name: 'IT Consulting', id: 'it-consulting' },
+    { name: 'Cloud Solutions', id: 'cloud-solutions' },
+    { name: 'AI & Machine Learning', id: 'ai-ml' },
+    { name: 'Data Analytics', id: 'data-analytics' },
+    { name: 'Cybersecurity', id: 'cybersecurity' },
+    { name: 'Network Infrastructure', id: 'network-infrastructure' }
   ];
 
-  const aboutMenuItems = [
-    { name: 'About Us', action: () => scrollToSection('about-us') },
-    { name: 'Our Team', action: () => scrollToSection('our-team') },
+  const aboutItems = [
+    { name: 'About Us', id: 'about-us' },
+    { name: 'Our Team', id: 'our-team' }
   ];
 
-  const servicesMenuItems = [
-    { name: 'IT Consulting', action: () => scrollToServiceSection('it-consulting') },
-    { name: 'Cloud Solutions', action: () => scrollToServiceSection('cloud-solutions') },
-    { name: 'AI & Machine Learning', action: () => scrollToServiceSection('ai-machine-learning') },
-    { name: 'Data Analytics', action: () => scrollToServiceSection('data-analytics') },
-    { name: 'Cybersecurity', action: () => scrollToServiceSection('cybersecurity') },
-    { name: 'Network Solutions', action: () => scrollToServiceSection('network-solutions') },
-  ];
+  const drawer = (
+    <Box sx={{ width: 250 }} role="presentation">
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 1 }}>
+        <IconButton onClick={handleDrawerToggle}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      <List>
+        <ListItem button component={Link} to="/" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Home" />
+        </ListItem>
 
-  const isActive = (path: string) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
-  };
+        <ListItem>
+          <ListItemText primary="About" sx={{ fontWeight: 'bold' }} />
+        </ListItem>
+        {aboutItems.map((item) => (
+          <ListItem 
+            key={item.id} 
+            button 
+            onClick={() => scrollToSection(item.id)}
+            sx={{ pl: 4 }}
+          >
+            <ListItemText primary={item.name} />
+          </ListItem>
+        ))}
+
+        <ListItem>
+          <ListItemText primary="Services" sx={{ fontWeight: 'bold' }} />
+        </ListItem>
+        {services.map((service) => (
+          <ListItem 
+            key={service.id} 
+            button 
+            onClick={() => scrollToSection(service.id)}
+            sx={{ pl: 4 }}
+          >
+            <ListItemText primary={service.name} />
+          </ListItem>
+        ))}
+
+        <ListItem button component={Link} to="/case-studies" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Case Studies" />
+        </ListItem>
+        <ListItem button component={Link} to="/team" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Team" />
+        </ListItem>
+        <ListItem button component={Link} to="/careers" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Careers" />
+        </ListItem>
+        <ListItem button component={Link} to="/contact" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Contact" />
+        </ListItem>
+      </List>
+    </Box>
+  );
 
   return (
-    <AppBar
-      position="fixed"
-      sx={{
-        backgroundColor: scrolled ? 'rgba(0, 30, 60, 0.95)' : 'transparent',
-        transition: 'background-color 0.3s ease',
-        boxShadow: scrolled ? '0px 2px 10px rgba(0, 0, 0, 0.1)' : 'none',
-        backdropFilter: 'blur(10px)',
-        zIndex: 1000,
-      }}
-    >
-      <Toolbar
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: { xs: '0 16px', sm: '0 24px', md: '0 32px' },
-        }}
-      >
-        <Box
-          component={RouterLink}
-          to="/"
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            textDecoration: 'none',
-          }}
-        >
-          <Box
-            component="img"
-            src={Logo}
-            alt="Brasetech Logo"
-            sx={{
-              height: 40,
-              mr: 1,
-              transition: 'transform 0.3s ease',
-              '&:hover': {
-                transform: 'scale(1.1)',
-              },
-            }}
-          />
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Brasetech
-          </Typography>
-        </Box>
+    <>
+      <AppBar position="fixed" sx={{ backgroundColor: 'white', boxShadow: 1 }}>
+        <Container maxWidth="lg">
+          <Toolbar sx={{ justifyContent: 'space-between' }}>
+            <Typography
+              variant="h6"
+              component={Link}
+              to="/"
+              sx={{
+                fontWeight: 'bold',
+                color: 'primary.main',
+                textDecoration: 'none',
+                flexShrink: 0,
+              }}
+            >
+              BraseTech
+            </Typography>
 
-        {/* Mobile Navigation */}
-        {isMobile && (
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={handleDrawerToggle}
-            sx={{ color: 'white' }}
-          >
-            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
-          </IconButton>
-        )}
-
-        {/* Desktop Navigation */}
-        {!isMobile && (
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            {navItems.map((item) => (
-              <Button
-                key={item.name}
-                component={RouterLink}
-                to={item.path}
-                sx={{
-                  color: 'white',
-                  textTransform: 'none',
-                  fontSize: '1rem',
-                  fontWeight: 500,
-                  px: 2,
-                  py: 1,
-                  borderRadius: 2,
-                  transition: 'all 0.3s ease',
-                  backgroundColor: isActive(item.path) ? 'rgba(255,255,255,0.1)' : 'transparent',
-                  '&:hover': {
-                    backgroundColor: 'rgba(255,255,255,0.1)',
-                    transform: 'translateY(-2px)',
-                  },
-                }}
+            {isMobile ? (
+              <IconButton
+                color="inherit"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ color: 'primary.main' }}
               >
-                {item.name}
-              </Button>
-            ))}
-
-            {/* About Dropdown */}
-            <Button
-              onClick={handleAboutClick}
-              endIcon={<ExpandMore />}
-              sx={{
-                color: 'white',
-                textTransform: 'none',
-                fontSize: '1rem',
-                fontWeight: 500,
-                px: 2,
-                py: 1,
-                borderRadius: 2,
-                transition: 'all 0.3s ease',
-                backgroundColor: location.pathname === '/about' ? 'rgba(255,255,255,0.1)' : 'transparent',
-                '&:hover': {
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                  transform: 'translateY(-2px)',
-                },
-              }}
-            >
-              About
-            </Button>
-            <Menu
-              anchorEl={aboutAnchorEl}
-              open={Boolean(aboutAnchorEl)}
-              onClose={handleAboutClose}
-              TransitionComponent={Fade}
-              sx={{
-                '& .MuiPaper-root': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  borderRadius: 2,
-                  mt: 1,
-                },
-              }}
-            >
-              {aboutMenuItems.map((item) => (
-                <MenuItem
-                  key={item.name}
-                  onClick={() => {
-                    item.action();
-                    handleAboutClose();
-                  }}
-                  sx={{
-                    px: 3,
-                    py: 1.5,
-                    '&:hover': {
-                      backgroundColor: 'rgba(25, 118, 210, 0.1)',
-                    },
-                  }}
+                <MenuIcon />
+              </IconButton>
+            ) : (
+              <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{ color: 'text.primary' }}
                 >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </Menu>
+                  Home
+                </Button>
 
-            {/* Services Dropdown */}
-            <Button
-              onClick={handleServicesClick}
-              endIcon={<ExpandMore />}
-              sx={{
-                color: 'white',
-                textTransform: 'none',
-                fontSize: '1rem',
-                fontWeight: 500,
-                px: 2,
-                py: 1,
-                borderRadius: 2,
-                transition: 'all 0.3s ease',
-                backgroundColor: location.pathname === '/services' ? 'rgba(255,255,255,0.1)' : 'transparent',
-                '&:hover': {
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                  transform: 'translateY(-2px)',
-                },
-              }}
-            >
-              Services
-            </Button>
-            <Menu
-              anchorEl={servicesAnchorEl}
-              open={Boolean(servicesAnchorEl)}
-              onClose={handleServicesClose}
-              TransitionComponent={Fade}
-              sx={{
-                '& .MuiPaper-root': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  borderRadius: 2,
-                  mt: 1,
-                },
-              }}
-            >
-              {servicesMenuItems.map((item) => (
-                <MenuItem
-                  key={item.name}
-                  onClick={() => {
-                    item.action();
-                    handleServicesClose();
-                  }}
-                  sx={{
-                    px: 3,
-                    py: 1.5,
-                    '&:hover': {
-                      backgroundColor: 'rgba(25, 118, 210, 0.1)',
-                    },
-                  }}
+                <Button
+                  onClick={handleAboutClick}
+                  sx={{ color: 'text.primary' }}
                 >
-                  {item.name}
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        )}
-      </Toolbar>
+                  About
+                </Button>
+                <Menu
+                  anchorEl={aboutAnchorEl}
+                  open={Boolean(aboutAnchorEl)}
+                  onClose={handleClose}
+                >
+                  {aboutItems.map((item) => (
+                    <MenuItem 
+                      key={item.id} 
+                      onClick={() => scrollToSection(item.id)}
+                    >
+                      {item.name}
+                    </MenuItem>
+                  ))}
+                </Menu>
+
+                <Button
+                  onClick={handleServicesClick}
+                  sx={{ color: 'text.primary' }}
+                >
+                  Services
+                </Button>
+                <Menu
+                  anchorEl={servicesAnchorEl}
+                  open={Boolean(servicesAnchorEl)}
+                  onClose={handleClose}
+                >
+                  {services.map((service) => (
+                    <MenuItem 
+                      key={service.id} 
+                      onClick={() => scrollToSection(service.id)}
+                    >
+                      {service.name}
+                    </MenuItem>
+                  ))}
+                </Menu>
+
+                <Button
+                  component={Link}
+                  to="/case-studies"
+                  sx={{ color: 'text.primary' }}
+                >
+                  Case Studies
+                </Button>
+                <Button
+                  component={Link}
+                  to="/team"
+                  sx={{ color: 'text.primary' }}
+                >
+                  Team
+                </Button>
+                <Button
+                  component={Link}
+                  to="/careers"
+                  sx={{ color: 'text.primary' }}
+                >
+                  Careers
+                </Button>
+                <Button
+                  component={Link}
+                  to="/contact"
+                  variant="contained"
+                >
+                  Contact
+                </Button>
+              </Box>
+            )}
+          </Toolbar>
+        </Container>
+      </AppBar>
+
       <Drawer
-        anchor="left"
+        anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
-        sx={{
-          '& .MuiDrawer-paper': {
-            width: '240px',
-            background: 'rgba(0, 30, 60, 0.95)',
-            backdropFilter: 'blur(10px)',
-            borderRight: 'none',
-          },
-        }}
+        ModalProps={{ keepMounted: true }}
       >
-        <List>
-          {navItems.map((item) => (
-            <ListItem
-              key={item.name}
-              component={RouterLink}
-              to={item.path}
-              onClick={handleDrawerToggle}
-              sx={{
-                '&:hover': {
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                },
-              }}
-            >
-              <ListItemText
-                primary={item.name}
-                sx={{
-                  color: 'white',
-                  textAlign: 'center',
-                }}
-              />
-            </ListItem>
-          ))}
-        </List>
+        {drawer}
       </Drawer>
-    </AppBar>
+    </>
   );
 };
 
