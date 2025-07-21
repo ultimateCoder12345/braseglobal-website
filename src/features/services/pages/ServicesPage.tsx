@@ -72,30 +72,26 @@ export const ServicesPage: React.FC = () => {
             Comprehensive technology solutions to drive your business forward
           </Typography>
           <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto" }}>
-            From IT consulting to cloud solutions, we offer a full spectrum of
-            technology services designed to help your business thrive in the
-            digital age. Our expert team combines technical excellence with
-            industry best practices to deliver solutions that exceed
-            expectations.
+            Brase Tech is your ally in the digital evolution, offering a comprehensive suite of Digital Transformation Services to drive your business forward. Their Custom Software Development solutions are meticulously crafted to meet your specific requirements, delivering robust, scalable, and intuitive applications that empower your operations and enhance productivity. With a focus on Quality Engineering, Brase Tech ensures seamless digital experiences, reduces testing costs, and mitigates technical and business risks, guaranteeing predictable outcomes and higher ROI for your organization.
           </Typography>
         </Box>
       </Container>
 
       {/* Services Grid */}
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Grid
-          container
-          spacing={4}
-          sx={{
-            alignItems: "stretch",
-            justifyContent: "center",
+        <Box
+          display="grid"
+          gridTemplateColumns={{
+            xs: "1fr",
+            sm: "1fr 1fr",
+            md: "1fr 1fr 1fr",
           }}
+          gap={4}
         >
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Grid
-                xs={12} sm={6} md={6} lg={4}
+              <Box
                 key={index}
                 sx={{
                   display: "flex",
@@ -185,10 +181,10 @@ export const ServicesPage: React.FC = () => {
                     </Box>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Box>
             );
           })}
-        </Grid>
+        </Box>
       </Container>
 
       {/* Process Section */}
@@ -203,7 +199,15 @@ export const ServicesPage: React.FC = () => {
           >
             Our Development Process
           </Typography>
-          <Grid container spacing={4}>
+          <Box
+            display="grid"
+            gridTemplateColumns={{
+              xs: "1fr",
+              sm: "1fr 1fr",
+              md: "1fr 1fr 1fr 1fr",
+            }}
+            gap={4}
+          >
             {[
               {
                 step: "01",
@@ -230,36 +234,35 @@ export const ServicesPage: React.FC = () => {
                   "We deploy your solution and provide ongoing support and maintenance.",
               },
             ].map((process, index) => (
-              <Grid key={index} xs={12} sm={6} md={3}>
-                <Paper
-                  elevation={2}
-                  sx={{
-                    p: 3,
-                    textAlign: "center",
-                    height: "100%",
-                    transition: "transform 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "translateY(-4px)",
-                    },
-                  }}
+              <Paper
+                key={index}
+                elevation={2}
+                sx={{
+                  p: 3,
+                  textAlign: "center",
+                  height: "100%",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                  },
+                }}
+              >
+                <Typography
+                  variant="h3"
+                  color="primary.main"
+                  sx={{ fontWeight: "bold", mb: 2 }}
                 >
-                  <Typography
-                    variant="h3"
-                    color="primary.main"
-                    sx={{ fontWeight: "bold", mb: 2 }}
-                  >
-                    {process.step}
-                  </Typography>
-                  <Typography variant="h6" gutterBottom>
-                    {process.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {process.description}
-                  </Typography>
-                </Paper>
-              </Grid>
+                  {process.step}
+                </Typography>
+                <Typography variant="h6" gutterBottom>
+                  {process.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {process.description}
+                </Typography>
+              </Paper>
             ))}
-          </Grid>
+          </Box>
         </Container>
       </Box>
 
