@@ -21,6 +21,8 @@ const ServicesSection: React.FC = () => {
   const handleFlip = (index: number) => {
     setFlippedIndex(flippedIndex === index ? null : index);
   };
+    // Add serviceIds here, so the dropdown navigation can scroll to them properly
+    const serviceIds = services.map(service => service.id);
 
   return (
     <Box py={10} bgcolor="background.paper">
@@ -49,90 +51,91 @@ const ServicesSection: React.FC = () => {
           const isFlipped = flippedIndex === idx;
 
           return (
-            <Box
-              key={idx}
-              sx={{
-                perspective: "1000px",
-                height: "320px",
-                width: "100%", // Ensures equal width in grid cell
-                maxWidth: 350, // Optional: sets a max width for cards
-                cursor: "pointer",
-                position: "relative",
-              }}
-              onMouseEnter={() => !isMobile && setFlippedIndex(idx)}
-              onMouseLeave={() => !isMobile && setFlippedIndex(null)}
-              onClick={() => isMobile && handleFlip(idx)}
-            >
-              <motion.div
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6 }}
-                style={{
+            <div key={idx} id={serviceIds[idx]}>
+              <Box
+                sx={{
+                  perspective: "1000px",
+                  height: "320px",
+                  width: "100%", // Ensures equal width in grid cell
+                  maxWidth: 350, // Optional: sets a max width for cards
+                  cursor: "pointer",
                   position: "relative",
-                  width: "100%",
-                  height: "100%",
-                  transformStyle: "preserve-3d",
                 }}
+                onMouseEnter={() => !isMobile && setFlippedIndex(idx)}
+                onMouseLeave={() => !isMobile && setFlippedIndex(null)}
+                onClick={() => isMobile && handleFlip(idx)}
               >
-                {/* Front */}
-                <Paper
-                  sx={{
-                    position: "absolute",
+                <motion.div
+                  animate={{ rotateY: isFlipped ? 180 : 0 }}
+                  transition={{ duration: 0.6 }}
+                  style={{
+                    position: "relative",
                     width: "100%",
                     height: "100%",
-                    backfaceVisibility: "hidden",
-                    borderRadius: 2,
-                    p: 4,
-                    textAlign: "center",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
+                    transformStyle: "preserve-3d",
                   }}
-                  elevation={3}
                 >
-                  <Box mb={2}>
-                    <Icon size={40} color="#1976d2" />
-                  </Box>
-                  <Typography variant="h6" fontWeight="bold">
-                    {service.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" mt={1}>
-                    {service.description}
-                  </Typography>
-                </Paper>
+                  {/* Front */}
+                  <Paper
+                    sx={{
+                      position: "absolute",
+                      width: "100%",
+                      height: "100%",
+                      backfaceVisibility: "hidden",
+                      borderRadius: 2,
+                      p: 4,
+                      textAlign: "center",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                    }}
+                    elevation={3}
+                  >
+                    <Box mb={2}>
+                      <Icon size={40} color="#1976d2" />
+                    </Box>
+                    <Typography variant="h6" fontWeight="bold">
+                      {service.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" mt={1}>
+                      {service.description}
+                    </Typography>
+                  </Paper>
 
-                {/* Back */}
-                <Paper
-                  sx={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100%",
-                    backfaceVisibility: "hidden",
-                    transform: "rotateY(180deg)",
-                    borderRadius: 2,
-                    p: 3,
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    overflow: "hidden",
-                  }}
-                  elevation={3}
-                >
-                  <Typography variant="subtitle1" fontWeight="bold" mb={1}>
-                    Features:
-                  </Typography>
-                  <List dense>
-                    {service.features.map((feature: string, i: number) => (
-                      <ListItem key={i}>
-                        <ListItemIcon sx={{ minWidth: 30 }}>
-                          <CheckCircleIcon color="primary" fontSize="small" />
-                        </ListItemIcon>
-                        <ListItemText primary={feature} />
-                      </ListItem>
-                    ))}
-                  </List>
-                </Paper>
-              </motion.div>
-            </Box>
+                  {/* Back */}
+                  <Paper
+                    sx={{
+                      position: "absolute",
+                      width: "100%",
+                      height: "100%",
+                      backfaceVisibility: "hidden",
+                      transform: "rotateY(180deg)",
+                      borderRadius: 2,
+                      p: 3,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      overflow: "hidden",
+                    }}
+                    elevation={3}
+                  >
+                    <Typography variant="subtitle1" fontWeight="bold" mb={1}>
+                      Features:
+                    </Typography>
+                    <List dense>
+                      {service.features.map((feature: string, i: number) => (
+                        <ListItem key={i}>
+                          <ListItemIcon sx={{ minWidth: 30 }}>
+                            <CheckCircleIcon color="primary" fontSize="small" />
+                          </ListItemIcon>
+                          <ListItemText primary={feature} />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </Paper>
+                </motion.div>
+              </Box>
+            </div>
           );
         })}
       </Box>

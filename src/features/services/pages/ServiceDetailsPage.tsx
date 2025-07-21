@@ -1,5 +1,6 @@
+
 import React from "react";
-import { useParams, useNavigate, Link as RouterLink } from "react-router-dom"; // FIX: Import Link
+import { useParams, useNavigate, Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Container,
@@ -154,7 +155,6 @@ export const ServiceDetailsPage: React.FC = () => {
             <Grid item xs={12} md={8}>
               <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
                 <Box sx={{ mr: 2 }}>
-                  {/* FIX: Changed `size` prop to `sx` prop for font size */}
                   <IconComponent sx={{ fontSize: 50 }} />
                 </Box>
                 <Typography variant="h3" component="h1">
@@ -167,7 +167,6 @@ export const ServiceDetailsPage: React.FC = () => {
             </Grid>
             <Grid item xs={12} md={4}>
               <Box sx={{ textAlign: "center" }}>
-                {/* FIX: Use RouterLink for SPA navigation */}
                 <Button
                   variant="contained"
                   size="large"
@@ -204,7 +203,7 @@ export const ServiceDetailsPage: React.FC = () => {
               </Typography>
               <List>
                 {serviceDetails.keyFeatures.map((feature, index) => (
-                  <ListItem key={index}>
+                  <ListItem key={index} sx={{ px: 0 }}>
                     <ListItemIcon>
                       <CheckCircle color="primary" />
                     </ListItemIcon>
@@ -219,20 +218,29 @@ export const ServiceDetailsPage: React.FC = () => {
               <Typography
                 variant="h5"
                 gutterBottom
-                sx={{ color: "primary.main", mb: 3, display: "flex", alignItems: "center" }}
+                sx={{ 
+                  color: "primary.main", 
+                  mb: 3, 
+                  display: "flex", 
+                  alignItems: "center" 
+                }}
               >
                 <Timeline sx={{ mr: 1 }} />
                 Our Process
               </Typography>
               <Grid container spacing={2}>
                 {serviceDetails.process.map((step, index) => (
-                  <Grid key={index} xs={12} sm={6} md={3}>
+                  <Grid item xs={12} sm={6} md={3} key={index}>
                     <Box
                       sx={{
                         textAlign: "center",
                         p: 2,
                         bgcolor: "grey.50",
                         borderRadius: 1,
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
                       }}
                     >
                       <Typography
@@ -254,7 +262,12 @@ export const ServiceDetailsPage: React.FC = () => {
               <Typography
                 variant="h5"
                 gutterBottom
-                sx={{ color: "primary.main", mb: 3, display: "flex", alignItems: "center" }}
+                sx={{ 
+                  color: "primary.main", 
+                  mb: 3, 
+                  display: "flex", 
+                  alignItems: "center" 
+                }}
               >
                 <Settings sx={{ mr: 1 }} />
                 Technologies We Use
@@ -277,7 +290,7 @@ export const ServiceDetailsPage: React.FC = () => {
               </Typography>
               <List>
                 {serviceDetails.outcomes.map((outcome, index) => (
-                  <ListItem key={index}>
+                  <ListItem key={index} sx={{ px: 0 }}>
                     <ListItemIcon>
                       <CheckCircle color="secondary" />
                     </ListItemIcon>
@@ -299,7 +312,6 @@ export const ServiceDetailsPage: React.FC = () => {
               >
                 Why Choose Our Service?
               </Typography>
-              {/* FIX: Map over the `serviceBenefits` from the function instead of a hardcoded array */}
               {serviceBenefits.map((benefit, index) => (
                 <Box
                   key={index}
@@ -336,7 +348,6 @@ export const ServiceDetailsPage: React.FC = () => {
                 textAlign: "center",
               }}
             >
-              {/* FIX: Changed `size` prop to `sx` prop for font size */}
               <IconComponent sx={{ fontSize: 60 }} />
               <Typography variant="h6" sx={{ mt: 2, mb: 2 }}>
                 Ready to Transform Your Business?
@@ -354,7 +365,7 @@ export const ServiceDetailsPage: React.FC = () => {
                   "&:hover": { bgcolor: "grey.100" },
                   mb: 2,
                 }}
-                component={RouterLink} // FIX: Use RouterLink
+                component={RouterLink}
                 to="/contact"
               >
                 Schedule Consultation
@@ -367,7 +378,7 @@ export const ServiceDetailsPage: React.FC = () => {
                   color: "white",
                   "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
                 }}
-                component={RouterLink} // FIX: Use RouterLink
+                component={RouterLink}
                 to="/case-studies"
               >
                 View Success Stories

@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   Box,
@@ -20,7 +21,7 @@ import {
 } from "@mui/material";
 import { ExpandMore, ArrowForward, CheckCircle } from "@mui/icons-material";
 import { services } from "../../homepage/services/data/services";
-import { Link as RouterLink } from "react-router-dom"; // FIX: Import Link for SPA navigation
+import { Link as RouterLink } from "react-router-dom";
 import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
 // FAQ data
@@ -83,26 +84,19 @@ export const ServicesPage: React.FC = () => {
 
         {/* Services Grid */}
         <Container maxWidth="lg" sx={{ py: 4 }}>
-          <Grid
-            container
-            spacing={3}
-            sx={{
-              alignItems: "stretch",
-              justifyContent: "center",
-            }}
-          >
+          <Grid container spacing={4} justifyContent="center">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <Grid
-                  item
-                  xs={6}
-                  sm={6}
-                  md={4}
+                <Grid 
+                  item 
+                  xs={12} 
+                  sm={6} 
+                  md={4} 
                   key={index}
-                  sx={{
+                  sx={{ 
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "center"
                   }}
                 >
                   <Card
@@ -138,10 +132,10 @@ export const ServicesPage: React.FC = () => {
                     <CardContent
                       sx={{
                         flexGrow: 1,
-                        p: 2, // Reduced padding
+                        p: 3,
                         display: "flex",
                         flexDirection: "column",
-                        gap: 1.5, // Adds consistent spacing between elements
+                        gap: 2,
                       }}
                     >
                       <Box
@@ -159,14 +153,15 @@ export const ServicesPage: React.FC = () => {
                         variant="body2"
                         color="text.secondary"
                         paragraph
+                        sx={{ mb: 2 }}
                       >
                         {service.description}
                       </Typography>
 
-                      <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+                      <Typography variant="h6" gutterBottom>
                         Key Features:
                       </Typography>
-                      <List dense sx={{ flexGrow: 1 }}>
+                      <List dense sx={{ flexGrow: 1, mb: 2 }}>
                         {service.features.map((feature, featureIndex) => (
                           <ListItem key={featureIndex} sx={{ px: 0, py: 0.5 }}>
                             <ListItemIcon sx={{ minWidth: 32 }}>
@@ -180,7 +175,7 @@ export const ServicesPage: React.FC = () => {
                         ))}
                       </List>
 
-                      <Box sx={{ mt: "auto", pt: 2 }}>
+                      <Box sx={{ mt: "auto" }}>
                         <Button
                           variant="contained"
                           fullWidth
@@ -238,7 +233,7 @@ export const ServicesPage: React.FC = () => {
                     "We deploy your solution and provide ongoing support and maintenance.",
                 },
               ].map((process, index) => (
-                <Grid key={index} xs={12} sm={6} md={3}>
+                <Grid item xs={12} sm={6} md={3} key={index}>
                   <Paper
                     elevation={2}
                     sx={{
