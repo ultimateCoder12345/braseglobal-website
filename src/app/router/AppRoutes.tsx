@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../../features/homepage/pages/Home";
 import AboutPage from "../../features/about/pages/AboutPage";
 import ServicesPage from "../../features/services/pages/ServicesPage";
+import ServiceDetailsPage from "../../features/services/pages/ServiceDetailsPage";
 import ContactPage from "../../features/contact/pages/ContactPage";
 import CareersPage from "../../features/careers/pages/CareersPage";
 import CaseStudiesPage from "../../features/caseStudies/pages/CaseStudiesPage";
@@ -18,6 +19,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:id" element={<ServiceDetailsPage />} />
         {/* <Route path="/clients" element={<ClientsPage />} /> */}
         <Route path="/case-studies" element={<CaseStudiesPage />} />
         <Route path="/case-studies/:id" element={<CaseStudyDetailsPage />} />

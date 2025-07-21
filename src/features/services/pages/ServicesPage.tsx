@@ -95,7 +95,7 @@ export const ServicesPage: React.FC = () => {
             const IconComponent = service.icon;
             return (
               <Grid
-                size={{ xs: 12, sm: 6, md: 6, lg: 4 }}
+                xs={12} sm={6} md={6} lg={4}
                 key={index}
                 sx={{
                   display: "flex",
@@ -230,7 +230,7 @@ export const ServicesPage: React.FC = () => {
                   "We deploy your solution and provide ongoing support and maintenance.",
               },
             ].map((process, index) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+              <Grid key={index} xs={12} sm={6} md={3}>
                 <Paper
                   elevation={2}
                   sx={{

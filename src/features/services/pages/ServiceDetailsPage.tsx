@@ -52,7 +52,7 @@ export const ServiceDetailsPage: React.FC = () => {
 
   const IconComponent = service.icon;
 
-  // FIX: Function now returns both specific data and common benefits
+  // Function returns both specific data and common benefits
   const getServiceDetails = (index: number) => {
     const commonBenefits = [
       {
@@ -78,24 +78,51 @@ export const ServiceDetailsPage: React.FC = () => {
     ];
 
     const serviceSpecificData = {
-      // ... (your existing serviceSpecificData object remains the same)
       0: {
-        /* ... */
+        overview: "Strategic IT consulting and digital transformation services to modernize your business operations and drive growth through technology.",
+        keyFeatures: ["Strategic IT Planning", "Digital Transformation", "Managed IT Services", "Process Automation"],
+        process: ["Business Analysis", "Strategy Development", "Implementation Planning", "Execution & Support"],
+        technologies: ["Cloud Platforms", "Enterprise Software", "Automation Tools", "Analytics Platforms"],
+        outcomes: ["Improved Efficiency", "Cost Reduction", "Enhanced Security", "Scalable Infrastructure"]
       },
       1: {
-        /* ... */
+        overview: "Comprehensive cloud solutions including migration, infrastructure management, and optimization to ensure your business operates efficiently in the cloud.",
+        keyFeatures: ["Cloud Migration", "Infrastructure Management", "Cost Optimization", "Multi-Cloud Strategy"],
+        process: ["Cloud Assessment", "Migration Planning", "Implementation", "Optimization & Support"],
+        technologies: ["AWS", "Azure", "Google Cloud", "Kubernetes", "Docker"],
+        outcomes: ["Reduced Costs", "Improved Scalability", "Enhanced Performance", "Better Disaster Recovery"]
       },
       2: {
-        /* ... */
+        overview: "Advanced AI and machine learning solutions to automate processes, gain insights, and create intelligent applications that drive business value.",
+        keyFeatures: ["Custom AI Models", "Natural Language Processing", "Computer Vision", "Predictive Analytics"],
+        process: ["Data Assessment", "Model Development", "Testing & Validation", "Deployment & Monitoring"],
+        technologies: ["TensorFlow", "PyTorch", "Python", "R", "Azure AI", "AWS AI Services"],
+        outcomes: ["Process Automation", "Better Decision Making", "Improved Customer Experience", "Cost Savings"]
       },
       3: {
-        /* ... */
+        overview: "Transform your data into actionable insights with comprehensive data analytics and engineering services for better business decisions.",
+        keyFeatures: ["Data Warehousing", "Business Intelligence", "Real-time Analytics", "Data Pipeline Development"],
+        process: ["Data Discovery", "Architecture Design", "Pipeline Development", "Analytics & Reporting"],
+        technologies: ["Snowflake", "Power BI", "Tableau", "Apache Spark", "Python", "SQL"],
+        outcomes: ["Data-Driven Decisions", "Improved Performance", "Cost Optimization", "Better Customer Insights"]
       },
+      4: {
+        overview: "Comprehensive cybersecurity solutions to protect your digital assets, ensure compliance, and maintain business continuity.",
+        keyFeatures: ["Threat Detection", "Data Protection", "Compliance Solutions", "Security Monitoring"],
+        process: ["Security Assessment", "Implementation", "Monitoring", "Incident Response"],
+        technologies: ["SIEM Tools", "Firewalls", "Encryption", "Identity Management", "Security Analytics"],
+        outcomes: ["Enhanced Security", "Compliance Achievement", "Risk Reduction", "Business Continuity"]
+      },
+      5: {
+        overview: "Reliable and high-performance networking solutions to ensure seamless connectivity and optimal performance for your business operations.",
+        keyFeatures: ["Network Design", "Implementation", "Performance Optimization", "Network Security"],
+        process: ["Network Assessment", "Design & Planning", "Implementation", "Monitoring & Support"],
+        technologies: ["Cisco", "Juniper", "SD-WAN", "Network Security Tools", "Monitoring Solutions"],
+        outcomes: ["Improved Connectivity", "Enhanced Performance", "Better Security", "Reduced Downtime"]
+      }
     };
 
-    const specifics =
-      serviceSpecificData[index as keyof typeof serviceSpecificData] ||
-      serviceSpecificData[0];
+    const specifics = serviceSpecificData[index as keyof typeof serviceSpecificData] || serviceSpecificData[0];
     return { specifics, benefits: commonBenefits };
   };
 
@@ -166,7 +193,99 @@ export const ServiceDetailsPage: React.FC = () => {
         <Grid container spacing={4}>
           {/* Main Content */}
           <Grid item xs={12} md={8}>
-            {/* ... (Key Features, Process, Technologies, Outcomes sections are correct) ... */}
+            {/* Key Features */}
+            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ color: "primary.main", mb: 3 }}
+              >
+                Key Features
+              </Typography>
+              <List>
+                {serviceDetails.keyFeatures.map((feature, index) => (
+                  <ListItem key={index}>
+                    <ListItemIcon>
+                      <CheckCircle color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={feature} />
+                  </ListItem>
+                ))}
+              </List>
+            </Paper>
+
+            {/* Process */}
+            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ color: "primary.main", mb: 3, display: "flex", alignItems: "center" }}
+              >
+                <Timeline sx={{ mr: 1 }} />
+                Our Process
+              </Typography>
+              <Grid container spacing={2}>
+                {serviceDetails.process.map((step, index) => (
+                  <Grid key={index} xs={12} sm={6} md={3}>
+                    <Box
+                      sx={{
+                        textAlign: "center",
+                        p: 2,
+                        bgcolor: "grey.50",
+                        borderRadius: 1,
+                      }}
+                    >
+                      <Typography
+                        variant="h6"
+                        color="primary.main"
+                        sx={{ fontWeight: "bold", mb: 1 }}
+                      >
+                        {index + 1}
+                      </Typography>
+                      <Typography variant="body2">{step}</Typography>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+            </Paper>
+
+            {/* Technologies */}
+            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ color: "primary.main", mb: 3, display: "flex", alignItems: "center" }}
+              >
+                <Settings sx={{ mr: 1 }} />
+                Technologies We Use
+              </Typography>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                {serviceDetails.technologies.map((tech, index) => (
+                  <Chip key={index} label={tech} variant="outlined" />
+                ))}
+              </Box>
+            </Paper>
+
+            {/* Expected Outcomes */}
+            <Paper elevation={2} sx={{ p: 3 }}>
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ color: "primary.main", mb: 3 }}
+              >
+                Expected Outcomes
+              </Typography>
+              <List>
+                {serviceDetails.outcomes.map((outcome, index) => (
+                  <ListItem key={index}>
+                    <ListItemIcon>
+                      <CheckCircle color="secondary" />
+                    </ListItemIcon>
+                    <ListItemText primary={outcome} />
+                  </ListItem>
+                ))}
+              </List>
+            </Paper>
           </Grid>
 
           {/* Sidebar */}
