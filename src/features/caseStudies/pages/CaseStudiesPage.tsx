@@ -33,7 +33,6 @@ import {
   Business,
 } from '@mui/icons-material';
 import { caseStudies, getAllIndustries, type CaseStudy } from '../../../data/caseStudies';
-import ParticleBackground from '../../homepage/components/ParticleSwarm/ParticleSwarmCanvas';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -89,7 +88,6 @@ const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
 
   return (
     <Box sx={{ pt: 10 }}> {/* Account for fixed header */}
-      <ParticleBackground />
       {/* Hero Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Box textAlign="center" sx={{ mb: 8 }}>

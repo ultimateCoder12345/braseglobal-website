@@ -24,7 +24,6 @@ import {
   LinkedIn,
 } from "@mui/icons-material";
 import { getLeadershipTeam } from "../../../data/team";
-import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
 // Company values data
 const companyValues = [
@@ -69,7 +68,6 @@ export const AboutPage: React.FC = () => {
 
   return (
     <>
-      <ParticleBackground />
       <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
         {/* Hero Section */}
         <Container maxWidth="lg" sx={{ py: 8 }}>
@@ -105,7 +103,7 @@ export const AboutPage: React.FC = () => {
           </Box>
 
           <Grid container spacing={6} alignItems="center">
-            <Grid size={6} md={6}>
+            <Grid>
               <Typography
                 variant="body1"
                 paragraph
@@ -134,7 +132,7 @@ export const AboutPage: React.FC = () => {
                 artificial intelligence solutions.
               </Typography>
             </Grid>
-            <Grid size={6} md={4}>
+            <Grid>
               <Box
                 component="img"
                 src="src/assets/images/About-us-image.png"
@@ -184,7 +182,7 @@ export const AboutPage: React.FC = () => {
             </Box>
             <Grid container spacing={4}>
               {companyValues.map((value, index) => (
-                <Grid size={12} sm={6} md={3} key={index}>
+                <Grid key={index}>
                   <Card
                     sx={{
                       height: "100%",
@@ -235,7 +233,7 @@ export const AboutPage: React.FC = () => {
         {/* Achievements Section */}
         <Container maxWidth="lg" sx={{ py: 8 }}>
           <Grid container spacing={6} alignItems="center">
-            <Grid size={6} md={6}>
+            <Grid>
               <Typography
                 variant="h3"
                 component="h2"
@@ -285,7 +283,7 @@ export const AboutPage: React.FC = () => {
                 </List>
               </Paper>
             </Grid>
-            <Grid size={6} md={6}>
+            <Grid>
               <Box
                 component="img"
                 src="src/assets/images/Achivements1.jpg"
@@ -335,7 +333,7 @@ export const AboutPage: React.FC = () => {
             </Box>
             <Grid container spacing={4}>
               {leadership.map((leader) => (
-                <Grid size={12} md={4} key={leader.id}>
+                <Grid key={leader.id}>
                   <Card
                     sx={{
                       textAlign: "center",

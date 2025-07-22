@@ -7,7 +7,7 @@ export const services = [
     description: "Comprehensive IT strategy, digital transformation, and managed services to optimize your business operations.",
     icon: Briefcase,
     link: "/services#it-consulting",
-    features: ['Strategic IT Planning', 'Digital Transformation', 'Managed IT Services', 'Process Automation', 'Technology Assessment', '24/7 Support & Monitoring']
+    features: ['Strategic IT Planning', 'Digital Transformation', 'Custom Software & Mobile Development', 'Quality Engineering', 'Product Engineering']
   },
   {
     title: "Cloud Solutions",
@@ -24,7 +24,7 @@ export const services = [
     features: ['Custom AI Models', 'Natural Language Processing', 'Computer Vision', 'Predictive Analytics', 'Automation Solutions', 'AI Integration']
   },
   {
-    title: "Data Analytics & Engineering",
+    title: "Data and BI Services",
     description: "Transform your data into actionable insights with our comprehensive data services.",
     icon: Database,
     link: "/services#data-services",

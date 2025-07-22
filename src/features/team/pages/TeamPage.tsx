@@ -37,7 +37,6 @@ import {
   getLeadershipTeam,
 } from "../../../data/team";
 import TeamAnalytics from "../components/TeamAnalytics";
-import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
 export const TeamPage: React.FC = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("All");
@@ -61,7 +60,6 @@ export const TeamPage: React.FC = () => {
 
   return (
     <>
-      <ParticleBackground />
       <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
         {/* Hero Section */}
         <Container maxWidth="lg" sx={{ py: 8 }}>
@@ -104,7 +102,7 @@ export const TeamPage: React.FC = () => {
 
           {/* Team Stats */}
           <Grid container spacing={4} sx={{ mb: 8 }}>
-            <Grid size={6} sm={6} md={3}>
+            <Grid>
               <Paper
                 elevation={0}
                 sx={{
@@ -130,7 +128,7 @@ export const TeamPage: React.FC = () => {
                 </Typography>
               </Paper>
             </Grid>
-            <Grid size={6} sm={6} md={3}>
+            <Grid>
               <Paper
                 elevation={0}
                 sx={{
@@ -161,7 +159,7 @@ export const TeamPage: React.FC = () => {
                 </Typography>
               </Paper>
             </Grid>
-            <Grid size={6} sm={6} md={3}>
+            <Grid>
               <Paper
                 elevation={0}
                 sx={{
@@ -191,7 +189,7 @@ export const TeamPage: React.FC = () => {
                 </Typography>
               </Paper>
             </Grid>
-            <Grid size={6} sm={6} md={3}>
+            <Grid>
               <Paper
                 elevation={0}
                 sx={{
@@ -242,7 +240,7 @@ export const TeamPage: React.FC = () => {
           {/* Team Members Grid */}
           <Grid container spacing={4} sx={{ mb: 8 }}>
             {filteredTeamMembers.map((member) => (
-              <Grid size={6} sm={6} md={4} key={member.id}>
+              <Grid key={member.id}>
                 <RouterLink
                   to={`/team/${member.id}`}
                   style={{ textDecoration: "none", color: "inherit" }}

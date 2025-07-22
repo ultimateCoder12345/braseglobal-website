@@ -16,7 +16,7 @@ const navLinks = [
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   // { label: "Clients", to: "/clients" },
-  { label: "Case Studies", to: "/case-studies" },
+  // { label: "Case Studies", to: "/case-studies" },
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
   //{ label: "Team", to: "/team" },

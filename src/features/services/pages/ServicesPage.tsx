@@ -21,41 +21,12 @@ import {
 import { ExpandMore, ArrowForward, CheckCircle } from "@mui/icons-material";
 import { services } from "../../homepage/services/data/services";
 import { Link as RouterLink } from "react-router-dom"; // FIX: Import Link for SPA navigation
-import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
-// FAQ data
-const faqs = [
-  {
-    question: "How long does a typical project take?",
-    answer:
-      "Project timelines vary based on complexity and scope. Simple websites typically take 4-6 weeks, while complex applications can take 3-6 months. We provide detailed timelines during our initial consultation.",
-  },
-  {
-    question: "Do you provide ongoing support and maintenance?",
-    answer:
-      "Yes, we offer comprehensive support and maintenance packages. This includes bug fixes, security updates, performance optimization, and feature enhancements based on your needs.",
-  },
-  {
-    question: "What technologies do you specialize in?",
-    answer:
-      "We work with a wide range of modern technologies including React, Angular, Node.js, Python, AWS, Azure, and many others. We choose the best technology stack based on your specific requirements.",
-  },
-  {
-    question: "Can you work with our existing systems?",
-    answer:
-      "Absolutely! We have extensive experience in system integration and can work with your existing infrastructure, databases, and third-party services to ensure seamless connectivity.",
-  },
-  {
-    question: "What is your development process?",
-    answer:
-      "We follow an Agile development methodology with regular sprints, continuous integration, and frequent client communication. This ensures transparency and allows for adjustments throughout the project.",
-  },
-];
+
 
 export const ServicesPage: React.FC = () => {
   return (
     <Box sx={{ position: 'relative', pt: 10 }}>
-      <ParticleBackground />
       <Box sx={{ position: 'relative', zIndex: 2 }}>
       {/* Hero Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
@@ -267,7 +238,7 @@ export const ServicesPage: React.FC = () => {
       </Box>
 
       {/* FAQ Section */}
-      <Container maxWidth="lg" sx={{ py: 8 }}>
+      {/* <Container maxWidth="lg" sx={{ py: 8 }}>
         <Typography
           variant="h3"
           component="h2"
@@ -293,7 +264,7 @@ export const ServicesPage: React.FC = () => {
             </Accordion>
           ))}
         </Box>
-      </Container>
+      </Container> */}
 
       {/* Call to Action */}
       <Box sx={{ bgcolor: "primary.main", color: "white", py: 8 }}>
