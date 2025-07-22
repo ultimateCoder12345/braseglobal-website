@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/braseglobal-website-1/FileContentIndex/994cbc56-76be-4992-a211-59682273f660.vsidx
+.vs/braseglobal-website-1/v17/.wsuo
+.vs/braseglobal-website-1/v17/DocumentLayout.json
