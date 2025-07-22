@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Container } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -36,16 +37,17 @@ const ServicesSection: React.FC = () => {
         </Typography>
       </Box>
 
-      <Box
-        display="grid"
-        gridTemplateColumns={{
-          xs: "1fr", // 1 per row on mobile
-          sm: "1fr 1fr", // 2 per row on small screens
-          md: "1fr 1fr 1fr", // 3 per row on md and up
-        }}
-        gap={4}
-        justifyItems="center"
-      >
+      <Container maxWidth="lg">
+        <Box
+          display="grid"
+          gridTemplateColumns={{
+            xs: "1fr", // 1 per row on mobile
+            sm: "1fr 1fr", // 2 per row on small screens
+            md: "1fr 1fr 1fr", // 3 per row on md and up
+          }}
+          gap={4}
+          justifyItems="center"
+        >
         {services.map((service, idx) => {
           const Icon = service.icon;
           const isFlipped = flippedIndex === idx;
@@ -138,7 +140,8 @@ const ServicesSection: React.FC = () => {
             </div>
           );
         })}
-      </Box>
+        </Box>
+      </Container>
     </Box>
   );
 };

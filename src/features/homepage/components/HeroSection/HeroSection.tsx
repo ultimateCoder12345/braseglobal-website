@@ -1,12 +1,10 @@
 import { Button, Stack, Typography, Container } from "@mui/material";
-import ParticleBackground from "../ParticleSwarm/ParticleSwarmCanvas";
 
 export default function HeroSection() {
   return (
     <section
       style={{ position: "relative", padding: "5rem 0", textAlign: "center" }}
     >
-      <ParticleBackground />
       <Container maxWidth="md" style={{ position: "relative", zIndex: 2 }}>
         <Typography
           variant="h2"

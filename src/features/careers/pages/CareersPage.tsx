@@ -36,7 +36,6 @@ import {
   Coffee,
   Flight,
 } from "@mui/icons-material";
-import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
 // Job openings data
 const jobOpenings = [
@@ -67,7 +66,7 @@ const jobOpenings = [
   },
   {
     id: 2,
-    title: "UX/UI Designer",
+    title: "Business Development Excutive",
     department: "Design",
     location: "New York, NY",
     type: "Full-time",
@@ -94,127 +93,7 @@ const jobOpenings = [
       "Professional Development",
       "Creative Budget",
     ],
-  },
-  {
-    id: 3,
-    title: "DevOps Engineer",
-    department: "Infrastructure",
-    location: "Remote",
-    type: "Full-time",
-    experience: "4+ years",
-    description:
-      "Help us build and maintain scalable infrastructure and deployment pipelines.",
-    requirements: [
-      "Bachelor's degree in Computer Science or related field",
-      "4+ years of DevOps/Infrastructure experience",
-      "Experience with Docker, Kubernetes, and CI/CD",
-      "Proficiency in AWS, Azure, or Google Cloud",
-      "Strong scripting skills (Python, Bash, etc.)",
-    ],
-    responsibilities: [
-      "Design and maintain CI/CD pipelines",
-      "Manage cloud infrastructure and deployments",
-      "Monitor system performance and reliability",
-      "Implement security best practices",
-      "Automate operational processes",
-    ],
-    benefits: [
-      "Health Insurance",
-      "Remote Work",
-      "Learning Budget",
-      "Flexible PTO",
-    ],
-  },
-  {
-    id: 4,
-    title: "Product Manager",
-    department: "Product",
-    location: "San Francisco, CA",
-    type: "Full-time",
-    experience: "5+ years",
-    description:
-      "Lead product strategy and work with engineering teams to deliver exceptional products.",
-    requirements: [
-      "Bachelor's degree in Business, Engineering, or related field",
-      "5+ years of product management experience",
-      "Experience with agile development methodologies",
-      "Strong analytical and communication skills",
-      "Technical background preferred",
-    ],
-    responsibilities: [
-      "Define product roadmap and strategy",
-      "Work with engineering teams on feature development",
-      "Conduct market research and competitive analysis",
-      "Gather and prioritize product requirements",
-      "Collaborate with stakeholders across the organization",
-    ],
-    benefits: [
-      "Health Insurance",
-      "Stock Options",
-      "Professional Development",
-      "Flexible Hours",
-    ],
-  },
-  {
-    id: 5,
-    title: "Data Scientist",
-    department: "Analytics",
-    location: "London, UK",
-    type: "Full-time",
-    experience: "3+ years",
-    description:
-      "Join our analytics team to extract insights from data and build predictive models.",
-    requirements: [
-      "Master's degree in Data Science, Statistics, or related field",
-      "3+ years of data science experience",
-      "Proficiency in Python, R, and SQL",
-      "Experience with machine learning frameworks",
-      "Strong statistical analysis skills",
-    ],
-    responsibilities: [
-      "Develop and deploy machine learning models",
-      "Analyze large datasets to extract insights",
-      "Create data visualizations and reports",
-      "Collaborate with product and engineering teams",
-      "Present findings to stakeholders",
-    ],
-    benefits: [
-      "Health Insurance",
-      "Visa Sponsorship",
-      "Learning Budget",
-      "Flexible Work",
-    ],
-  },
-  {
-    id: 6,
-    title: "Junior Software Developer",
-    department: "Engineering",
-    location: "San Francisco, CA",
-    type: "Full-time",
-    experience: "0-2 years",
-    description:
-      "Perfect opportunity for new graduates to start their career in software development.",
-    requirements: [
-      "Bachelor's degree in Computer Science or related field",
-      "0-2 years of professional experience",
-      "Knowledge of at least one programming language",
-      "Understanding of software development principles",
-      "Eagerness to learn and grow",
-    ],
-    responsibilities: [
-      "Write clean, maintainable code",
-      "Participate in code reviews",
-      "Learn from senior team members",
-      "Contribute to team projects",
-      "Attend training and development sessions",
-    ],
-    benefits: [
-      "Health Insurance",
-      "Mentorship Program",
-      "Learning Budget",
-      "Career Growth",
-    ],
-  },
+  }
 ];
 
 // Company benefits
@@ -298,7 +177,6 @@ export const CareersPage: React.FC = () => {
 
   return (
     <>
-      <ParticleBackground />
       <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
         {/* Hero Section */}
         <Container maxWidth="lg" sx={{ py: 8 }}>

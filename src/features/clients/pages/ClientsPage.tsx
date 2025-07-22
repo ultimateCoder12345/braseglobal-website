@@ -28,7 +28,6 @@ import {
   Star,
 } from '@mui/icons-material';
 import { clients, getAllIndustries, getClientStats, type Client } from '../../../data/clients';
-import ParticleBackground from '../../homepage/components/ParticleSwarm/ParticleSwarmCanvas';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -99,7 +98,6 @@ export const ClientsPage: React.FC = () => {
 
   return (
     <Box sx={{ position: 'relative', pt: 10 }}>
-      <ParticleBackground />
       <Box sx={{ position: 'relative', zIndex: 2 }}>
       {/* Account for fixed header */}
       <Container maxWidth="lg" sx={{ py: 8 }}>

@@ -1,39 +1,32 @@
-import React, { useState } from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Box,
-  Container,
-  Menu,
-  MenuItem,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
-import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
-import { Link, useNavigate } from 'react-router-dom';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link } from "@mui/material";
 
-const Header: React.FC = () => {
-  const [aboutAnchorEl, setAboutAnchorEl] = useState<null | HTMLElement>(null);
-  const [servicesAnchorEl, setServicesAnchorEl] = useState<null | HTMLElement>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const navigate = useNavigate();
+const navLinks = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  // { label: "Clients", to: "/clients" },
+  // { label: "Case Studies", to: "/case-studies" },
+  { label: "Careers", to: "/careers" },
+  { label: "Contact", to: "/contact" },
+  //{ label: "Team", to: "/team" },
+];
 
-  const handleAboutClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAboutAnchorEl(event.currentTarget);
-  };
-
-  const handleServicesClick = (event: React.MouseEvent<HTMLElement>) => {
-    setServicesAnchorEl(event.currentTarget);
-  };
+export const Header = () => {
+  const location = useLocation();
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null,
+  );
 
   const handleClose = () => {
     setAboutAnchorEl(null);

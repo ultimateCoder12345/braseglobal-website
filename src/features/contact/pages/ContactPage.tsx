@@ -30,7 +30,6 @@ import {
 import { FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import CustomMap from "../../homepage/components/CustomMap/CustomMap";
-import ParticleBackground from "../../homepage/components/ParticleSwarm/ParticleSwarmCanvas";
 
 // Contact information data
 const contactInfo = [
@@ -53,14 +52,7 @@ const contactInfo = [
         primary: "7/16 Filey Street, Blacktown, NSW 2148 ",
         secondary: "Sydney Head Office",
         description: "Our main office location",
-    },
-    {
-        icon: <AccessTime />,
-        title: "Business Hours",
-        primary: "Monday - Friday: 9:00 AM - 6:00 PM",
-        secondary: "Saturday: 9:00 AM - 2:00 PM",
-        description: "Australian Eastern Standard Time",
-    },
+    }
 ];
 
 // Office locations
@@ -181,7 +173,6 @@ export const ContactPage: React.FC = () => {
 
     return (
         <>
-            <ParticleBackground />
             <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
                 {/* Hero Section */}
                 <Container maxWidth="lg" sx={{ py: 8 }}>
