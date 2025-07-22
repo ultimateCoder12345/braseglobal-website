@@ -3,7 +3,7 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
+  Grid2 as Grid,
   Card,
   CardContent,
   Button,
@@ -46,7 +46,6 @@ const jobOpenings = [
     location: "San Francisco, CA",
     type: "Full-time",
     experience: "5+ years",
-    //salary: '$120,000 - $160,000',
     description:
       "We are looking for a senior full stack developer to join our growing engineering team.",
     requirements: [
@@ -72,7 +71,6 @@ const jobOpenings = [
     location: "New York, NY",
     type: "Full-time",
     experience: "3+ years",
-    //salary: "$80,000 - $110,000",
     description:
       "Join our design team to create beautiful and intuitive user experiences.",
     requirements: [
@@ -163,7 +161,6 @@ export const CareersPage: React.FC = () => {
   };
 
   const handleApplicationSubmit = () => {
-    // Handle application submission
     console.log("Application submitted:", applicationData);
     setApplicationOpen(false);
     setApplicationData({
@@ -181,8 +178,6 @@ export const CareersPage: React.FC = () => {
   return (
     <>
       <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
-        {" "}
-        {/* Account for fixed header */}
         {/* Hero Section */}
         <Container maxWidth="lg" sx={{ py: 8 }}>
           <Box textAlign="center" sx={{ mb: 8 }}>
@@ -205,6 +200,7 @@ export const CareersPage: React.FC = () => {
             </Typography>
           </Box>
         </Container>
+
         {/* Company Benefits */}
         <Box sx={{ bgcolor: "grey.50", py: 8 }}>
           <Container maxWidth="lg">
@@ -219,7 +215,7 @@ export const CareersPage: React.FC = () => {
             </Typography>
             <Grid container spacing={4}>
               {companyBenefits.map((benefit, index) => (
-                <Grid key={index} xs={12} sm={6} md={3}>
+                <Grid key={index} item xs={12} sm={6} md={3}>
                   <Card
                     sx={{
                       height: "100%",
@@ -257,6 +253,7 @@ export const CareersPage: React.FC = () => {
             </Grid>
           </Container>
         </Box>
+
         {/* Job Openings */}
         <Container maxWidth="lg" sx={{ py: 8 }}>
           <Typography
@@ -271,7 +268,7 @@ export const CareersPage: React.FC = () => {
 
           <Grid container spacing={4}>
             {jobOpenings.map((job) => (
-              <Grid key={job.id} xs={12} md={6}>
+              <Grid key={job.id} item xs={12} md={6}>
                 <Card
                   sx={{
                     height: "100%",
@@ -333,32 +330,7 @@ export const CareersPage: React.FC = () => {
                         variant="outlined"
                         size="small"
                       />
-                      {/*<Chip
-                      //  icon={<AttachMoney />}
-                      //  label={job.salary}
-                      //  variant="outlined"
-                       // size="small"
-                     // /> */}
                     </Box>
-
-                    {/*<Box
-                      sx={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: 0.5,
-                        mb: 3,
-                      }}
-                    >
-                      {job.benefits.map((benefit, index) => (
-                        <Chip
-                          key={index}
-                          label={benefit}
-                          size="small"
-                          color="secondary"
-                          variant="outlined"
-                        />
-                      ))}
-                    </Box>*/}
 
                     <Box sx={{ display: "flex", gap: 1, mt: "auto" }}>
                       <Button
@@ -383,6 +355,7 @@ export const CareersPage: React.FC = () => {
             ))}
           </Grid>
         </Container>
+
         {/* Job Details Dialog */}
         <Dialog
           open={!!selectedJob}
@@ -449,6 +422,7 @@ export const CareersPage: React.FC = () => {
             </>
           )}
         </Dialog>
+
         {/* Application Dialog */}
         <Dialog
           open={applicationOpen}
@@ -459,7 +433,7 @@ export const CareersPage: React.FC = () => {
           <DialogTitle>Apply for Position</DialogTitle>
           <DialogContent>
             <Grid container spacing={2} sx={{ mt: 1 }}>
-              <Grid xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="First Name"
@@ -473,7 +447,7 @@ export const CareersPage: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="Last Name"
@@ -487,7 +461,7 @@ export const CareersPage: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   label="Email"
@@ -502,7 +476,7 @@ export const CareersPage: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   label="Phone"
@@ -515,7 +489,7 @@ export const CareersPage: React.FC = () => {
                   }
                 />
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel>Years of Experience</InputLabel>
                   <Select
@@ -536,7 +510,7 @@ export const CareersPage: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   label="Cover Letter"
@@ -561,6 +535,7 @@ export const CareersPage: React.FC = () => {
             </Button>
           </DialogActions>
         </Dialog>
+
         {/* Company Culture Section */}
         <Box sx={{ bgcolor: "primary.main", color: "white", py: 8 }}>
           <Container maxWidth="lg">
@@ -577,7 +552,7 @@ export const CareersPage: React.FC = () => {
                 we're committed to supporting each other's growth and success.
               </Typography>
               <Grid container spacing={4} sx={{ mt: 2 }}>
-                <Grid xs={12} md={4}>
+                <Grid item xs={12} md={4}>
                   <People sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Collaborative Team
@@ -586,7 +561,7 @@ export const CareersPage: React.FC = () => {
                     Work with talented individuals from diverse backgrounds
                   </Typography>
                 </Grid>
-                <Grid xs={12} md={4}>
+                <Grid item xs={12} md={4}>
                   <School sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Continuous Learning
@@ -596,7 +571,7 @@ export const CareersPage: React.FC = () => {
                     programs
                   </Typography>
                 </Grid>
-                <Grid xs={12} md={4}>
+                <Grid item xs={12} md={4}>
                   <TrendingUp sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Growth Opportunities

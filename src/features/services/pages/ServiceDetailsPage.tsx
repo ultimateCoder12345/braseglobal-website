@@ -1,382 +1,407 @@
-import React from "react";
-import { useParams, useNavigate, Link as RouterLink } from "react-router-dom"; // FIX: Import Link
+
+import React from 'react';
 import {
-  Box,
   Container,
   Typography,
-  Paper,
+  Box,
+  Grid,
+  Card,
+  CardContent,
   Button,
   Chip,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Grid,
-  Card,
-  CardContent,
-  Divider,
-} from "@mui/material";
-import {
-  ArrowBack,
-  CheckCircle,
-  Timeline,
-  Group,
-  Settings,
-  TrendingUp,
-  Security,
-  Speed,
-} from "@mui/icons-material";
-import { services } from "../../homepage/services/data/services";
+  Paper,
+} from '@mui/material';
+import { useParams, useNavigate } from 'react-router-dom';
+import { CheckCircle, ArrowBack, TrendingUp, Security, Cloud, Analytics } from '@mui/icons-material';
+import ParticleBackground from '../../homepage/components/ParticleSwarm/ParticleSwarmCanvas';
 
-export const ServiceDetailsPage: React.FC = () => {
+const serviceDetails = {
+  'it-consulting': {
+    title: 'IT Consulting',
+    description: 'Strategic technology consulting to align IT with business objectives and drive digital transformation.',
+    icon: <TrendingUp />,
+    overview: 'Our IT consulting services help organizations leverage technology to achieve their business goals. We provide strategic guidance, technical expertise, and implementation support to ensure your IT investments deliver maximum value.',
+    benefits: [
+      'Reduced operational costs by up to 30%',
+      'Improved system efficiency and performance',
+      'Enhanced security and compliance',
+      'Faster time-to-market for new initiatives',
+      'Better alignment between IT and business strategy'
+    ],
+    features: [
+      'Technology Strategy Development',
+      'Digital Transformation Planning',
+      'IT Roadmap Creation',
+      'Risk Assessment and Mitigation',
+      'Vendor Selection and Management',
+      'Project Management and Delivery'
+    ],
+    process: [
+      'Discovery and Assessment',
+      'Strategy Development',
+      'Implementation Planning',
+      'Execution and Monitoring',
+      'Optimization and Support'
+    ],
+    technologies: ['Cloud Platforms', 'Enterprise Software', 'Analytics Tools', 'Security Solutions']
+  },
+  'cloud-solutions': {
+    title: 'Cloud Solutions',
+    description: 'Comprehensive cloud services for scalability, flexibility, and cost optimization.',
+    icon: <Cloud />,
+    overview: 'Transform your IT infrastructure with our comprehensive cloud solutions. We help organizations migrate to the cloud, optimize existing cloud environments, and implement cloud-native applications for maximum efficiency and scalability.',
+    benefits: [
+      'Up to 40% reduction in infrastructure costs',
+      'Improved scalability and flexibility',
+      '99.9% uptime and reliability',
+      'Enhanced disaster recovery capabilities',
+      'Faster deployment of new applications'
+    ],
+    features: [
+      'Cloud Migration Services',
+      'Infrastructure as Code (IaC)',
+      'Multi-cloud Strategy',
+      'Cloud Security Implementation',
+      'Performance Monitoring',
+      '24/7 Support and Maintenance'
+    ],
+    process: [
+      'Cloud Readiness Assessment',
+      'Migration Strategy Development',
+      'Pilot Implementation',
+      'Full Migration Execution',
+      'Optimization and Management'
+    ],
+    technologies: ['AWS', 'Microsoft Azure', 'Google Cloud Platform', 'Kubernetes', 'Docker']
+  },
+  'ai-ml': {
+    title: 'AI & Machine Learning',
+    description: 'Intelligent solutions powered by cutting-edge artificial intelligence and machine learning technologies.',
+    icon: <Analytics />,
+    overview: 'Harness the power of AI and machine learning to automate processes, gain insights from data, and create intelligent applications that drive business value.',
+    benefits: [
+      'Automated decision-making processes',
+      'Improved customer experience through personalization',
+      'Enhanced operational efficiency',
+      'Predictive analytics for better planning',
+      'Competitive advantage through innovation'
+    ],
+    features: [
+      'Predictive Analytics',
+      'Natural Language Processing',
+      'Computer Vision',
+      'Recommendation Systems',
+      'MLOps Implementation',
+      'Custom AI Model Development'
+    ],
+    process: [
+      'Data Assessment and Preparation',
+      'Model Development and Training',
+      'Testing and Validation',
+      'Deployment and Integration',
+      'Monitoring and Optimization'
+    ],
+    technologies: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Azure ML', 'AWS SageMaker']
+  },
+  'data-analytics': {
+    title: 'Data Analytics',
+    description: 'Transform raw data into actionable business insights with advanced analytics solutions.',
+    icon: <Analytics />,
+    overview: 'Unlock the value in your data with our comprehensive analytics solutions. From data warehousing to real-time analytics, we help you make data-driven decisions that drive business growth.',
+    benefits: [
+      'Data-driven decision making',
+      'Improved operational efficiency',
+      'Better customer understanding',
+      'Increased revenue opportunities',
+      'Competitive market insights'
+    ],
+    features: [
+      'Business Intelligence Dashboards',
+      'Data Visualization',
+      'Real-time Analytics',
+      'Data Warehousing',
+      'ETL Processes',
+      'Self-service Analytics'
+    ],
+    process: [
+      'Data Discovery and Assessment',
+      'Data Architecture Design',
+      'Implementation and Integration',
+      'Dashboard and Report Development',
+      'Training and Knowledge Transfer'
+    ],
+    technologies: ['Power BI', 'Tableau', 'Snowflake', 'Apache Spark', 'SQL Server']
+  },
+  'cybersecurity': {
+    title: 'Cybersecurity',
+    description: 'Comprehensive security solutions to protect your digital assets and ensure business continuity.',
+    icon: <Security />,
+    overview: 'Protect your organization from cyber threats with our comprehensive security solutions. We provide end-to-end security services from assessment to implementation and ongoing monitoring.',
+    benefits: [
+      'Reduced security breach risk',
+      'Compliance with industry regulations',
+      'Protection of sensitive data',
+      'Business continuity assurance',
+      'Enhanced customer trust'
+    ],
+    features: [
+      'Security Assessment and Auditing',
+      'Incident Response Planning',
+      'Compliance Management',
+      'Security Training and Awareness',
+      'Threat Detection and Monitoring',
+      'Vulnerability Management'
+    ],
+    process: [
+      'Security Assessment',
+      'Risk Analysis and Planning',
+      'Security Implementation',
+      'Testing and Validation',
+      'Ongoing Monitoring and Support'
+    ],
+    technologies: ['Firewalls', 'SIEM Solutions', 'Endpoint Protection', 'Identity Management']
+  },
+  'network-infrastructure': {
+    title: 'Network Infrastructure',
+    description: 'Robust and scalable network solutions designed for modern business requirements.',
+    icon: <TrendingUp />,
+    overview: 'Build a reliable and scalable network infrastructure that supports your business operations. Our network solutions ensure optimal performance, security, and reliability.',
+    benefits: [
+      'Improved network performance',
+      'Enhanced security and reliability',
+      'Scalability for business growth',
+      'Reduced downtime and disruptions',
+      'Cost-effective network management'
+    ],
+    features: [
+      'Network Design and Architecture',
+      'Performance Optimization',
+      'Network Monitoring and Management',
+      'Disaster Recovery Planning',
+      'Security Implementation',
+      'Maintenance and Support'
+    ],
+    process: [
+      'Network Assessment',
+      'Design and Planning',
+      'Implementation and Configuration',
+      'Testing and Optimization',
+      'Ongoing Monitoring and Maintenance'
+    ],
+    technologies: ['Cisco', 'Juniper', 'SD-WAN', 'Network Monitoring Tools']
+  }
+};
+
+const ServiceDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const service = services.find((s, index) => index.toString() === id);
+  const service = id ? serviceDetails[id as keyof typeof serviceDetails] : null;
 
   if (!service) {
     return (
-      <Box
-        sx={{
-          pt: 10,
-          minHeight: "50vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Typography variant="h4">Service not found</Typography>
-      </Box>
+      <Container maxWidth="lg" sx={{ py: 8, textAlign: 'center' }}>
+        <Typography variant="h4" gutterBottom>
+          Service Not Found
+        </Typography>
+        <Button variant="contained" onClick={() => navigate('/services')}>
+          Back to Services
+        </Button>
+      </Container>
     );
   }
 
-  const IconComponent = service.icon;
-
-  // Function returns both specific data and common benefits
-  const getServiceDetails = (index: number) => {
-    const commonBenefits = [
-      {
-        icon: <TrendingUp />,
-        title: "Proven Results",
-        desc: "Track record of successful implementations",
-      },
-      {
-        icon: <Security />,
-        title: "Secure & Compliant",
-        desc: "Enterprise-grade security standards",
-      },
-      {
-        icon: <Speed />,
-        title: "Fast Delivery",
-        desc: "Agile methodology for quick results",
-      },
-      {
-        icon: <Group />,
-        title: "Expert Team",
-        desc: "Certified professionals with deep expertise",
-      },
-    ];
-
-    const serviceSpecificData = {
-      0: {
-        overview: "Strategic IT consulting and digital transformation services to modernize your business operations and drive growth through technology.",
-        keyFeatures: ["Strategic IT Planning", "Digital Transformation", "Managed IT Services", "Process Automation"],
-        process: ["Business Analysis", "Strategy Development", "Implementation Planning", "Execution & Support"],
-        technologies: ["Cloud Platforms", "Enterprise Software", "Automation Tools", "Analytics Platforms"],
-        outcomes: ["Improved Efficiency", "Cost Reduction", "Enhanced Security", "Scalable Infrastructure"]
-      },
-      1: {
-        overview: "Comprehensive cloud solutions including migration, infrastructure management, and optimization to ensure your business operates efficiently in the cloud.",
-        keyFeatures: ["Cloud Migration", "Infrastructure Management", "Cost Optimization", "Multi-Cloud Strategy"],
-        process: ["Cloud Assessment", "Migration Planning", "Implementation", "Optimization & Support"],
-        technologies: ["AWS", "Azure", "Google Cloud", "Kubernetes", "Docker"],
-        outcomes: ["Reduced Costs", "Improved Scalability", "Enhanced Performance", "Better Disaster Recovery"]
-      },
-      2: {
-        overview: "Advanced AI and machine learning solutions to automate processes, gain insights, and create intelligent applications that drive business value.",
-        keyFeatures: ["Custom AI Models", "Natural Language Processing", "Computer Vision", "Predictive Analytics"],
-        process: ["Data Assessment", "Model Development", "Testing & Validation", "Deployment & Monitoring"],
-        technologies: ["TensorFlow", "PyTorch", "Python", "R", "Azure AI", "AWS AI Services"],
-        outcomes: ["Process Automation", "Better Decision Making", "Improved Customer Experience", "Cost Savings"]
-      },
-      3: {
-        overview: "Transform your data into actionable insights with comprehensive data analytics and engineering services for better business decisions.",
-        keyFeatures: ["Data Warehousing", "Business Intelligence", "Real-time Analytics", "Data Pipeline Development"],
-        process: ["Data Discovery", "Architecture Design", "Pipeline Development", "Analytics & Reporting"],
-        technologies: ["Snowflake", "Power BI", "Tableau", "Apache Spark", "Python", "SQL"],
-        outcomes: ["Data-Driven Decisions", "Improved Performance", "Cost Optimization", "Better Customer Insights"]
-      },
-      4: {
-        overview: "Comprehensive cybersecurity solutions to protect your digital assets, ensure compliance, and maintain business continuity.",
-        keyFeatures: ["Threat Detection", "Data Protection", "Compliance Solutions", "Security Monitoring"],
-        process: ["Security Assessment", "Implementation", "Monitoring", "Incident Response"],
-        technologies: ["SIEM Tools", "Firewalls", "Encryption", "Identity Management", "Security Analytics"],
-        outcomes: ["Enhanced Security", "Compliance Achievement", "Risk Reduction", "Business Continuity"]
-      },
-      5: {
-        overview: "Reliable and high-performance networking solutions to ensure seamless connectivity and optimal performance for your business operations.",
-        keyFeatures: ["Network Design", "Implementation", "Performance Optimization", "Network Security"],
-        process: ["Network Assessment", "Design & Planning", "Implementation", "Monitoring & Support"],
-        technologies: ["Cisco", "Juniper", "SD-WAN", "Network Security Tools", "Monitoring Solutions"],
-        outcomes: ["Improved Connectivity", "Enhanced Performance", "Better Security", "Reduced Downtime"]
-      }
-    };
-
-    const specifics = serviceSpecificData[index as keyof typeof serviceSpecificData] || serviceSpecificData[0];
-    return { specifics, benefits: commonBenefits };
-  };
-
-  const { specifics: serviceDetails, benefits: serviceBenefits } =
-    getServiceDetails(parseInt(id || "0"));
-
   return (
-    <Box sx={{ pt: 10 }}>
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Button
-          startIcon={<ArrowBack />}
-          onClick={() => navigate(-1)}
-          sx={{ mb: 3 }}
-        >
-          Back to Services
-        </Button>
+    <>
+      <ParticleBackground />
+      <Box sx={{ position: 'relative', zIndex: 1, pt: 10 }}>
+        <Container maxWidth="lg" sx={{ py: 8 }}>
+          {/* Back Button */}
+          <Button
+            startIcon={<ArrowBack />}
+            onClick={() => navigate('/services')}
+            sx={{ mb: 4 }}
+          >
+            Back to Services
+          </Button>
 
-        {/* Hero Section */}
-        <Paper
-          elevation={3}
-          sx={{
-            p: 4,
-            mb: 4,
-            background: "linear-gradient(135deg, #1976d2 0%, #1565c0 100%)",
-            color: "white",
-          }}
-        >
-          <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} md={8}>
-              <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
-                <Box sx={{ mr: 2 }}>
-                  {/* FIX: Changed `size` prop to `sx` prop for font size */}
-                  <IconComponent sx={{ fontSize: 50 }} />
-                </Box>
-                <Typography variant="h3" component="h1">
-                  {service.title}
-                </Typography>
+          {/* Header */}
+          <Box sx={{ mb: 6 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Box sx={{ mr: 2, color: 'primary.main' }}>
+                {React.cloneElement(service.icon, { fontSize: 'large' })}
               </Box>
-              <Typography variant="h6" sx={{ opacity: 0.9, lineHeight: 1.6 }}>
-                {serviceDetails.overview}
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Box sx={{ textAlign: "center" }}>
-                {/* FIX: Use RouterLink for SPA navigation */}
-                <Button
-                  variant="contained"
-                  size="large"
-                  sx={{
-                    bgcolor: "white",
-                    color: "primary.main",
-                    "&:hover": { bgcolor: "grey.100" },
-                    mb: 2,
-                  }}
-                  component={RouterLink}
-                  to="/contact"
-                >
-                  Get Free Consultation
-                </Button>
-                <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                  Ready to get started? Contact us today!
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </Paper>
-
-        <Grid container spacing={4}>
-          {/* Main Content */}
-          <Grid item xs={12} md={8}>
-            {/* Key Features */}
-            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
               <Typography
-                variant="h5"
-                gutterBottom
-                sx={{ color: "primary.main", mb: 3 }}
+                variant="h2"
+                component="h1"
+                sx={{ fontWeight: 'bold', color: 'primary.main' }}
               >
-                Key Features
+                {service.title}
               </Typography>
-              <List>
-                {serviceDetails.keyFeatures.map((feature, index) => (
-                  <ListItem key={index}>
-                    <ListItemIcon>
-                      <CheckCircle color="primary" />
-                    </ListItemIcon>
-                    <ListItemText primary={feature} />
-                  </ListItem>
-                ))}
-              </List>
-            </Paper>
+            </Box>
+            <Typography variant="h5" color="text.secondary">
+              {service.description}
+            </Typography>
+          </Box>
+
+          {/* Overview */}
+          <Paper sx={{ p: 4, mb: 6 }}>
+            <Typography variant="h4" gutterBottom>
+              Overview
+            </Typography>
+            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+              {service.overview}
+            </Typography>
+          </Paper>
+
+          {/* Content Grid */}
+          <Grid container spacing={4}>
+            {/* Benefits */}
+            <Grid item xs={12} md={6}>
+              <Card sx={{ height: '100%' }}>
+                <CardContent sx={{ p: 4 }}>
+                  <Typography variant="h5" gutterBottom>
+                    Key Benefits
+                  </Typography>
+                  <List>
+                    {service.benefits.map((benefit, index) => (
+                      <ListItem key={index} sx={{ px: 0 }}>
+                        <ListItemIcon>
+                          <CheckCircle color="primary" />
+                        </ListItemIcon>
+                        <ListItemText primary={benefit} />
+                      </ListItem>
+                    ))}
+                  </List>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            {/* Features */}
+            <Grid item xs={12} md={6}>
+              <Card sx={{ height: '100%' }}>
+                <CardContent sx={{ p: 4 }}>
+                  <Typography variant="h5" gutterBottom>
+                    Features & Capabilities
+                  </Typography>
+                  <List>
+                    {service.features.map((feature, index) => (
+                      <ListItem key={index} sx={{ px: 0 }}>
+                        <ListItemIcon>
+                          <CheckCircle color="secondary" />
+                        </ListItemIcon>
+                        <ListItemText primary={feature} />
+                      </ListItem>
+                    ))}
+                  </List>
+                </CardContent>
+              </Card>
+            </Grid>
 
             {/* Process */}
-            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
-              <Typography
-                variant="h5"
-                gutterBottom
-                sx={{ color: "primary.main", mb: 3, display: "flex", alignItems: "center" }}
-              >
-                <Timeline sx={{ mr: 1 }} />
-                Our Process
-              </Typography>
-              <Grid container spacing={2}>
-                {serviceDetails.process.map((step, index) => (
-                  <Grid key={index} xs={12} sm={6} md={3}>
-                    <Box
-                      sx={{
-                        textAlign: "center",
-                        p: 2,
-                        bgcolor: "grey.50",
-                        borderRadius: 1,
-                      }}
-                    >
-                      <Typography
-                        variant="h6"
-                        color="primary.main"
-                        sx={{ fontWeight: "bold", mb: 1 }}
-                      >
-                        {index + 1}
-                      </Typography>
-                      <Typography variant="body2">{step}</Typography>
-                    </Box>
-                  </Grid>
-                ))}
-              </Grid>
-            </Paper>
+            <Grid item xs={12} md={6}>
+              <Card sx={{ height: '100%' }}>
+                <CardContent sx={{ p: 4 }}>
+                  <Typography variant="h5" gutterBottom>
+                    Our Process
+                  </Typography>
+                  <List>
+                    {service.process.map((step, index) => (
+                      <ListItem key={index} sx={{ px: 0 }}>
+                        <ListItemIcon>
+                          <Chip
+                            label={index + 1}
+                            color="primary"
+                            size="small"
+                            sx={{ minWidth: 24 }}
+                          />
+                        </ListItemIcon>
+                        <ListItemText primary={step} />
+                      </ListItem>
+                    ))}
+                  </List>
+                </CardContent>
+              </Card>
+            </Grid>
 
             {/* Technologies */}
-            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
-              <Typography
-                variant="h5"
-                gutterBottom
-                sx={{ color: "primary.main", mb: 3, display: "flex", alignItems: "center" }}
-              >
-                <Settings sx={{ mr: 1 }} />
-                Technologies We Use
-              </Typography>
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                {serviceDetails.technologies.map((tech, index) => (
-                  <Chip key={index} label={tech} variant="outlined" />
-                ))}
-              </Box>
-            </Paper>
-
-            {/* Expected Outcomes */}
-            <Paper elevation={2} sx={{ p: 3 }}>
-              <Typography
-                variant="h5"
-                gutterBottom
-                sx={{ color: "primary.main", mb: 3 }}
-              >
-                Expected Outcomes
-              </Typography>
-              <List>
-                {serviceDetails.outcomes.map((outcome, index) => (
-                  <ListItem key={index}>
-                    <ListItemIcon>
-                      <CheckCircle color="secondary" />
-                    </ListItemIcon>
-                    <ListItemText primary={outcome} />
-                  </ListItem>
-                ))}
-              </List>
-            </Paper>
+            <Grid item xs={12} md={6}>
+              <Card sx={{ height: '100%' }}>
+                <CardContent sx={{ p: 4 }}>
+                  <Typography variant="h5" gutterBottom>
+                    Technologies We Use
+                  </Typography>
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
+                    {service.technologies.map((tech, index) => (
+                      <Chip
+                        key={index}
+                        label={tech}
+                        variant="outlined"
+                        color="primary"
+                      />
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
 
-          {/* Sidebar */}
-          <Grid item xs={12} md={4}>
-            {/* Benefits Cards */}
-            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
-              <Typography
-                variant="h5"
-                gutterBottom
-                sx={{ color: "primary.main", mb: 3 }}
-              >
-                Why Choose Our Service?
-              </Typography>
-              {/* FIX: Map over the `serviceBenefits` from the function instead of a hardcoded array */}
-              {serviceBenefits.map((benefit, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    display: "flex",
-                    mb: 2,
-                    p: 2,
-                    bgcolor: "grey.50",
-                    borderRadius: 1,
-                  }}
-                >
-                  <Box sx={{ color: "primary.main", mr: 2, mt: 0.5 }}>
-                    {benefit.icon}
-                  </Box>
-                  <Box>
-                    <Typography variant="subtitle2" gutterBottom>
-                      {benefit.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {benefit.desc}
-                    </Typography>
-                  </Box>
-                </Box>
-              ))}
-            </Paper>
-
-            {/* Contact CTA */}
-            <Paper
-              elevation={2}
-              sx={{
-                p: 3,
-                bgcolor: "primary.light",
-                color: "white",
-                textAlign: "center",
-              }}
-            >
-              {/* FIX: Changed `size` prop to `sx` prop for font size */}
-              <IconComponent sx={{ fontSize: 60 }} />
-              <Typography variant="h6" sx={{ mt: 2, mb: 2 }}>
-                Ready to Transform Your Business?
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 3 }}>
-                Get a free consultation and detailed project proposal tailored
-                to your needs.
-              </Typography>
-              <Button
-                variant="contained"
-                fullWidth
-                sx={{
-                  bgcolor: "white",
-                  color: "primary.main",
-                  "&:hover": { bgcolor: "grey.100" },
-                  mb: 2,
-                }}
-                component={RouterLink} // FIX: Use RouterLink
-                to="/contact"
-              >
-                Schedule Consultation
-              </Button>
+          {/* Call to Action */}
+          <Box
+            sx={{
+              mt: 8,
+              p: 6,
+              textAlign: 'center',
+              bgcolor: 'primary.main',
+              color: 'white',
+              borderRadius: 2,
+            }}
+          >
+            <Typography variant="h4" gutterBottom>
+              Ready to Get Started?
+            </Typography>
+            <Typography variant="body1" paragraph sx={{ mb: 4 }}>
+              Contact us today to discuss how {service.title.toLowerCase()} can benefit your organization.
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Button
                 variant="outlined"
-                fullWidth
+                size="large"
                 sx={{
-                  borderColor: "white",
-                  color: "white",
-                  "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
+                  color: 'white',
+                  borderColor: 'white',
+                  '&:hover': {
+                    bgcolor: 'white',
+                    color: 'primary.main',
+                  },
                 }}
-                component={RouterLink} // FIX: Use RouterLink
-                to="/case-studies"
+                onClick={() => navigate('/contact')}
               >
-                View Success Stories
+                Contact Us
               </Button>
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+              <Button
+                variant="contained"
+                size="large"
+                sx={{
+                  bgcolor: 'white',
+                  color: 'primary.main',
+                  '&:hover': {
+                    bgcolor: 'grey.100',
+                  },
+                }}
+                onClick={() => navigate('/services')}
+              >
+                View All Services
+              </Button>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+    </>
   );
 };
 
