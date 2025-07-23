@@ -28,98 +28,220 @@ export const Header = () => {
     null,
   );
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+  const handleClose = () => {
+    setAboutAnchorEl(null);
+    setServicesAnchorEl(null);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
+
+  const scrollToSection = (sectionId: string) => {
+    navigate('/');
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+    handleClose();
+    setMobileOpen(false);
+  };
+
+  const services = [
+    { name: 'IT Consulting', id: 'it-consulting' },
+    { name: 'Cloud Solutions', id: 'cloud-solutions' },
+    { name: 'AI & Machine Learning', id: 'ai-ml' },
+    { name: 'Data Analytics', id: 'data-analytics' },
+    { name: 'Cybersecurity', id: 'cybersecurity' },
+    { name: 'Network Infrastructure', id: 'network-infrastructure' }
+  ];
+
+  const aboutItems = [
+    { name: 'About Us', id: 'about-us' },
+    { name: 'Our Team', id: 'our-team' }
+  ];
+
+  const drawer = (
+    <Box sx={{ width: 250 }} role="presentation">
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 1 }}>
+        <IconButton onClick={handleDrawerToggle}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      <List>
+        <ListItem button component={Link} to="/" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Home" />
+        </ListItem>
+
+        <ListItem>
+          <ListItemText primary="About" sx={{ fontWeight: 'bold' }} />
+        </ListItem>
+        {aboutItems.map((item) => (
+          <ListItem 
+            key={item.id} 
+            button 
+            onClick={() => scrollToSection(item.id)}
+            sx={{ pl: 4 }}
+          >
+            <ListItemText primary={item.name} />
+          </ListItem>
+        ))}
+
+        <ListItem>
+          <ListItemText primary="Services" sx={{ fontWeight: 'bold' }} />
+        </ListItem>
+        {services.map((service) => (
+          <ListItem 
+            key={service.id} 
+            button 
+            onClick={() => scrollToSection(service.id)}
+            sx={{ pl: 4 }}
+          >
+            <ListItemText primary={service.name} />
+          </ListItem>
+        ))}
+
+        <ListItem button component={Link} to="/case-studies" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Case Studies" />
+        </ListItem>
+        <ListItem button component={Link} to="/team" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Team" />
+        </ListItem>
+        <ListItem button component={Link} to="/careers" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Careers" />
+        </ListItem>
+        <ListItem button component={Link} to="/contact" onClick={() => setMobileOpen(false)}>
+          <ListItemText primary="Contact" />
+        </ListItem>
+      </List>
+    </Box>
+  );
 
   return (
-    <AppBar position="fixed" color="default" elevation={1}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box
-            component="img"
-            src="/src/assets/images/brasetech_logo.png"
-            alt="Logo"
-            sx={{ height: 50, mr: 2, display: { xs: "none", md: "flex" } }}
-          />
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="menu"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+    <>
+      <AppBar position="fixed" sx={{ backgroundColor: 'white', boxShadow: 1 }}>
+        <Container maxWidth="lg">
+          <Toolbar sx={{ justifyContent: 'space-between' }}>
+            <Typography
+              variant="h6"
+              component={Link}
+              to="/"
+              sx={{
+                fontWeight: 'bold',
+                color: 'primary.main',
+                textDecoration: 'none',
+                flexShrink: 0,
+              }}
             >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={anchorElNav}
-              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-              keepMounted
-              transformOrigin={{ vertical: "top", horizontal: "left" }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              {navLinks.map((link) => (
-                <MenuItem key={link.to} onClick={handleCloseNavMenu}>
-                  <Link
-                    component={RouterLink}
-                    to={link.to}
-                    color={
-                      link.to === location.pathname
-                        ? "primary.main"
-                        : "text.primary"
-                    }
-                    underline="none"
-                  >
-                    {link.label}
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+              BraseTech
+            </Typography>
 
-          <Box
-            component="img"
-            src="/src/assets/images/brasetech_logo.png"
-            alt="Logo"
-            sx={{ height: 40, mr: 2, display: { xs: "flex", md: "none" } }}
-          />
-
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              justifyContent: "flex-end",
-            }}
-          >
-            {navLinks.map((link) => (
-              <Button
-                key={link.to}
-                component={RouterLink}
-                to={link.to}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color:
-                    link.to === location.pathname ? "primary.main" : "black",
-                  fontWeight: link.to === location.pathname ? 700 : 400,
-                  display: "block",
-                  textTransform: "capitalize",
-                }}
+            {isMobile ? (
+              <IconButton
+                color="inherit"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ color: 'primary.main' }}
               >
-                {link.label}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+                <MenuIcon />
+              </IconButton>
+            ) : (
+              <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{ color: 'text.primary' }}
+                >
+                  Home
+                </Button>
+
+                <Button
+                  onClick={handleAboutClick}
+                  sx={{ color: 'text.primary' }}
+                >
+                  About
+                </Button>
+                <Menu
+                  anchorEl={aboutAnchorEl}
+                  open={Boolean(aboutAnchorEl)}
+                  onClose={handleClose}
+                >
+                  {aboutItems.map((item) => (
+                    <MenuItem 
+                      key={item.id} 
+                      onClick={() => scrollToSection(item.id)}
+                    >
+                      {item.name}
+                    </MenuItem>
+                  ))}
+                </Menu>
+
+                <Button
+                  onClick={handleServicesClick}
+                  sx={{ color: 'text.primary' }}
+                >
+                  Services
+                </Button>
+                <Menu
+                  anchorEl={servicesAnchorEl}
+                  open={Boolean(servicesAnchorEl)}
+                  onClose={handleClose}
+                >
+                  {services.map((service) => (
+                    <MenuItem 
+                      key={service.id} 
+                      onClick={() => scrollToSection(service.id)}
+                    >
+                      {service.name}
+                    </MenuItem>
+                  ))}
+                </Menu>
+
+                <Button
+                  component={Link}
+                  to="/case-studies"
+                  sx={{ color: 'text.primary' }}
+                >
+                  Case Studies
+                </Button>
+                <Button
+                  component={Link}
+                  to="/team"
+                  sx={{ color: 'text.primary' }}
+                >
+                  Team
+                </Button>
+                <Button
+                  component={Link}
+                  to="/careers"
+                  sx={{ color: 'text.primary' }}
+                >
+                  Careers
+                </Button>
+                <Button
+                  component={Link}
+                  to="/contact"
+                  variant="contained"
+                >
+                  Contact
+                </Button>
+              </Box>
+            )}
+          </Toolbar>
+        </Container>
+      </AppBar>
+
+      <Drawer
+        anchor="right"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+      >
+        {drawer}
+      </Drawer>
+    </>
   );
 };
 
