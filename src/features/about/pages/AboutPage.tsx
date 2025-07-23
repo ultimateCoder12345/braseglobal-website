@@ -103,7 +103,7 @@ export const AboutPage: React.FC = () => {
           </Box>
 
           <Grid container spacing={6} alignItems="center">
-            <Grid>
+            <Grid item xs={6} md={6}>
               <Typography
                 variant="body1"
                 paragraph
@@ -132,7 +132,7 @@ export const AboutPage: React.FC = () => {
                 artificial intelligence solutions.
               </Typography>
             </Grid>
-            <Grid>
+            <Grid item xs={6} md={6}>
               <Box
                 component="img"
                 src="src/assets/images/About-us-image.png"

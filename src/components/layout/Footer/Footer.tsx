@@ -27,30 +27,29 @@ export const UpperFooter: React.FC = () => {
           {/* Company Info with Logo and Social Media */}
           <Grid item xs={12} md={3}>
             <Box sx={{ mb: 2 }}>
-              <Box
-                component="img"
-                src="/src/assets/images/brasetech_logo.png"
-                alt="Brase Tech Logo"
-                sx={{ height: 40, mb: 2 }}
-              />
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: "bold", color: "#1A4D8C", mb: 1 }}
+              <Link
+                component={RouterLink}
+                to=""
+                color="text.secondary"
+                underline="hover"
+                variant="body2"
               >
-                Brase Tech
-              </Typography>
+                <Box
+                  component="img"
+                  src="/src/assets/images/brasetech_logo.png"
+                  alt="Brase Tech Logo"
+                  sx={{ height: 70, mb: 2 }}
+                />
+              </Link>
               <Typography variant="body2" color="text.secondary">
-                Brase Technologies is a niche IT Consulting firm based in
-                Sydney, Australia with offices in Melbourne, US and development
-                centres in Hyderabad, India
-              </Typography>
+                Brase Technologies is a specialized IT consulting firm based in Sydney, Australia, with a presence in the United States and development centers in Hyderabad, India. We deliver tailored technology solutions that drive innovation and business growth.              </Typography>
             </Box>
 
             {/* Social Media Icons */}
             <Box sx={{ display: "flex", gap: 1 }}>
               <IconButton
                 component="a"
-                href="https://linkedin.com/company/brasetech"
+                href="https://www.linkedin.com/company/brase-technologies"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
@@ -65,7 +64,7 @@ export const UpperFooter: React.FC = () => {
               </IconButton>
               <IconButton
                 component="a"
-                href="https://twitter.com/brasetech"
+                href="https://x.com/BraseLtd"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
@@ -80,7 +79,7 @@ export const UpperFooter: React.FC = () => {
               </IconButton>
               <IconButton
                 component="a"
-                href="https://instagram.com/brasetech"
+                href="https://www.instagram.com/brasetechnologiesptyltd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
@@ -95,7 +94,7 @@ export const UpperFooter: React.FC = () => {
               </IconButton>
               <IconButton
                 component="a"
-                href="https://youtube.com/brasetech"
+                href="https://www.youtube.com/@brasetechnologiesptyltd5259"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
@@ -169,7 +168,7 @@ export const UpperFooter: React.FC = () => {
                     underline="hover"
                     variant="body2"
                   >
-                    Data Analytics & Engineering
+                    Data and BI Services
                   </Link>
                   <Link
                     component={RouterLink}
@@ -242,7 +241,7 @@ export const UpperFooter: React.FC = () => {
                   >
                     Contact Us
                   </Link>
-                  <Link
+                  {/* <Link
                     component={RouterLink}
                     to="/team"
                     color="text.secondary"
@@ -250,7 +249,7 @@ export const UpperFooter: React.FC = () => {
                     variant="body2"
                   >
                     Team
-                  </Link>
+                  </Link> */}
                 </Box>
               </Box>
             </Box>

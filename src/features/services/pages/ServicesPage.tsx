@@ -1,22 +1,18 @@
 import React from "react";
 import {
   Box,
+  Grid,
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
   CardMedia,
   Button,
-  Chip,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   Paper,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
 } from "@mui/material";
 import { ExpandMore, ArrowForward, CheckCircle } from "@mui/icons-material";
 import { services } from "../../homepage/services/data/services";
@@ -27,7 +23,6 @@ import { Link as RouterLink } from "react-router-dom"; // FIX: Import Link for S
 export const ServicesPage: React.FC = () => {
   return (
     <Box sx={{ position: 'relative', pt: 10 }}>
-      <Box sx={{ position: 'relative', zIndex: 2 }}>
       {/* Hero Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Box textAlign="center" sx={{ mb: 8 }}>
@@ -42,11 +37,20 @@ export const ServicesPage: React.FC = () => {
           <Typography variant="h5" color="text.secondary" paragraph>
             Comprehensive technology solutions to drive your business forward
           </Typography>
-          <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto" }}>
-            Brase Tech is your ally in the digital evolution, offering a comprehensive suite of Digital Transformation Services to drive your business forward. Their Custom Software Development solutions are meticulously crafted to meet your specific requirements, delivering robust, scalable, and intuitive applications that empower your operations and enhance productivity. With a focus on Quality Engineering, Brase Tech ensures seamless digital experiences, reduces testing costs, and mitigates technical and business risks, guaranteeing predictable outcomes and higher ROI for your organization.
-          </Typography>
         </Box>
+        <Box
+          sx={{
+            height: 4,
+            background: "linear-gradient(90deg, #1976d2, #42a5f5)",
+            borderRadius: 2,
+            mb: 4,
+          }}
+        />
       </Container>
+      <Grid><Typography
+        variant="body1" sx={{ maxWidth: 800, mx: "auto" }}>
+        Brase Tech is your ally in the digital evolution, offering a comprehensive suite of Digital Transformation Services to drive your business forward. Their Custom Software Development solutions are meticulously crafted to meet your specific requirements, delivering robust, scalable, and intuitive applications that empower your operations and enhance productivity. With a focus on Quality Engineering, Brase Tech ensures seamless digital experiences, reduces testing costs, and mitigates technical and business risks, guaranteeing predictable outcomes and higher ROI for your organization.
+      </Typography></Grid>
 
       {/* Services Grid */}
       <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -99,8 +103,8 @@ export const ServicesPage: React.FC = () => {
                   >
                     <IconComponent size={80} />
                   </CardMedia>
-                  <CardContent sx={{ 
-                    flexGrow: 1, 
+                  <CardContent sx={{
+                    flexGrow: 1,
                     p: 3,
                     display: "flex",
                     flexDirection: "column"
@@ -237,35 +241,6 @@ export const ServicesPage: React.FC = () => {
         </Container>
       </Box>
 
-      {/* FAQ Section */}
-      {/* <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Typography
-          variant="h3"
-          component="h2"
-          textAlign="center"
-          gutterBottom
-          sx={{ mb: 6 }}
-        >
-          Frequently Asked Questions
-        </Typography>
-        <Box sx={{ maxWidth: 800, mx: "auto" }}>
-          {faqs.map((faq, index) => (
-            <Accordion key={index} sx={{ mb: 1 }}>
-              <AccordionSummary
-                expandIcon={<ExpandMore />}
-                aria-controls={`panel${index}-content`}
-                id={`panel${index}-header`}
-              >
-                <Typography variant="h6">{faq.question}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography color="text.secondary">{faq.answer}</Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </Box>
-      </Container> */}
-
       {/* Call to Action */}
       <Box sx={{ bgcolor: "primary.main", color: "white", py: 8 }}>
         <Container maxWidth="lg">
@@ -316,7 +291,6 @@ export const ServicesPage: React.FC = () => {
             </Box>
           </Box>
         </Container>
-      </Box>
       </Box>
     </Box>
   );

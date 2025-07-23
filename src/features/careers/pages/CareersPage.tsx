@@ -197,6 +197,14 @@ export const CareersPage: React.FC = () => {
             <Typography variant="h5" color="text.secondary" paragraph>
               Build the future of technology with us
             </Typography>
+            <Box
+              sx={{
+                height: 4,
+                background: "linear-gradient(90deg, #1976d2, #42a5f5)",
+                borderRadius: 2,
+                mb: 4,
+              }}
+            />
             <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto" }}>
               At BraseTech, we're passionate about creating innovative solutions
               that make a difference. Join our diverse team of talented
