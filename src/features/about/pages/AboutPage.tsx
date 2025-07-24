@@ -78,7 +78,7 @@ export const AboutPage: React.FC = () => {
           padding: { xs: "4rem 0", md: "6rem 0" },
           textAlign: "center",
           // Set the background image
-          backgroundImage: 'url("/src/assets/images/AboutusImage.png")', // <-- REPLACE WITH YOUR IMAGE URL
+          backgroundImage: 'url("/assets/images/AboutusImage.png")', // Changed to public path
           backgroundSize: "cover",
           backgroundPosition: "center",
           // Create a dark overlay for text readability
@@ -197,7 +197,7 @@ export const AboutPage: React.FC = () => {
             }}> */}
             <Box
               component="img"
-              src="src/assets/images/About-us-image.png"
+              src="/assets/images/About-us-image.png"
               alt="About BraseTech"
               sx={{
                 width: "100%",
@@ -393,7 +393,7 @@ export const AboutPage: React.FC = () => {
             >
               <Box
                 component="img"
-                src="src/assets/images/Achivements1.jpg"
+                src="/assets/images/Achivements1.jpg"
                 alt="Our Achievements"
                 sx={{
                   width: "100%",
