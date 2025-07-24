@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import { Link, Typography } from "@mui/material";
+import { Link } from "@mui/material";
 
 const navLinks = [
   { label: "Home", to: "/" },

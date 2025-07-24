@@ -5,6 +5,7 @@ import AboutPage from "../../features/about/pages/AboutPage";
 import ServicesPage from "../../features/services/pages/ServicesPage";
 import ServiceDetailsPage from "../../features/services/pages/ServiceDetailsPage";
 import ContactPage from "../../features/contact/pages/ContactPage";
+import ProductsPage from "../../features/Products/pages/ProductsPage";
 import CareersPage from "../../features/careers/pages/CareersPage";
 import CaseStudiesPage from "../../features/caseStudies/pages/CaseStudiesPage";
 import CaseStudyDetailsPage from "../../features/caseStudies/pages/CaseStudyDetailsPage";
@@ -27,6 +28,7 @@ const AppRoutes = () => {
         <Route path="/team/:id" element={<TeamMemberDetailsPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/products" element={<ProductsPage />} />
       </Routes>
     </MainLayout>
   );
