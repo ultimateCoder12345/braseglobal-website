@@ -60,7 +60,7 @@ export const ProductsPage: React.FC = () => {
         justifyContent: 'center',
         minHeight: '100vh',
         position: 'relative',
-        backgroundImage: 'url("/src/assets/images/CaseStudy2.jpg")',
+        backgroundImage: 'url("/assets/images/CaseStudy2.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         '&::before': {

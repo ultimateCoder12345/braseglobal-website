@@ -36,7 +36,7 @@ export const UpperFooter: React.FC = () => {
               >
                 <Box
                   component="img"
-                  src="/src/assets/images/brasetech_logo.png"
+                  src="/assets/images/brasetech_logo.png"
                   alt="Brase Tech Logo"
                   sx={{ height: 70, mb: 2 }}
                 />

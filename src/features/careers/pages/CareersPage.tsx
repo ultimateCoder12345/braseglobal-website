@@ -190,7 +190,7 @@ export const CareersPage: React.FC = () => {
           padding: { xs: "4rem 0", md: "6rem 0" },
           textAlign: "center",
           // Set the background image
-          backgroundImage: 'url("/src/assets/images/BraseCareers.png")', // <-- REPLACE WITH YOUR IMAGE URL
+          backgroundImage: 'url("/assets/images/BraseCareers.png")', // <-- REPLACE WITH YOUR IMAGE URL
           backgroundSize: "cover",
           backgroundPosition: "center",
           // Create a dark overlay for text readability

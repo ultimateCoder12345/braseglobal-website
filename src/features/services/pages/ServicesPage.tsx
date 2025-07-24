@@ -28,7 +28,7 @@ export const ServicesPage: React.FC = () => {
           position: "relative",
           padding: { xs: "4rem 0", md: "6rem 0" },
           textAlign: "center",
-          backgroundImage: 'url("/src/assets/images/Cloud-Services-inside-Image.png")',
+          backgroundImage: 'url("/assets/images/Cloud-Services-inside-Image.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           "&::before": {
