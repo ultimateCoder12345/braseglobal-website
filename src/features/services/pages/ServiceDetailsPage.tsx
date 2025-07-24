@@ -11,8 +11,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Grid,
-  Divider,
+  Stack,
 } from "@mui/material";
 import {
   ArrowBack,
@@ -127,7 +126,11 @@ export const ServiceDetailsPage: React.FC = () => {
   return (
     <Box sx={{ pt: 10 }}>
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Button startIcon={<ArrowBack />} onClick={() => navigate(-1)} sx={{ mb: 3 }}>
+        <Button
+          startIcon={<ArrowBack />}
+          onClick={() => navigate(-1)}
+          sx={{ mb: 3 }}
+        >
           Back to Services
         </Button>
 
@@ -142,11 +145,12 @@ export const ServiceDetailsPage: React.FC = () => {
             borderRadius: 3,
           }}
         >
-          <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} md={8} padding={2}>
-              <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                {/* <IconComponent sx={{ fontSize: 50, mr: 2 }} /> */}
-                <Typography variant="h4">{service.title}</Typography>
+          <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} gap={4}>
+            <Box flex={2}>
+              <Box display="flex" alignItems="center" mb={2}>
+                <Typography variant="h3" fontWeight="bold">
+                  {service.title}
+                </Typography>
               </Box>
               <Typography variant="subtitle1" sx={{ lineHeight: 1.6, opacity: 0.9 }}>
                 {(serviceDetails.overview as string[]).map((line: string, index: number) => (
@@ -156,152 +160,212 @@ export const ServiceDetailsPage: React.FC = () => {
                   </span>
                 ))}
               </Typography>
-            </Grid>
-            <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
+            </Box>
+            <Box flex={1} display="flex" flexDirection="column" gap={2}>
               <Button
                 variant="contained"
                 size="large"
-                sx={{ bgcolor: "white", color: "primary.main", mb: 1, "&:hover": { bgcolor: "grey.200" } }}
+                fullWidth
+                sx={{
+                  bgcolor: "white",
+                  color: "primary.main",
+                  "&:hover": { bgcolor: "grey.200" },
+                  py: 1.5,
+                }}
                 component={RouterLink}
                 to="/contact"
               >
                 Get Free Consultation
               </Button>
-              <Typography variant="body2" sx={{ color: "white", opacity: 0.8 }}>
+              <Typography variant="body2" sx={{ color: "white", opacity: 0.8, textAlign: "center" }}>
                 Ready to get started? Contact us today!
               </Typography>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </Paper>
 
-        <Grid container spacing={4}>
-          {/* Main Content */}
-          <Grid item xs={12} md={8} alignContent={"flex-start"}>
-            {/* Key Features */}
-            <Paper elevation={1} sx={{ p: 3, mb: 3, borderRadius: 2 }}>
-              <Typography variant="h6" sx={{ color: "primary.main", mb: 2 }}>
-                Key Features
-              </Typography>
-              <List>
-                {serviceDetails.keyFeatures.map((feature, index) => (
-                  <ListItem key={index} disablePadding>
-                    <ListItemIcon>
-                      <CheckCircle color="primary" />
-                    </ListItemIcon>
-                    <ListItemText primary={feature} />
-                  </ListItem>
-                ))}
-              </List>
-            </Paper>
-          </Grid>
-          {/* Process */}
-          <Grid item xs={12} md={4} alignSelf={"flex-start"}>
-            <Paper elevation={1} sx={{ p: 3, mb: 3, borderRadius: 2 }}>
-              <Typography variant="h6" sx={{ color: "primary.main", mb: 2, display: "flex", alignItems: "center" }}>
-                <Timeline sx={{ mr: 1 }} /> Our Process
-              </Typography>
-              <Grid container spacing={2}>
-                {serviceDetails.process.map((step, index) => (
-                  <Grid item xs={12} sm={6} md={3} key={index}>
-                    <Paper sx={{ p: 2, textAlign: "center", bgcolor: "grey.50" }}>
-                      <Typography variant="h6" color="primary.main" fontWeight="bold">
-                        {index + 1}
+        <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} gap={4}>
+          {/* Main Content Column */}
+          <Box flex={2}>
+            <Stack spacing={4}>
+              {/* Key Features */}
+              <Paper elevation={1} sx={{ p: 4, borderRadius: 2 }}>
+                <Typography variant="h5" sx={{ color: "primary.main", mb: 3 }}>
+                  Key Features
+                </Typography>
+                <List dense disablePadding>
+                  {serviceDetails.keyFeatures.map((feature, index) => (
+                    <ListItem key={index} disablePadding sx={{ py: 1 }}>
+                      <ListItemIcon sx={{ minWidth: 36 }}>
+                        <CheckCircle color="primary" />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={feature}
+                        primaryTypographyProps={{ variant: "body1" }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Paper>
+
+              {/* Technologies */}
+              <Paper elevation={1} sx={{ p: 4, borderRadius: 2 }}>
+                <Typography
+                  variant="h5"
+                  sx={{ color: "primary.main", mb: 3, display: "flex", alignItems: "center", gap: 1 }}
+                >
+                  <Settings /> Technologies We Use
+                </Typography>
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                  {serviceDetails.technologies.map((tech, index) => (
+                    <Chip
+                      key={index}
+                      label={tech}
+                      variant="outlined"
+                      color="primary"
+                      sx={{ borderRadius: 1 }}
+                    />
+                  ))}
+                </Box>
+              </Paper>
+
+              {/* Outcomes */}
+              <Paper elevation={1} sx={{ p: 4, borderRadius: 2, height: 430 }}>
+                <Typography variant="h5" sx={{ color: "primary.main", mb: 3 }}>
+                  Expected Outcomes
+                </Typography>
+                <List dense disablePadding>
+                  {serviceDetails.outcomes.map((outcome, index) => (
+                    <ListItem key={index} disablePadding sx={{ py: 1 }}>
+                      <ListItemIcon sx={{ minWidth: 36 }}>
+                        <CheckCircle color="secondary" />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={outcome}
+                        primaryTypographyProps={{ variant: "body1" }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Paper>
+            </Stack>
+          </Box>
+
+          {/* Sidebar Column */}
+          <Box flex={1}>
+            <Stack spacing={4}>
+              {/* Process */}
+              <Paper elevation={1} sx={{ p: 4, borderRadius: 2 }}>
+                <Typography
+                  variant="h5"
+                  sx={{ color: "primary.main", mb: 3, display: "flex", alignItems: "center", gap: 1 }}
+                >
+                  <Timeline /> Our Process
+                </Typography>
+                <Box display="grid" gridTemplateColumns={{ xs: '1fr', sm: '1fr 1fr', md: '1fr' }} gap={2}>
+                  {serviceDetails.process.map((step, index) => (
+                    <Paper
+                      key={index}
+                      sx={{
+                        p: 2,
+                        textAlign: "center",
+                        bgcolor: "grey.50",
+                        height: "100%",
+                      }}
+                    >
+                      <Typography
+                        variant="h6"
+                        color="primary.main"
+                        fontWeight="bold"
+                        sx={{ mb: 1 }}
+                      >
+                        Step {index + 1}
                       </Typography>
                       <Typography variant="body2">{step}</Typography>
                     </Paper>
-                  </Grid>
-                ))}
-              </Grid>
-            </Paper>
-          </Grid>
-
-          {/* Technologies */}
-          <Grid item xs={12} md={8}>
-            <Paper elevation={1} sx={{ p: 3, mb: 3, borderRadius: 2 }}>
-              <Typography variant="h6" sx={{ color: "primary.main", mb: 2, display: "flex", alignItems: "center" }}>
-                <Settings sx={{ mr: 1 }} /> Technologies We Use
-              </Typography>
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                {serviceDetails.technologies.map((tech, index) => (
-                  <Chip key={index} label={tech} variant="outlined" color="primary" />
-                ))}
-              </Box>
-            </Paper>
-          </Grid>
-
-          {/* Outcomes */}
-          <Grid item xs={12} md={8}>
-            <Paper elevation={1} sx={{ p: 3, borderRadius: 2 }}>
-              <Typography variant="h6" sx={{ color: "primary.main", mb: 2 }}>
-                Expected Outcomes
-              </Typography>
-              <List>
-                {serviceDetails.outcomes.map((outcome, index) => (
-                  <ListItem key={index} disablePadding>
-                    <ListItemIcon>
-                      <CheckCircle color="secondary" />
-                    </ListItemIcon>
-                    <ListItemText primary={outcome} />
-                  </ListItem>
-                ))}
-              </List>
-            </Paper>
-          </Grid>
-
-          {/* Sidebar */}
-          <Grid item xs={12} md={4}>
-            {/* Benefits */}
-            <Paper elevation={1} sx={{ p: 3, mb: 3, borderRadius: 2 }}>
-              <Typography variant="h6" sx={{ color: "primary.main", mb: 2 }}>
-                Why Choose Our Service?
-              </Typography>
-              {serviceBenefits.map((benefit, index) => (
-                <Box key={index} sx={{ display: "flex", mb: 2 }}>
-                  <Box sx={{ mr: 2, color: "primary.main" }}>{benefit.icon}</Box>
-                  <Box>
-                    <Typography variant="subtitle2">{benefit.title}</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {benefit.desc}
-                    </Typography>
-                  </Box>
+                  ))}
                 </Box>
-              ))}
-            </Paper>
+              </Paper>
 
-            {/* CTA */}
+              {/* Benefits */}
+              <Paper elevation={1} sx={{ p: 4, borderRadius: 2 }}>
+                <Typography variant="h5" sx={{ color: "primary.main", mb: 3 }}>
+                  Why Choose Our Service?
+                </Typography>
+                <Stack spacing={3}>
+                  {serviceBenefits.map((benefit, index) => (
+                    <Box key={index} display="flex" gap={2}>
+                      <Box sx={{ color: "primary.main", mt: 0.5 }}>
+                        {benefit.icon}
+                      </Box>
+                      <Box>
+                        <Typography variant="subtitle1" fontWeight="medium">
+                          {benefit.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {benefit.desc}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  ))}
+                </Stack>
+              </Paper>
+            </Stack>
+          </Box>
+        </Box>
 
-          </Grid>
-          <Paper elevation={1} sx={{ p: 3, textAlign: "center", bgcolor: "primary.main", color: "white", borderRadius: 2 }}>
-            <IconComponent sx={{ fontSize: 60 }} />
+        {/* Full-width CTA Section */}
+        <Box mt={6}>
+          <Paper
+            elevation={1}
+            sx={{
+              p: 4,
+              textAlign: "center",
+              bgcolor: "primary.main",
+              color: "white",
+              borderRadius: 2,
+              width: '100%'
+            }}
+          >
+            <Box component={IconComponent} sx={{ fontSize: 80 }} />
             <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
               Ready to Transform Your Business?
             </Typography>
-            <Typography variant="body2" sx={{ mb: 2 }}>
+            <Typography variant="body2" sx={{ mb: 3 }}>
               Get a free consultation and tailored project proposal.
             </Typography>
-            <Button
-              variant="contained"
-              fullWidth
-              sx={{ bgcolor: "white", color: "primary.main", mb: 1, "&:hover": { bgcolor: "grey.200" } }}
-              component={RouterLink}
-              to="/contact"
-            >
-              Schedule Consultation
-            </Button>
-            <Button
-              variant="outlined"
-              fullWidth
-              sx={{ color: "white", borderColor: "white", "&:hover": { bgcolor: "rgba(255,255,255,0.1)" } }}
-              component={RouterLink}
-              to="/case-studies"
-            >
-              View Success Stories
-            </Button>
+            <Stack spacing={2} alignItems="center">
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "white",
+                  color: "primary.main",
+                  "&:hover": { bgcolor: "grey.200" },
+                  width: { xs: '100%', sm: 'auto' }
+                }}
+                component={RouterLink}
+                to="/contact"
+              >
+                Schedule Consultation
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{
+                  color: "white",
+                  borderColor: "white",
+                  "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
+                  width: { xs: '100%', sm: 'auto' }
+                }}
+                component={RouterLink}
+                to="/case-studies"
+              >
+                View Success Stories
+              </Button>
+            </Stack>
           </Paper>
-        </Grid>
+        </Box>
       </Container>
-
-    </Box >
+    </Box>
   );
 };
 

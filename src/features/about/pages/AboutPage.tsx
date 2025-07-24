@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Container,
@@ -63,6 +64,7 @@ const achievements = [
 ];
 
 export const AboutPage: React.FC = () => {
+  const navigate = useNavigate();
   // Get leadership team from data
   const leadership = getLeadershipTeam();
 
@@ -584,6 +586,7 @@ export const AboutPage: React.FC = () => {
                 label="Contact Us"
                 clickable
                 size="medium"
+                onClick={() => navigate("/contact")}
                 sx={{
                   bgcolor: "white",
                   color: "primary.main",
@@ -600,6 +603,7 @@ export const AboutPage: React.FC = () => {
                 clickable
                 size="medium"
                 variant="outlined"
+                onClick={() => navigate("/services")}
                 sx={{
                   borderColor: "white",
                   color: "white",

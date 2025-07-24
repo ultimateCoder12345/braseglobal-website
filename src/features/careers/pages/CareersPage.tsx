@@ -35,7 +35,10 @@ import {
   Favorite,
   Coffee,
   Flight,
+  AttachFile,
+  Close,
 } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
 
 // Job openings data
 const jobOpenings = [
@@ -252,7 +255,7 @@ export const CareersPage: React.FC = () => {
             </Typography>
             <Grid container spacing={4}>
               {companyBenefits.map((benefit, index) => (
-                <Grid key={index} xs={12} sm={6} md={3}>
+                <Grid key={index} item xs={12} sm={6} md={3}>
                   <Card
                     sx={{
                       height: "100%",
@@ -304,7 +307,7 @@ export const CareersPage: React.FC = () => {
 
           <Grid container spacing={4}>
             {jobOpenings.map((job) => (
-              <Grid key={job.id} xs={12} md={6}>
+              <Grid key={job.id} item={true} xs={12} md={6}>
                 <Card
                   sx={{
                     height: "100%",
@@ -488,14 +491,37 @@ export const CareersPage: React.FC = () => {
           onClose={() => setApplicationOpen(false)}
           maxWidth="sm"
           fullWidth
+          sx={{
+            '& .MuiDialog-paper': {
+              borderRadius: 3,
+              boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)'
+            }
+          }}
         >
-          <DialogTitle>Apply for Position</DialogTitle>
-          <DialogContent>
-            <Grid container spacing={2} sx={{ mt: 1 }}>
-              <Grid xs={12} sm={6}>
+          <Box
+            sx={{
+              background: 'linear-gradient(135deg, #1976d2 0%, #0d47a1 100%)',
+              color: 'white',
+              p: 3,
+              textAlign: 'center'
+            }}
+          >
+            <Typography variant="h5" component="div" sx={{ fontWeight: 'bold' }}>
+              Apply for {applicationData.position}
+            </Typography>
+            <Typography variant="body2" sx={{ opacity: 0.9, mt: 1 }}>
+              We're excited you're interested in joining our team!
+            </Typography>
+          </Box>
+          
+          <DialogContent sx={{ p: 3 }}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="First Name"
+                  variant="outlined"
+                  size="small"
                   value={applicationData.firstName}
                   onChange={(e) =>
                     setApplicationData((prev) => ({
@@ -504,12 +530,15 @@ export const CareersPage: React.FC = () => {
                     }))
                   }
                   required
+                  sx={{ mb: 2 }}
                 />
               </Grid>
-              <Grid xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="Last Name"
+                  variant="outlined"
+                  size="small"
                   value={applicationData.lastName}
                   onChange={(e) =>
                     setApplicationData((prev) => ({
@@ -518,13 +547,16 @@ export const CareersPage: React.FC = () => {
                     }))
                   }
                   required
+                  sx={{ mb: 2 }}
                 />
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   label="Email"
                   type="email"
+                  variant="outlined"
+                  size="small"
                   value={applicationData.email}
                   onChange={(e) =>
                     setApplicationData((prev) => ({
@@ -533,12 +565,15 @@ export const CareersPage: React.FC = () => {
                     }))
                   }
                   required
+                  sx={{ mb: 2 }}
                 />
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   label="Phone"
+                  variant="outlined"
+                  size="small"
                   value={applicationData.phone}
                   onChange={(e) =>
                     setApplicationData((prev) => ({
@@ -546,10 +581,11 @@ export const CareersPage: React.FC = () => {
                       phone: e.target.value,
                     }))
                   }
+                  sx={{ mb: 2 }}
                 />
               </Grid>
-              <Grid xs={12}>
-                <FormControl fullWidth>
+              <Grid item xs={12}>
+                <FormControl fullWidth size="small">
                   <InputLabel>Years of Experience</InputLabel>
                   <Select
                     value={applicationData.experience}
@@ -560,21 +596,72 @@ export const CareersPage: React.FC = () => {
                       }))
                     }
                     label="Years of Experience"
+                    variant="outlined"
                   >
-                    <MenuItem value="0-1">0-1 years</MenuItem>
-                    <MenuItem value="2-3">2-3 years</MenuItem>
-                    <MenuItem value="4-5">4-5 years</MenuItem>
-                    <MenuItem value="6-10">6-10 years</MenuItem>
-                    <MenuItem value="10+">10+ years</MenuItem>
+                    <MenuItem value="No experience">No experience</MenuItem>
+                    <MenuItem value="1-3 years">1-3 years</MenuItem>
+                    <MenuItem value="4-6 years">4-6 years</MenuItem>
+                    <MenuItem value="7-10 years">7-10 years</MenuItem>
+                    <MenuItem value="10+ years">10+ years</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
+                <input
+                  accept=".pdf,.doc,.docx"
+                  style={{ display: 'none' }}
+                  id="resume-upload"
+                  type="file"
+                  onChange={(e) => {
+                    const files = e.target.files;
+                    if (files && files.length > 0) {
+                      setApplicationData((prev) => ({
+                        ...prev,
+                        resume: files[0],
+                      }));
+                    }
+                  }}
+                />
+                <label htmlFor="resume-upload">
+                  <Button
+                    variant="outlined"
+                    component="span"
+                    startIcon={<AttachFile />}
+                    fullWidth
+                    sx={{ mt: 2 }}
+                  >
+                    {applicationData.resume
+                      ? applicationData.resume.name
+                      : 'Upload Resume (PDF or DOC)'}
+                  </Button>
+                </label>
+                {applicationData.resume && (
+                  <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+                    <Typography variant="caption" color="text.secondary">
+                      Selected: {applicationData.resume.name}
+                    </Typography>
+                    <IconButton
+                      size="small"
+                      color="error"
+                      sx={{ ml: 1 }}
+                      onClick={() => setApplicationData(prev => ({
+                        ...prev,
+                        resume: null
+                      }))}
+                    >
+                      <Close fontSize="small" />
+                    </IconButton>
+                  </Box>
+                )}
+              </Grid>
+              <Grid component="div" xs={12}>
                 <TextField
                   fullWidth
                   label="Cover Letter"
                   multiline
                   rows={4}
+                  variant="outlined"
+                  size="small"
                   value={applicationData.coverLetter}
                   onChange={(e) =>
                     setApplicationData((prev) => ({
@@ -582,14 +669,42 @@ export const CareersPage: React.FC = () => {
                       coverLetter: e.target.value,
                     }))
                   }
-                  placeholder="Tell us why you're interested in this position..."
+                  placeholder="Tell us why you're the perfect fit for this role..."
+                  sx={{ mt: 2 }}
                 />
               </Grid>
             </Grid>
           </DialogContent>
-          <DialogActions>
-            <Button onClick={() => setApplicationOpen(false)}>Cancel</Button>
-            <Button variant="contained" onClick={handleApplicationSubmit}>
+          <DialogActions sx={{ p: 3, pt: 0 }}>
+            <Button
+              onClick={() => setApplicationOpen(false)}
+              variant="outlined"
+              sx={{ mr: 2 }}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              onClick={handleApplicationSubmit}
+              endIcon={<Send />}
+              disabled={
+                !applicationData.firstName ||
+                !applicationData.lastName ||
+                !applicationData.email ||
+                !applicationData.position ||
+                !applicationData.experience
+              }
+              sx={{
+                background: 'linear-gradient(135deg, #1976d2 0%, #0d47a1 100%)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #1565c0 0%, #0b3d91 100%)'
+                },
+                '&:disabled': {
+                  background: '#e0e0e0',
+                  color: '#9e9e9e'
+                }
+              }}
+            >
               Submit Application
             </Button>
           </DialogActions>
