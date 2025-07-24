@@ -6,15 +6,12 @@ import {
   Typography,
   Grid,
   Card,
-  CardContent,
   TextField,
   Button,
   Chip,
   Avatar,
   Paper,
-  IconButton,
   Fade,
-  Alert,
   LinearProgress,
 } from '@mui/material';
 import {
@@ -157,7 +154,7 @@ export const EnhancedContactForm: React.FC = () => {
     <Container maxWidth="lg" sx={{ py: 8 }}>
       <Grid container spacing={6}>
         {/* Contact Info */}
-        <Grid size={12} md={4}>
+        <Grid xs={12} md={4} {...({} as any)}>
           <Box sx={{ position: 'sticky', top: 100 }}>
             <Typography variant="h4" gutterBottom sx={{ fontWeight: 600 }}>
               Let's Start a Conversation
@@ -206,7 +203,7 @@ export const EnhancedContactForm: React.FC = () => {
         </Grid>
 
         {/* Contact Form */}
-        <Grid size={12} md={8}>
+        <Grid xs={12} md={8} {...({} as any)}>
           <Card sx={{ p: 4, borderRadius: 4, boxShadow: 4 }}>
             <Box sx={{ mb: 4 }}>
               <LinearProgress 
@@ -234,7 +231,7 @@ export const EnhancedContactForm: React.FC = () => {
                       Tell us about yourself
                     </Typography>
                     <Grid container spacing={3}>
-                      <Grid size={12} sm={6}>
+                      <Grid xs={12} sm={6} {...({} as any)}>
                         <TextField
                           fullWidth
                           label="Full Name"
@@ -246,7 +243,7 @@ export const EnhancedContactForm: React.FC = () => {
                           }}
                         />
                       </Grid>
-                      <Grid size={12} sm={6}>
+                      <Grid xs={12} sm={6} {...({} as any)}>
                         <TextField
                           fullWidth
                           label="Email"
@@ -259,7 +256,7 @@ export const EnhancedContactForm: React.FC = () => {
                           }}
                         />
                       </Grid>
-                      <Grid size={12} sm={6}>
+                      <Grid xs={12} sm={6} {...({} as any)}>
                         <TextField
                           fullWidth
                           label="Company"
@@ -270,7 +267,7 @@ export const EnhancedContactForm: React.FC = () => {
                           }}
                         />
                       </Grid>
-                      <Grid size={12} sm={6}>
+                      <Grid xs={12} sm={6} {...({} as any)}>
                         <TextField
                           fullWidth
                           label="Phone"

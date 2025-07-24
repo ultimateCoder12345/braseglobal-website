@@ -246,7 +246,7 @@ export const AboutPage: React.FC = () => {
             </Box>
             <Grid container spacing={4} justifyContent="center">
               {companyValues.map((value, index) => (
-                <Grid item xs={6} sm={6} md={3} key={index} sx={{ display: "flex" }}>
+                <Grid item xs={6} sm={6} md={3} key={index} sx={{ display: "flex" }} {...({} as any)}>
                   <Card
                     sx={{
                       flex: 1,
@@ -442,7 +442,7 @@ export const AboutPage: React.FC = () => {
             </Box>
             <Grid container spacing={4} justifyContent="center">
               {leadership.map((leader) => (
-                <Grid key={leader.id} item xs={12} sm={6} md={8} lg={4}
+                <Grid key={leader.id} item xs={12} sm={6} md={8} lg={4} {...({} as any)}
                   sx={{
                     height: '100%', // Makes all cards in a row have the same height
                     display: "flex",

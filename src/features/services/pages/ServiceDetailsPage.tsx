@@ -29,7 +29,7 @@ export const ServiceDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const service = services.find((s, index) => index.toString() === id);
+  const service = services.find((_, index) => index.toString() === id);
   if (!service) {
     return (
       <Box

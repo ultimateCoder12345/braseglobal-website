@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Container, Typography, Paper, keyframes } from "@mui/material";
-import ScienceIcon from '@mui/icons-material/Science';
-
-// Animation for the icon
-const floatAnimation = keyframes`
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-`;
+import { Box, Container, Typography, Paper } from "@mui/material";
 
 type TimeLeft = {
   days: number;

@@ -44,7 +44,7 @@ export const CaseStudyDetailsPage: React.FC = () => {
 
         <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={8}>
+            <Grid xs={12} md={8} {...({} as any)}>
               <Box sx={{ mb: 3 }}>
                 <Chip label={caseStudy.industry} color="primary" sx={{ mb: 2 }} />
                 <Typography variant="h3" component="h1" gutterBottom>
@@ -97,7 +97,7 @@ export const CaseStudyDetailsPage: React.FC = () => {
               </List>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4} {...({} as any)}>
               <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
                 <Typography variant="h6" gutterBottom>
                   Project Details

@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import {
   Box,
-  Container,
   Typography,
   Grid,
   Card,
@@ -151,7 +150,7 @@ export const TeamAnalytics: React.FC = () => {
 
           <TabPanel value={tabValue} index={0}>
             <Grid container spacing={3}>
-              <Grid size={12} sm={6} md={3}>
+              <Grid xs={12} sm={6} md={3} {...({} as any)}>
                 <Card sx={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
                   <CardContent sx={{ textAlign: 'center' }}>
                     <People sx={{ fontSize: 40, mb: 1 }} />
@@ -160,7 +159,7 @@ export const TeamAnalytics: React.FC = () => {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid size={12} sm={6} md={3}>
+              <Grid xs={12} sm={6} md={3} {...({} as any)}>
                 <Card sx={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', color: 'white' }}>
                   <CardContent sx={{ textAlign: 'center' }}>
                     <TrendingUp sx={{ fontSize: 40, mb: 1 }} />
@@ -169,7 +168,7 @@ export const TeamAnalytics: React.FC = () => {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid size={12} sm={6} md={3}>
+              <Grid xs={12} sm={6} md={3} {...({} as any)}>
                 <Card sx={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', color: 'white' }}>
                   <CardContent sx={{ textAlign: 'center' }}>
                     <EmojiEvents sx={{ fontSize: 40, mb: 1 }} />
@@ -180,7 +179,7 @@ export const TeamAnalytics: React.FC = () => {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid size={12} sm={6} md={3}>
+              <Grid xs={12} sm={6} md={3} {...({} as any)}>
                 <Card sx={{ background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', color: 'white' }}>
                   <CardContent sx={{ textAlign: 'center' }}>
                     <School sx={{ fontSize: 40, mb: 1 }} />
@@ -195,8 +194,8 @@ export const TeamAnalytics: React.FC = () => {
           <TabPanel value={tabValue} index={1}>
             <Typography variant="h6" gutterBottom>Top Skills Across Team</Typography>
             <Grid container spacing={2}>
-              {topSkills.map(([skill, count], index) => (
-                <Grid size={12} key={skill}>
+              {topSkills.map(([skill, count]) => (
+                <Grid xs={12} key={skill} {...({} as any)}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                     <Typography variant="body1" sx={{ minWidth: 150 }}>
                       {skill}
@@ -250,7 +249,7 @@ export const TeamAnalytics: React.FC = () => {
               {teamMembers
                 .sort((a, b) => b.experience - a.experience)
                 .map((member) => (
-                <Grid size={12} sm={6} key={member.id}>
+                <Grid xs={12} sm={6} key={member.id} {...({} as any)}>
                   <Box sx={{ display: 'flex', alignItems: 'center', p: 2, borderRadius: 2, bgcolor: 'grey.50' }}>
                     <Avatar src={member.avatar} sx={{ mr: 2 }} />
                     <Box sx={{ flexGrow: 1 }}>

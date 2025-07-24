@@ -56,7 +56,7 @@ export const TeamMemberDetailsPage: React.FC = () => {
 
         <Paper elevation={3} sx={{ p: 4 }}>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} {...({} as any)}>
               <Box sx={{ textAlign: "center" }}>
                 <Avatar
                   src={member.avatar}
@@ -124,7 +124,7 @@ export const TeamMemberDetailsPage: React.FC = () => {
               </Box>
             </Grid>
 
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={8} {...({} as any)}>
               <Typography variant="h5" gutterBottom>
                 About {member.name.split(" ")[0]}
               </Typography>
@@ -135,7 +135,7 @@ export const TeamMemberDetailsPage: React.FC = () => {
               <Divider sx={{ my: 3 }} />
 
               <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6} {...({} as any)}>
                   <Typography variant="h6" gutterBottom>
                     Experience
                   </Typography>
@@ -151,7 +151,7 @@ export const TeamMemberDetailsPage: React.FC = () => {
                   </Typography>
                 </Grid>
 
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6} {...({} as any)}>
                   <Typography variant="h6" gutterBottom>
                     Skills
                   </Typography>

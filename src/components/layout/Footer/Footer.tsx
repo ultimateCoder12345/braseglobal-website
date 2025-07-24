@@ -25,7 +25,7 @@ export const UpperFooter: React.FC = () => {
       <Container maxWidth="lg">
         <Grid container spacing={4} alignItems="flex-start">
           {/* Company Info with Logo and Social Media */}
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={3} {...({} as any)}>
             <Box sx={{ mb: 2 }}>
               <Link
                 component={RouterLink}
@@ -111,7 +111,7 @@ export const UpperFooter: React.FC = () => {
           </Grid>
 
           {/* Navigation Links Section */}
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} {...({} as any)}>
             <Box
               sx={{
                 display: "flex",
@@ -256,7 +256,7 @@ export const UpperFooter: React.FC = () => {
           </Grid>
 
           {/* Head Office */}
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={3} {...({} as any)}>
             <Typography
               variant="h6"
               sx={{

@@ -30,10 +30,7 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import GroupIcon from "@mui/icons-material/Group";
 
 import {
-  teamMembers,
-  getTeamStats,
   getAllDepartments,
-  getTeamMembersByDepartment,
   getLeadershipTeam,
 } from "../../../data/team";
 import TeamAnalytics from "../components/TeamAnalytics";
@@ -41,7 +38,7 @@ import TeamAnalytics from "../components/TeamAnalytics";
 export const TeamPage: React.FC = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("All");
   const departments = ["All", ...getAllDepartments()];
-  const stats = getTeamStats();
+  // const stats = getTeamStats(); // Unused variable
 
   const leadershipTeam = getLeadershipTeam();
   const filteredTeamMembers =

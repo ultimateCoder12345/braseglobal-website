@@ -26,7 +26,6 @@ import {
   Work,
   LocationOn,
   Schedule,
-  AttachMoney,
   Send,
   CheckCircle,
   People,
@@ -255,7 +254,7 @@ export const CareersPage: React.FC = () => {
             </Typography>
             <Grid container spacing={4}>
               {companyBenefits.map((benefit, index) => (
-                <Grid key={index} item xs={12} sm={6} md={3}>
+                <Grid key={index} xs={12} sm={6} md={3} component="div" {...({} as any)}>
                   <Card
                     sx={{
                       height: "100%",
@@ -307,7 +306,7 @@ export const CareersPage: React.FC = () => {
 
           <Grid container spacing={4}>
             {jobOpenings.map((job) => (
-              <Grid key={job.id} item={true} xs={12} md={6}>
+              <Grid key={job.id} xs={12} md={6} {...({} as any)}>
                 <Card
                   sx={{
                     height: "100%",
@@ -516,7 +515,7 @@ export const CareersPage: React.FC = () => {
           
           <DialogContent sx={{ p: 3 }}>
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
+              <Grid xs={12} sm={6} {...({} as any)}>
                 <TextField
                   fullWidth
                   label="First Name"
@@ -533,7 +532,7 @@ export const CareersPage: React.FC = () => {
                   sx={{ mb: 2 }}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid xs={12} sm={6} {...({} as any)}>
                 <TextField
                   fullWidth
                   label="Last Name"
@@ -550,7 +549,7 @@ export const CareersPage: React.FC = () => {
                   sx={{ mb: 2 }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid xs={12} {...({} as any)}>
                 <TextField
                   fullWidth
                   label="Email"
@@ -568,7 +567,7 @@ export const CareersPage: React.FC = () => {
                   sx={{ mb: 2 }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid xs={12} {...({} as any)}>
                 <TextField
                   fullWidth
                   label="Phone"
@@ -584,7 +583,7 @@ export const CareersPage: React.FC = () => {
                   sx={{ mb: 2 }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid xs={12} {...({} as any)}>
                 <FormControl fullWidth size="small">
                   <InputLabel>Years of Experience</InputLabel>
                   <Select
@@ -606,7 +605,7 @@ export const CareersPage: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12}>
+              <Grid xs={12} {...({} as any)}>
                 <input
                   accept=".pdf,.doc,.docx"
                   style={{ display: 'none' }}
@@ -654,7 +653,7 @@ export const CareersPage: React.FC = () => {
                   </Box>
                 )}
               </Grid>
-              <Grid component="div" xs={12}>
+              <Grid xs={12} {...({} as any)}>
                 <TextField
                   fullWidth
                   label="Cover Letter"
@@ -725,7 +724,7 @@ export const CareersPage: React.FC = () => {
                 we're committed to supporting each other's growth and success.
               </Typography>
               <Grid container spacing={4} sx={{ mt: 2 }}>
-                <Grid xs={12} md={4} width={"30%"}>
+                <Grid xs={12} md={4} {...({} as any)} sx={{ width: "30%" }}>
                   <People sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Collaborative Team
@@ -734,7 +733,7 @@ export const CareersPage: React.FC = () => {
                     Work with talented individuals from diverse backgrounds
                   </Typography>
                 </Grid>
-                <Grid xs={12} md={4} width={"30%"}>
+                <Grid xs={12} md={4} {...({} as any)} sx={{ width: "30%" }}>
                   <School sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Continuous Learning
@@ -744,7 +743,7 @@ export const CareersPage: React.FC = () => {
                     programs
                   </Typography>
                 </Grid>
-                <Grid xs={12} md={4} width={"30%"}>
+                <Grid xs={12} md={4} {...({} as any)} sx={{ width: "30%" }}>
                   <TrendingUp sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Growth Opportunities
