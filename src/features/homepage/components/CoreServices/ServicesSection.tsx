@@ -92,7 +92,7 @@ const ServicesSection: React.FC = () => {
                   elevation={3}
                 >
                   <Box mb={2}>
-                    <Icon size={40} color="#1976d2" />
+                    <Icon size={70} color="#1976d2" />
                   </Box>
                   <Typography variant="h6" fontWeight="bold">
                     {service.title}
