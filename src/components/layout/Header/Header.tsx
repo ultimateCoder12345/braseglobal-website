@@ -42,7 +42,7 @@ export const Header = () => {
         <Toolbar disableGutters>
           <Box
             component="img"
-            src="/src/assets/images/QuotedBraseLogo.png"
+            src="/src/assets/images/brasetech_logo.png"
             alt="Logo"
             sx={{ height: 70, mr: 0, display: { xs: "none", md: "flex" } }}
           />

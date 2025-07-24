@@ -95,18 +95,19 @@ export const AboutPage: React.FC = () => {
         }}
       ><Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
           <Typography
-            variant="h2"
+            variant="h3"
             component="h1"
             gutterBottom
             sx={{
+              paddingTop: 10,
               fontWeight: "bold",
               color: "white", // Changed color for contrast
               mb: 3,
             }}
           >
-            About Brase Technologies
+            Innovative IT consulting solutions for the digital age
           </Typography>
-          <Typography
+          {/* <Typography
             variant="h5"
             paragraph
             sx={{
@@ -115,7 +116,7 @@ export const AboutPage: React.FC = () => {
             }}
           >
             Innovative IT consulting solutions for the digital age
-          </Typography>
+          </Typography> */}
         </Container>
       </Box>
 
