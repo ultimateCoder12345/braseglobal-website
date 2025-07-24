@@ -145,7 +145,7 @@ export const ServiceDetailsPage: React.FC = () => {
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={8} padding={2}>
               <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                <IconComponent sx={{ fontSize: 50, mr: 2 }} />
+                {/* <IconComponent sx={{ fontSize: 50, mr: 2 }} /> */}
                 <Typography variant="h4">{service.title}</Typography>
               </Box>
               <Typography variant="subtitle1" sx={{ lineHeight: 1.6, opacity: 0.9 }}>

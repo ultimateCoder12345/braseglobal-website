@@ -445,7 +445,6 @@ export const AboutPage: React.FC = () => {
                     display: "flex",
                     flexDirection: "row",
                     width: '45%',
-                    // paddingLeft: 4,
                   }}
                 >
                   <Card

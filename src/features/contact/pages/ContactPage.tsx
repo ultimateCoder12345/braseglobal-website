@@ -221,17 +221,33 @@ export const ContactPage: React.FC = () => {
                     </Typography>
                 </Container>
             </Box>
-            <Box sx={{ pt: 4, position: "relative", zIndex: 1 }}>
-                {/* Hero Section */}
-                        <Typography
-                            variant="body1"
-                            sx={{ maxWidth: 600, mx: "auto", paddingBottom: 6 }}
-                        >
-                            Ready to transform your business with cutting-edge
-                            technology? Get in touch with our expert team to
-                            discuss your requirements and receive a personalized
-                            solution.
-                        </Typography>
+            {/* <Container maxWidth="lg" sx={{ py: 4 }}>
+                <Typography
+                    variant="body1"
+                    paragraph
+                    sx={{
+                        fontSize: "1.1rem",
+                        lineHeight: 1.8,
+                        mb: 0,
+                        textAlign: 'justify',
+                        textJustify: 'inter-character',
+                        hyphens: 'auto',
+                        wordSpacing: '-0.1px',
+                        letterSpacing: '0.05px',
+                        '&::after': {
+                            content: '""',
+                            display: 'inline-block',
+                            width: '100%'
+                        },
+                    }}
+                >
+                    Ready to transform your business with cutting-edge
+                    technology? Get in touch with our expert team to
+                    discuss your requirements and receive a personalized
+                    solution.
+                </Typography>
+            </Container> */}
+            <Box sx={{ pt: 8, position: "relative", zIndex: 1 }}>
                 {/* Contact Information Cards */}
                 <Container maxWidth="lg" sx={{ mb: 8 }}>
                     <Grid container spacing={4} >
