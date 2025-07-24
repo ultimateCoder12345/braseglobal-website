@@ -180,41 +180,66 @@ export const CareersPage: React.FC = () => {
 
   return (
     <>
-      <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
+      {/* Hero Section */}
+      <Box
+        textAlign="center"
+        sx={{
+          position: "relative",
+          padding: { xs: "4rem 0", md: "6rem 0" },
+          textAlign: "center",
+          // Set the background image
+          backgroundImage: 'url("/src/assets/images/BraseCareers.png")', // <-- REPLACE WITH YOUR IMAGE URL
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          // Create a dark overlay for text readability
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.6)", // Adjust opacity (0.0 to 1.0)
+            zIndex: 1,
+          },
+        }}
+      ><Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
+          <Typography
+            variant="h2"
+            component="h1"
+            gutterBottom
+            sx={{
+              fontWeight: "bold",
+              color: "white", // Changed color for contrast
+              mb: 3,
+            }}
+          >
+            Join Our Team
+          </Typography>
+          <Typography
+            variant="h5"
+            paragraph
+            sx={{
+              mb: 4,
+              color: "grey.300", // Changed color for contrast
+            }}
+          >
+            Build the future of technology with us
+          </Typography>
+        </Container>
+      </Box>
+
+      <Box sx={{ pt: 4, position: "relative", zIndex: 1 }}>
         {" "}
         {/* Account for fixed header */}
-        {/* Hero Section */}
-        <Container maxWidth="lg" sx={{ py: 8 }}>
-          <Box textAlign="center" sx={{ mb: 8 }}>
-            <Typography
-              variant="h2"
-              component="h1"
-              gutterBottom
-              sx={{ fontWeight: "bold", color: "primary.main" }}
-            >
-              Join Our Team
-            </Typography>
-            <Typography variant="h5" color="text.secondary" paragraph>
-              Build the future of technology with us
-            </Typography>
-            <Box
-              sx={{
-                height: 4,
-                background: "linear-gradient(90deg, #1976d2, #42a5f5)",
-                borderRadius: 2,
-                mb: 4,
-              }}
-            />
-            <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto" }}>
-              At BraseTech, we're passionate about creating innovative solutions
-              that make a difference. Join our diverse team of talented
-              professionals and help shape the future of technology while
-              growing your career in a supportive and dynamic environment.
-            </Typography>
-          </Box>
-        </Container>
+        <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto", paddingBottom: 4 }}>
+          At BraseTech, we're passionate about creating innovative solutions
+          that make a difference. Join our diverse team of talented
+          professionals and help shape the future of technology while
+          growing your career in a supportive and dynamic environment.
+        </Typography>
         {/* Company Benefits */}
-        <Box sx={{ bgcolor: "grey.50", py: 8 }}>
+        <Box sx={{ bgcolor: "grey.50", py: 4 }}>
           <Container maxWidth="lg">
             <Typography
               variant="h3"
@@ -585,7 +610,7 @@ export const CareersPage: React.FC = () => {
                 we're committed to supporting each other's growth and success.
               </Typography>
               <Grid container spacing={4} sx={{ mt: 2 }}>
-                <Grid xs={12} md={4}>
+                <Grid xs={12} md={4} width={"30%"}>
                   <People sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Collaborative Team
@@ -594,7 +619,7 @@ export const CareersPage: React.FC = () => {
                     Work with talented individuals from diverse backgrounds
                   </Typography>
                 </Grid>
-                <Grid xs={12} md={4}>
+                <Grid xs={12} md={4} width={"30%"}>
                   <School sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Continuous Learning
@@ -604,7 +629,7 @@ export const CareersPage: React.FC = () => {
                     programs
                   </Typography>
                 </Grid>
-                <Grid xs={12} md={4}>
+                <Grid xs={12} md={4} width={"30%"}>
                   <TrendingUp sx={{ fontSize: 60, mb: 2 }} />
                   <Typography variant="h6" gutterBottom>
                     Growth Opportunities

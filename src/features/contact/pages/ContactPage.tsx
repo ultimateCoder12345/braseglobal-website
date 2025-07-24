@@ -173,42 +173,70 @@ export const ContactPage: React.FC = () => {
 
     return (
         <>
-            <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
+
+            <Box
+                textAlign="center"
+                sx={{
+                    position: "relative",
+                    padding: { xs: "4rem 0", md: "6rem 0" },
+                    textAlign: "center",
+                    // Set the background image
+                    backgroundImage: 'url("/src/assets/images/Contactus.png")', // <-- REPLACE WITH YOUR IMAGE URL
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    // Create a dark overlay for text readability
+                    "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "rgba(0, 0, 0, 0.6)", // Adjust opacity (0.0 to 1.0)
+                        zIndex: 1,
+                    },
+                }}
+            ><Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
+                    <Typography
+                        variant="h2"
+                        component="h1"
+                        gutterBottom
+                        sx={{
+                            fontWeight: "bold",
+                            color: "white", // Changed color for contrast
+                            mb: 3,
+                        }}
+                    >
+                        Contact Us
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        paragraph
+                        sx={{
+                            mb: 4,
+                            color: "grey.300", // Changed color for contrast
+                        }}
+                    >
+                        Let's discuss your project and how we can help
+                    </Typography>
+                </Container>
+            </Box>
+            <Box sx={{ pt: 4, position: "relative", zIndex: 1 }}>
                 {/* Hero Section */}
-                <Container maxWidth="lg" sx={{ py: 8 }}>
-                    <Box textAlign="center" sx={{ mb: 8 }}>
-                        <Typography
-                            variant="h2"
-                            component="h1"
-                            gutterBottom
-                            sx={{ fontWeight: "bold", color: "primary.main" }}
-                        >
-                            Contact Us
-                        </Typography>
-                        <Typography
-                            variant="h5"
-                            color="text.secondary"
-                            paragraph
-                        >
-                            Let's discuss your project and how we can help
-                        </Typography>
                         <Typography
                             variant="body1"
-                            sx={{ maxWidth: 600, mx: "auto" }}
+                            sx={{ maxWidth: 600, mx: "auto", paddingBottom: 6 }}
                         >
                             Ready to transform your business with cutting-edge
                             technology? Get in touch with our expert team to
                             discuss your requirements and receive a personalized
                             solution.
                         </Typography>
-                    </Box>
-                </Container>
-
                 {/* Contact Information Cards */}
                 <Container maxWidth="lg" sx={{ mb: 8 }}>
-                    <Grid container spacing={4}>
+                    <Grid container spacing={4} >
                         {contactInfo.map((info, index) => (
-                            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+                            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index} width={50}>
                                 <Card
                                     sx={{
                                         height: "100%",

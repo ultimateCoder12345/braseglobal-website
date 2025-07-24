@@ -68,46 +68,85 @@ export const AboutPage: React.FC = () => {
 
   return (
     <>
-      <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
-        {/* Hero Section */}
-        <Container maxWidth="lg" sx={{ py: 8 }}>
-          <Box textAlign="center" sx={{ mb: 8 }}>
-            <Typography
-              variant="h2"
-              component="h1"
-              gutterBottom
-              sx={{
-                fontWeight: "bold",
-                color: "primary.main",
-                mb: 3,
-              }}
-            >
-              About Brase Technologies
-            </Typography>
-            <Typography
-              variant="h5"
-              color="text.secondary"
-              paragraph
-              sx={{ mb: 4 }}
-            >
-              Innovative IT consulting solutions for the digital age
-            </Typography>
-            <Box
-              sx={{
-                height: 4,
-                background: "linear-gradient(90deg, #1976d2, #42a5f5)",
-                borderRadius: 2,
-                mb: 4,
-              }}
-            />
-          </Box>
+      {/* Hero Section */}
+      <Box
+        textAlign="center"
+        sx={{
+          position: "relative",
+          padding: { xs: "4rem 0", md: "6rem 0" },
+          textAlign: "center",
+          // Set the background image
+          backgroundImage: 'url("/src/assets/images/AboutusImage.png")', // <-- REPLACE WITH YOUR IMAGE URL
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          // Create a dark overlay for text readability
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.6)", // Adjust opacity (0.0 to 1.0)
+            zIndex: 1,
+          },
+        }}
+      ><Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
+          <Typography
+            variant="h2"
+            component="h1"
+            gutterBottom
+            sx={{
+              fontWeight: "bold",
+              color: "white", // Changed color for contrast
+              mb: 3,
+            }}
+          >
+            About Brase Technologies
+          </Typography>
+          <Typography
+            variant="h5"
+            paragraph
+            sx={{
+              mb: 4,
+              color: "grey.300", // Changed color for contrast
+            }}
+          >
+            Innovative IT consulting solutions for the digital age
+          </Typography>
+        </Container>
+      </Box>
 
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={6} md={6}>
+      <Box sx={{ pt: 10, position: "relative", zIndex: 1 }}>
+
+        <Container maxWidth="lg" sx={{ py: 1 }}>
+          <Grid
+            container
+            spacing={6}
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ width: '100%' }}
+          >
+            {/* Text Content - Left Side */}
+            <Box sx={{ flex: 1, pr: { md: 4 } }}>
               <Typography
                 variant="body1"
                 paragraph
-                sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                sx={{
+                  fontSize: "1.1rem",
+                  lineHeight: 1.8,
+                  mb: 0,
+                  textAlign: 'justify',
+                  textJustify: 'inter-character',
+                  hyphens: 'auto',
+                  wordSpacing: '-0.1px',
+                  letterSpacing: '0.05px',
+                  '&::after': {
+                    content: '""',
+                    display: 'inline-block',
+                    width: '100%'
+                  },
+                }}
               >
                 Brase Technologies is an innovative IT consulting firm with
                 around 80+ engineering team headquartered in Sydney, Australia
@@ -117,7 +156,21 @@ export const AboutPage: React.FC = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                sx={{
+                  fontSize: "1.1rem",
+                  lineHeight: 1.8,
+                  mb: 3,
+                  textAlign: 'justify',
+                  textJustify: 'inter-character', // More precise than inter-word
+                  hyphens: 'auto',              // Automatic hyphenation
+                  wordSpacing: '-0.1px',        // Fine-tune word spacing
+                  letterSpacing: '0.05px',      // Micro-adjust character spacing
+                  '&::after': {                 // Force last line justification
+                    content: '""',
+                    display: 'inline-block',
+                    width: '100%'
+                  },
+                }}
               >
                 Brase Tech services the information technology requirements of
                 companies by using best-of-breed technologies and flexible
@@ -131,33 +184,40 @@ export const AboutPage: React.FC = () => {
                 applications, data analytics, business intelligence and
                 artificial intelligence solutions.
               </Typography>
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <Box
-                component="img"
-                src="src/assets/images/About-us-image.png"
-                alt="About BraseTech"
-                sx={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: 3,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-                  transition: "transform 0.3s ease-in-out",
-                  "&:hover": {
-                    transform: "translateY(-8px)",
-                  },
-                }}
-              />
-            </Grid>
+            </Box>
+
+            {/* Image - Right Side */}
+            {/* <Box sx={{
+              flex: '0 0 auto',
+              maxWidth: { xs: '110%', md: '80%' },
+              pl: { md: 4 }
+            }}> */}
+            <Box
+              component="img"
+              src="src/assets/images/About-us-image.png"
+              alt="About BraseTech"
+              sx={{
+                width: "100%",
+                maxWidth: 500,
+                height: "auto",
+                borderRadius: 2,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "translateY(-5px)",
+                },
+              }}
+            />
+            {/* </Box> */}
           </Grid>
         </Container>
 
         {/* Company Values Section */}
         <Box
           sx={{
-            bgcolor: "rgba(255,255,255,0.8)",
+            bgcolor: "rgba(250, 250, 252, 0.9)",
             py: 8,
-            backdropFilter: "blur(10px)",
+            backdropFilter: "blur(8px)",
           }}
         >
           <Container maxWidth="lg">
@@ -177,27 +237,30 @@ export const AboutPage: React.FC = () => {
                   borderRadius: 2,
                   width: 100,
                   mx: "auto",
+                  mb: 4,
                 }}
               />
             </Box>
-            <Grid container spacing={4}>
+            <Grid container spacing={4} justifyContent="center">
               {companyValues.map((value, index) => (
-                <Grid key={index}>
+                <Grid item xs={6} sm={6} md={3} key={index} sx={{ display: "flex" }}>
                   <Card
                     sx={{
-                      height: "100%",
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
                       textAlign: "center",
-                      background: "rgba(255,255,255,0.9)",
-                      backdropFilter: "blur(10px)",
+                      background: "white",
                       border: "1px solid rgba(25, 118, 210, 0.1)",
                       transition: "all 0.3s ease-in-out",
+                      boxShadow: "0 5px 15px rgba(0,0,0,0.05)",
                       "&:hover": {
-                        transform: "translateY(-12px)",
-                        boxShadow: "0 20px 40px rgba(25, 118, 210, 0.15)",
+                        transform: "translateY(-8px)",
+                        boxShadow: "0 10px 25px rgba(25, 118, 210, 0.1)",
                       },
                     }}
                   >
-                    <CardContent sx={{ p: 4 }}>
+                    <CardContent sx={{ p: 4, flexGrow: 1 }}>
                       <Box
                         sx={{
                           display: "flex",
@@ -206,12 +269,15 @@ export const AboutPage: React.FC = () => {
                           color: "primary.main",
                         }}
                       >
-                        {React.cloneElement(value.icon, { fontSize: "large" })}
+                        {React.cloneElement(value.icon, {
+                          fontSize: "large",
+                          sx: { fontSize: "2.5rem" }
+                        })}
                       </Box>
                       <Typography
                         variant="h6"
                         gutterBottom
-                        sx={{ fontWeight: 600 }}
+                        sx={{ fontWeight: 600, mb: 2 }}
                       >
                         {value.title}
                       </Typography>
@@ -232,8 +298,24 @@ export const AboutPage: React.FC = () => {
 
         {/* Achievements Section */}
         <Container maxWidth="lg" sx={{ py: 8 }}>
-          <Grid container spacing={6} alignItems="center">
-            <Grid>
+          {/* ONE Grid container acting as a flex row */}
+          <Grid
+            container
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: { xs: "wrap", md: "nowrap" }   // stack on mobile, row on md+
+            }}
+          >
+            {/* ---------- LEFT: Content ---------- */}
+            <Box
+              sx={{
+                flex: { xs: "1 1 100%", md: "1 1 55%" }, // full width on mobile, 55% on md+
+                pr: { md: 4 },                          // space between text & image
+                order: { xs: 2, md: 1 }                 // keep content below image on mobile
+              }}
+            >
               <Typography
                 variant="h3"
                 component="h2"
@@ -242,73 +324,92 @@ export const AboutPage: React.FC = () => {
               >
                 Our Achievements
               </Typography>
+
               <Box
                 sx={{
                   height: 4,
                   background: "linear-gradient(90deg, #1976d2, #42a5f5)",
                   borderRadius: 2,
                   width: 100,
-                  mb: 3,
+                  mx: 20,
+                  mb: 4,
                 }}
               />
+
               <Typography
                 variant="body1"
                 paragraph
                 color="text.secondary"
                 sx={{ fontSize: "1.1rem", mb: 4 }}
               >
-                We're proud of what we've accomplished and the trust our clients
-                place in us. Here are some key milestones that reflect our
-                commitment to excellence.
+                We're proud of what we've accomplished and the trust our clients place
+                in us. Here are some key milestones that reflect our commitment to
+                excellence.
               </Typography>
+
+              {/* Milestone list */}
               <Paper
                 elevation={0}
                 sx={{
-                  p: 4,
-                  background: "rgba(255,255,255,0.9)",
-                  backdropFilter: "blur(10px)",
-                  border: "1px solid rgba(25, 118, 210, 0.1)",
-                  borderRadius: 3,
+                  p: 3,
+                  background: "white",
+                  border: "1px solid rgba(25,118,210,0.1)",
+                  borderRadius: 2,
+                  boxShadow: "0 5px 15px rgba(0,0,0,0.05)"
                 }}
               >
                 <List>
-                  {achievements.map((achievement, index) => (
-                    <ListItem key={index} sx={{ px: 0, py: 1 }}>
-                      <ListItemIcon>
+                  {achievements.map((achievement, idx) => (
+                    <ListItem key={idx} sx={{ px: 0, py: 0.5 }}>
+                      <ListItemIcon sx={{ minWidth: 36 }}>
                         <CheckCircle color="primary" />
                       </ListItemIcon>
-                      <ListItemText primary={achievement} />
+                      <ListItemText
+                        primary={achievement}
+                        primaryTypographyProps={{ variant: "body1" }}
+                      />
                     </ListItem>
                   ))}
                 </List>
               </Paper>
-            </Grid>
-            <Grid>
+            </Box>
+
+            {/* ---------- RIGHT: Image ---------- */}
+            <Box
+              sx={{
+                flex: { xs: "1 1 100%", md: "0 0 45%" }, // full width on mobile, fixed 45% on md+
+                display: "flex",
+                justifyContent: { xs: "center", md: "flex-end" },
+                order: { xs: 1, md: 2 },               // show image first on mobile
+                pl: { md: 4 }                          // space between image & text
+              }}
+            >
               <Box
                 component="img"
                 src="src/assets/images/Achivements1.jpg"
                 alt="Our Achievements"
                 sx={{
                   width: "100%",
+                  maxWidth: 500,
                   height: "auto",
-                  borderRadius: 3,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                  borderRadius: 2,
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
                   transition: "transform 0.3s ease-in-out",
                   "&:hover": {
-                    transform: "translateY(-8px)",
+                    transform: "translateY(-5px)",
                   },
                 }}
               />
-            </Grid>
+            </Box>
           </Grid>
         </Container>
 
         {/* Leadership Team Section */}
         <Box
           sx={{
-            bgcolor: "rgba(255,255,255,0.8)",
+            bgcolor: "rgba(250, 250, 252, 0.9)",
             py: 8,
-            backdropFilter: "blur(10px)",
+            backdropFilter: "blur(8px)",
           }}
         >
           <Container maxWidth="lg">
@@ -328,38 +429,49 @@ export const AboutPage: React.FC = () => {
                   borderRadius: 2,
                   width: 100,
                   mx: "auto",
+                  mb: 4,
                 }}
               />
             </Box>
             <Grid container spacing={4}>
               {leadership.map((leader) => (
-                <Grid key={leader.id}>
+                <Grid key={leader.id} item xs={12} sm={6} md={6}
+                  sx={{
+                    height: '100%', // Makes all cards in a row have the same height
+                    display: "flex",
+                    flexDirection: "row",
+                    width: '45%',
+                  }}
+                >
                   <Card
                     sx={{
+                      height: '100%', // Makes all cards in a row have the same height
+                      // display: "flex",
+                      // flexDirection: "column",
+                      // width: '30%',
                       textAlign: "center",
-                      height: "100%",
-                      background: "rgba(255,255,255,0.9)",
-                      backdropFilter: "blur(10px)",
+                      background: "white",
                       border: "1px solid rgba(25, 118, 210, 0.1)",
                       transition: "all 0.3s ease-in-out",
+                      boxShadow: "0 5px 15px rgba(0,0,0,0.05)",
                       "&:hover": {
-                        transform: "translateY(-12px)",
-                        boxShadow: "0 20px 40px rgba(25, 118, 210, 0.15)",
+                        transform: "translateY(-8px)",
+                        boxShadow: "0 10px 25px rgba(25, 118, 210, 0.1)",
                       },
                     }}
                   >
-                    <CardContent sx={{ p: 4 }}>
+                    <CardContent sx={{ p: 3 }}>
                       <Avatar
                         src={leader.avatar}
                         alt={leader.name}
                         sx={{
-                          width: 120,
-                          height: 120,
+                          width: 100,
+                          height: 100,
                           mx: "auto",
                           mb: 3,
-                          border: "4px solid",
+                          border: "3px solid",
                           borderColor: "primary.main",
-                          boxShadow: "0 8px 32px rgba(25, 118, 210, 0.2)",
+                          boxShadow: "0 5px 20px rgba(25, 118, 210, 0.15)",
                         }}
                       />
                       <Typography
@@ -373,43 +485,51 @@ export const AboutPage: React.FC = () => {
                         label={leader.position}
                         color="primary"
                         variant="outlined"
-                        sx={{ mb: 2, borderRadius: 2 }}
+                        size="small"
+                      // sx={{ mb: 2, borderRadius: 2 }}
                       />
                       <Typography
                         variant="body2"
                         color="text.secondary"
                         paragraph
-                        sx={{ lineHeight: 1.6 }}
+                        sx={{
+                          wordWrap: 'break-word',  // Ensures words break to prevent overflow
+                          overflowWrap: 'break-word', // Modern alternative to wordWrap
+                          whiteSpace: 'normal',   // Explicitly set (default but good practice)
+                          lineHeight: 1.6,        // Maintains your original line height
+                          mb: 2,                  // Maintains your original bottom margin
+                          textAlign: 'justify'    // Optional: for cleaner line breaks
+                        }}
                       >
                         {leader.bio}
                       </Typography>
-                      <Box sx={{ mt: 2 }}>
+                      <Box sx={{ mt: "auto" }}>
                         <Typography variant="caption" color="text.secondary">
                           {leader.experience} years experience •{" "}
-                          {leader.certifications.length} certifications
                         </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                          mt: 3,
-                        }}
-                      >
-                        <IconButton
-                          component="a"
-                          href={`${leader.linkedin}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <Box
                           sx={{
-                            color: "#0077B5",
-                            "&:hover": {
-                              bgcolor: "rgba(0, 119, 181, 0.1)",
-                            },
+                            display: "flex",
+                            justifyContent: "center",
+                            mt: 2,
                           }}
                         >
-                          <LinkedIn />
-                        </IconButton>
+                          <IconButton
+                            component="a"
+                            href={`${leader.linkedin}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            size="small"
+                            sx={{
+                              color: "#0077B5",
+                              "&:hover": {
+                                bgcolor: "rgba(0, 119, 181, 0.1)",
+                              },
+                            }}
+                          >
+                            <LinkedIn />
+                          </IconButton>
+                        </Box>
                       </Box>
                     </CardContent>
                   </Card>
@@ -426,17 +546,23 @@ export const AboutPage: React.FC = () => {
               textAlign: "center",
               background: "linear-gradient(135deg, #1976d2, #42a5f5)",
               color: "white",
-              p: 6,
-              borderRadius: 3,
-              boxShadow: "0 20px 40px rgba(25, 118, 210, 0.2)",
+              p: 5,
+              borderRadius: 2,
+              boxShadow: "0 10px 30px rgba(25, 118, 210, 0.15)",
             }}
           >
-            <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", mb: 2 }}>
               Ready to Transform Your Business?
             </Typography>
             <Typography
               variant="body1"
-              sx={{ mb: 4, maxWidth: 600, mx: "auto", fontSize: "1.1rem" }}
+              sx={{
+                mb: 4,
+                maxWidth: 600,
+                mx: "auto",
+                fontSize: "1.1rem",
+                opacity: 0.9
+              }}
             >
               Let's discuss how our bespoke solutions and quality engineering
               team can help you achieve your technology goals with our flexible
@@ -445,7 +571,7 @@ export const AboutPage: React.FC = () => {
             <Box
               sx={{
                 display: "flex",
-                gap: 3,
+                gap: 2,
                 justifyContent: "center",
                 flexWrap: "wrap",
               }}
@@ -453,27 +579,31 @@ export const AboutPage: React.FC = () => {
               <Chip
                 label="Contact Us"
                 clickable
+                size="medium"
                 sx={{
                   bgcolor: "white",
                   color: "primary.main",
                   "&:hover": { bgcolor: "grey.100" },
                   px: 3,
-                  py: 1.5,
-                  fontSize: "1rem",
+                  py: 1,
+                  fontSize: "0.95rem",
+                  fontWeight: 500,
                   borderRadius: 2,
                 }}
               />
               <Chip
                 label="View Our Services"
                 clickable
+                size="medium"
                 variant="outlined"
                 sx={{
                   borderColor: "white",
                   color: "white",
                   "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
                   px: 3,
-                  py: 1.5,
-                  fontSize: "1rem",
+                  py: 1,
+                  fontSize: "0.95rem",
+                  fontWeight: 500,
                   borderRadius: 2,
                 }}
               />

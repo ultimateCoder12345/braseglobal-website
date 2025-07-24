@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Box,
-  Grid,
   Container,
   Typography,
   Card,
@@ -14,46 +13,88 @@ import {
   ListItemText,
   Paper,
 } from "@mui/material";
-import { ExpandMore, ArrowForward, CheckCircle } from "@mui/icons-material";
+import { ArrowForward, CheckCircle } from "@mui/icons-material";
 import { services } from "../../homepage/services/data/services";
-import { Link as RouterLink } from "react-router-dom"; // FIX: Import Link for SPA navigation
+import { Link as RouterLink } from "react-router-dom";
 
 
 
 export const ServicesPage: React.FC = () => {
   return (
-    <Box sx={{ position: 'relative', pt: 10 }}>
-      {/* Hero Section */}
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Box textAlign="center" sx={{ mb: 8 }}>
+    <>
+      <Box
+        textAlign="center"
+        sx={{
+          position: "relative",
+          padding: { xs: "4rem 0", md: "6rem 0" },
+          textAlign: "center",
+          backgroundImage: 'url("/src/assets/images/Cloud-Services-inside-Image.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            zIndex: 1,
+          },
+        }}
+      ><Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
           <Typography
             variant="h2"
             component="h1"
             gutterBottom
-            sx={{ fontWeight: "bold", color: "primary.main" }}
+            sx={{
+              fontWeight: "bold",
+              color: "white", // Changed color for contrast
+              mb: 3,
+            }}
           >
             Our Services
           </Typography>
-          <Typography variant="h5" color="text.secondary" paragraph>
+          <Typography
+            variant="h5"
+            paragraph
+            sx={{
+              mb: 4,
+              color: "grey.300", // Changed color for contrast
+            }}
+          >
             Comprehensive technology solutions to drive your business forward
           </Typography>
-        </Box>
-        <Box
+        </Container>
+      </Box>
+
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Typography
+          variant="body1"
+          paragraph
           sx={{
-            height: 4,
-            background: "linear-gradient(90deg, #1976d2, #42a5f5)",
-            borderRadius: 2,
-            mb: 4,
-          }}
-        />
+            fontSize: "1.1rem",
+            lineHeight: 1.8,
+            mb: 0,
+            textAlign: 'justify',
+            textJustify: 'inter-character',
+            hyphens: 'auto',
+            wordSpacing: '-0.1px',
+            letterSpacing: '0.05px',
+            '&::after': {
+              content: '""',
+              display: 'inline-block',
+              width: '100%'
+            },
+          }}>
+          Brase Tech is your ally in the digital evolution, offering a comprehensive suite of Digital Transformation Services to drive your business forward. Their Custom Software Development solutions are meticulously crafted to meet your specific requirements, delivering robust, scalable, and intuitive applications that empower your operations and enhance productivity. With a focus on Quality Engineering, Brase Tech ensures seamless digital experiences, reduces testing costs, and mitigates technical and business risks, guaranteeing predictable outcomes and higher ROI for your organization.
+        </Typography>
       </Container>
-      <Grid><Typography
-        variant="body1" sx={{ maxWidth: 800, mx: "auto" }}>
-        Brase Tech is your ally in the digital evolution, offering a comprehensive suite of Digital Transformation Services to drive your business forward. Their Custom Software Development solutions are meticulously crafted to meet your specific requirements, delivering robust, scalable, and intuitive applications that empower your operations and enhance productivity. With a focus on Quality Engineering, Brase Tech ensures seamless digital experiences, reduces testing costs, and mitigates technical and business risks, guaranteeing predictable outcomes and higher ROI for your organization.
-      </Typography></Grid>
+      {/* <Box sx={{ position: 'relative', pt: 10 }}> */}
+
 
       {/* Services Grid */}
-      <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Container maxWidth="lg" >
         <Box
           display="grid"
           gridTemplateColumns={{
@@ -110,9 +151,6 @@ export const ServicesPage: React.FC = () => {
                     flexDirection: "column"
                   }}>
                     <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                      <Box sx={{ color: "primary.main", mr: 1 }}>
-                        <IconComponent size={24} />
-                      </Box>
                       <Typography variant="h5" component="h3">
                         {service.title}
                       </Typography>
@@ -145,11 +183,20 @@ export const ServicesPage: React.FC = () => {
 
                     <Box sx={{ mt: "auto", pt: 2 }}>
                       <Button
-                        variant="contained"
+                        variant="outlined"
                         fullWidth
                         endIcon={<ArrowForward />}
                         component={RouterLink}
                         to={`/services/${index}`}
+                        sx={{
+                          '&:hover': {
+                            backgroundColor: 'primary.main',
+                            color: 'white',
+                            borderColor: 'primary.main',
+                          },
+                          borderWidth: 2,
+                          transition: 'all 0.3s ease'
+                        }}
                       >
                         Learn More
                       </Button>
@@ -292,7 +339,8 @@ export const ServicesPage: React.FC = () => {
           </Box>
         </Container>
       </Box>
-    </Box>
+      {/* </Box> */}
+    </>
   );
 };
 

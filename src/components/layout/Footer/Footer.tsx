@@ -36,7 +36,7 @@ export const UpperFooter: React.FC = () => {
               >
                 <Box
                   component="img"
-                  src="/src/assets/images/brasetech_logo.png"
+                  src="/src/assets/images/QuotedBraseLogo.png"
                   alt="Brase Tech Logo"
                   sx={{ height: 70, mb: 2 }}
                 />
@@ -177,7 +177,7 @@ export const UpperFooter: React.FC = () => {
                     underline="hover"
                     variant="body2"
                   >
-                    Cybersecurity
+                    Cybersecurity Services
                   </Link>
                   <Link
                     component={RouterLink}
@@ -216,12 +216,12 @@ export const UpperFooter: React.FC = () => {
                   </Link>
                   <Link
                     component={RouterLink}
-                    to="/case-studies"
+                    to="/products"
                     color="text.secondary"
                     underline="hover"
                     variant="body2"
                   >
-                    Case Studies
+                    Products
                   </Link>
                   <Link
                     component={RouterLink}

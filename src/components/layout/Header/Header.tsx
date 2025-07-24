@@ -9,14 +9,14 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import { Link } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 
 const navLinks = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
+  { label: "About Us", to: "/about" },
   { label: "Services", to: "/services" },
   // { label: "Clients", to: "/clients" },
-  // { label: "Case Studies", to: "/case-studies" },
+  { label: "Products", to: "/products" },
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
   //{ label: "Team", to: "/team" },
@@ -42,9 +42,9 @@ export const Header = () => {
         <Toolbar disableGutters>
           <Box
             component="img"
-            src="/src/assets/images/brasetech_logo.png"
+            src="/src/assets/images/QuotedBraseLogo.png"
             alt="Logo"
-            sx={{ height: 50, mr: 2, display: { xs: "none", md: "flex" } }}
+            sx={{ height: 70, mr: 0, display: { xs: "none", md: "flex" } }}
           />
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
