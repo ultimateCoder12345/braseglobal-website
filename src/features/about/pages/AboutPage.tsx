@@ -303,21 +303,24 @@ export const AboutPage: React.FC = () => {
             variant="h3"
             component="h2"
             gutterBottom
-            sx={{ fontWeight: "bold", color: "primary.main" }}
+            sx={{ fontWeight: "bold", color: "primary.main", paddingLeft: 50 }}
           >
             Our Achievements
           </Typography>
+          <Typography
+            sx={{ paddingLeft: 50 }}>
+            <Box
+              sx={{
+                height: 4,
+                background: "linear-gradient(90deg, #1976d2, #42a5f5)",
+                borderRadius: 2,
+                width: 100,
+                mx: 20,
+                mb: 4,
+              }}
+            />
+          </Typography>
 
-          <Box
-            sx={{
-              height: 4,
-              background: "linear-gradient(90deg, #1976d2, #42a5f5)",
-              borderRadius: 2,
-              width: 100,
-              mx: 20,
-              mb: 4,
-            }}
-          />
 
           <Typography
             variant="body1"
@@ -434,7 +437,7 @@ export const AboutPage: React.FC = () => {
                 }}
               />
             </Box>
-            <Grid container spacing={4}>
+            <Grid container spacing={4} justifyContent="center">
               {leadership.map((leader) => (
                 <Grid key={leader.id} item xs={12} sm={6} md={8} lg={4}
                   sx={{
@@ -442,7 +445,7 @@ export const AboutPage: React.FC = () => {
                     display: "flex",
                     flexDirection: "row",
                     width: '45%',
-                    paddingLeft: 6,
+                    // paddingLeft: 4,
                   }}
                 >
                   <Card
