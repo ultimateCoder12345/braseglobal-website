@@ -299,6 +299,36 @@ export const AboutPage: React.FC = () => {
         {/* Achievements Section */}
         <Container maxWidth="lg" sx={{ py: 8 }}>
           {/* ONE Grid container acting as a flex row */}
+          <Typography
+            variant="h3"
+            component="h2"
+            gutterBottom
+            sx={{ fontWeight: "bold", color: "primary.main" }}
+          >
+            Our Achievements
+          </Typography>
+
+          <Box
+            sx={{
+              height: 4,
+              background: "linear-gradient(90deg, #1976d2, #42a5f5)",
+              borderRadius: 2,
+              width: 100,
+              mx: 20,
+              mb: 4,
+            }}
+          />
+
+          <Typography
+            variant="body1"
+            paragraph
+            color="text.secondary"
+            sx={{ fontSize: "1.1rem", mb: 4 }}
+          >
+            We're proud of what we've accomplished and the trust our clients place
+            in us. Here are some key milestones that reflect our commitment to
+            excellence.
+          </Typography>
           <Grid
             container
             sx={{
@@ -316,41 +346,12 @@ export const AboutPage: React.FC = () => {
                 order: { xs: 2, md: 1 }                 // keep content below image on mobile
               }}
             >
-              <Typography
-                variant="h3"
-                component="h2"
-                gutterBottom
-                sx={{ fontWeight: "bold", color: "primary.main" }}
-              >
-                Our Achievements
-              </Typography>
-
-              <Box
-                sx={{
-                  height: 4,
-                  background: "linear-gradient(90deg, #1976d2, #42a5f5)",
-                  borderRadius: 2,
-                  width: 100,
-                  mx: 20,
-                  mb: 4,
-                }}
-              />
-
-              <Typography
-                variant="body1"
-                paragraph
-                color="text.secondary"
-                sx={{ fontSize: "1.1rem", mb: 4 }}
-              >
-                We're proud of what we've accomplished and the trust our clients place
-                in us. Here are some key milestones that reflect our commitment to
-                excellence.
-              </Typography>
-
               {/* Milestone list */}
               <Paper
                 elevation={0}
                 sx={{
+                  height: 450,
+                  maxWidth: 500,
                   p: 3,
                   background: "white",
                   border: "1px solid rgba(25,118,210,0.1)",
@@ -435,12 +436,13 @@ export const AboutPage: React.FC = () => {
             </Box>
             <Grid container spacing={4}>
               {leadership.map((leader) => (
-                <Grid key={leader.id} item xs={12} sm={6} md={6}
+                <Grid key={leader.id} item xs={12} sm={6} md={8} lg={4}
                   sx={{
                     height: '100%', // Makes all cards in a row have the same height
                     display: "flex",
                     flexDirection: "row",
                     width: '45%',
+                    paddingLeft: 6,
                   }}
                 >
                   <Card

@@ -45,7 +45,7 @@ export const teamMembers: TeamMember[] = [
     name: "Sravanthi Chintham",
     position: "Head of Finance",
     department: "Leadership",
-    bio: "Sravanthi leads our Finance Team and ensures financial health and compliance. She has extensive experience in financial planning and analysis.",
+    bio: "Sravanthi leads our Finance Team and ensures financial health and compliance. She has extensive experience in financial planning.",
     avatar: "src/assets/images/FinanceHead.png",
     email: "sravanthi.chintham@brasetech.com",
     linkedin: "https://www.linkedin.com/in/sravanthi-c-488a02210/",
